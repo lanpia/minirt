@@ -1,21 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minirt.h                                           :+:      :+:    :+:   */
+/*   ft_format2.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nahyulee <nahyulee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/01 17:25:10 by nahyulee          #+#    #+#             */
-/*   Updated: 2023/11/04 03:25:32 by nahyulee         ###   ########.fr       */
+/*   Created: 2023/03/23 23:08:42 by nahyulee          #+#    #+#             */
+/*   Updated: 2023/05/19 17:55:12 by nahyulee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINIRT_H
-# define MINIRT_H
+#include "../libft.h"
 
-# include "minilibx_opengl_20191021/mlx.h"
-# include "libft/libft.h"
-# include <fcntl.h>
-# include <stdbool.h>
+void	ft_di(int n, int *i)
+{
+	if (n == -2147483648)
+	{
+		write(1, "-2147483648", 11);
+		(*i) += 11;
+		return ;
+	}
+	if (n < 0)
+	{
+		write(1, "-", 1);
+		(*i)++;
+		n *= -1;
+	}
+	if (n >= 10)
+		ft_di(n / 10, i);
+	write(1, &"0123456789"[n % 10], 1);
+	(*i)++;
+}
 
-#endif
+void	ft_u(t_ui u, int *i)
+{
+	if (u >= 10)
+		ft_u(u / 10, i);
+	write(1, &"0123456789"[u % 10], 1);
+	(*i)++;
+}

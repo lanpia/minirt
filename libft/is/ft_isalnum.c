@@ -1,21 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minirt.h                                           :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nahyulee <nahyulee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/01 17:25:10 by nahyulee          #+#    #+#             */
-/*   Updated: 2023/11/04 03:25:32 by nahyulee         ###   ########.fr       */
+/*   Created: 2023/03/13 23:40:09 by nahyulee          #+#    #+#             */
+/*   Updated: 2023/05/19 17:55:12 by nahyulee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINIRT_H
-# define MINIRT_H
+#include "../libft.h"
 
-# include "minilibx_opengl_20191021/mlx.h"
-# include "libft/libft.h"
-# include <fcntl.h>
-# include <stdbool.h>
+static char	is_dight(int x)
+{
+	return (x >= '0' && x <= '9');
+}
 
-#endif
+static char	is_lower(int x)
+{
+	return (x >= 'a' && x <= 'z');
+}
+
+static char	is_upper(int x)
+{
+	return (x >= 'A' && x <= 'Z');
+}
+
+int	ft_isalnum(int c)
+{
+	if (is_dight(c) || (is_lower(c) || is_upper(c)))
+		return (1);
+	return (0);
+}
