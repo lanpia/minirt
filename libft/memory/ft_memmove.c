@@ -1,21 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minirt.h                                           :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nahyulee <nahyulee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/01 17:25:10 by nahyulee          #+#    #+#             */
-/*   Updated: 2023/11/04 03:25:32 by nahyulee         ###   ########.fr       */
+/*   Created: 2023/03/14 02:08:22 by nahyulee          #+#    #+#             */
+/*   Updated: 2023/05/19 17:55:12 by nahyulee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINIRT_H
-# define MINIRT_H
+#include "../libft.h"
 
-# include "minilibx_opengl_20191021/mlx.h"
-# include "libft/libft.h"
-# include <fcntl.h>
-# include <stdbool.h>
+void	*ft_memmove(void *dst, const void *src, size_t len)
+{
+	const unsigned char	*s;
+	unsigned char		*d;
+	size_t				i;
 
-#endif
+	d = (unsigned char *)dst;
+	s = (const unsigned char *)src;
+	i = 0;
+	if (d == 0 && s == 0)
+		return (0);
+	if (d < s)
+		ft_memcpy(d, s, len);
+	else
+	{
+		while (len > i)
+		{
+			d[len - i - 1] = s[len - i - 1];
+			i++;
+		}
+	}
+	return ((void *)d);
+}

@@ -1,21 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minirt.h                                           :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nahyulee <nahyulee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/01 17:25:10 by nahyulee          #+#    #+#             */
-/*   Updated: 2023/11/04 03:25:32 by nahyulee         ###   ########.fr       */
+/*   Created: 2023/03/13 21:55:24 by nahyulee          #+#    #+#             */
+/*   Updated: 2023/05/20 08:13:54 by nahyulee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINIRT_H
-# define MINIRT_H
+#include "../libft.h"
 
-# include "minilibx_opengl_20191021/mlx.h"
-# include "libft/libft.h"
-# include <fcntl.h>
-# include <stdbool.h>
+size_t	ft_strlen(const char *s)
+{
+	size_t	i;
 
-#endif
+	i = 0;
+	if (s)
+		while (s[i])
+			i++;
+	return (i);
+}

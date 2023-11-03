@@ -1,21 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minirt.h                                           :+:      :+:    :+:   */
+/*   ft_isvalid_number.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nahyulee <nahyulee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/01 17:25:10 by nahyulee          #+#    #+#             */
-/*   Updated: 2023/11/04 03:25:32 by nahyulee         ###   ########.fr       */
+/*   Created: 2023/05/23 03:03:12 by nahyulee          #+#    #+#             */
+/*   Updated: 2023/05/31 23:48:40 by nahyulee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINIRT_H
-# define MINIRT_H
+#include "../libft.h"
 
-# include "minilibx_opengl_20191021/mlx.h"
-# include "libft/libft.h"
-# include <fcntl.h>
-# include <stdbool.h>
+int	ft_isvalid_number(char *str)
+{
+	int	i;
 
-#endif
+	if (str == NULL)
+		return (0);
+	i = 0;
+	if (str[i] == '-' || str[i] == '+')
+		i++;
+	if (!str[i])
+		return (0);
+	while (str[i])
+	{
+		if (!ft_isdigit(str[i]))
+			return (0);
+		i++;
+	}
+	return (1);
+}

@@ -1,21 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minirt.h                                           :+:      :+:    :+:   */
+/*   ft_lstfree.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nahyulee <nahyulee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/01 17:25:10 by nahyulee          #+#    #+#             */
-/*   Updated: 2023/11/04 03:25:32 by nahyulee         ###   ########.fr       */
+/*   Created: 2023/08/30 20:37:35 by nahyulee          #+#    #+#             */
+/*   Updated: 2023/10/04 18:45:00 by nahyulee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINIRT_H
-# define MINIRT_H
+#include "../libft.h"
 
-# include "minilibx_opengl_20191021/mlx.h"
-# include "libft/libft.h"
-# include <fcntl.h>
-# include <stdbool.h>
+void	ft_lstfree(t_list **lst)
+{
+	t_list	*current;
+	t_list	*next;
 
-#endif
+	current = *lst;
+	while (current != NULL)
+	{
+		next = current->next;
+		free(current);
+		current = next;
+	}
+	*lst = NULL;
+}
