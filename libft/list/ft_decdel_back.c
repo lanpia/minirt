@@ -1,21 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minirt.h                                           :+:      :+:    :+:   */
+/*   ft_decdel_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nahyulee <nahyulee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/01 17:25:10 by nahyulee          #+#    #+#             */
-/*   Updated: 2023/11/04 03:25:32 by nahyulee         ###   ########.fr       */
+/*   Created: 2023/05/20 02:24:05 by nahyulee          #+#    #+#             */
+/*   Updated: 2023/08/21 08:57:23 by nahyulee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINIRT_H
-# define MINIRT_H
+#include "../libft.h"
 
-# include "minilibx_opengl_20191021/mlx.h"
-# include "libft/libft.h"
-# include <fcntl.h>
-# include <stdbool.h>
+void	ft_decdel_back(t_que *lst)
+{
+	t_node	*tmp;
 
-#endif
+	if (lst->size == 0)
+		exit(0);
+	tmp = lst->rear;
+	lst->rear = tmp->prev;
+	if (lst->rear == NULL)
+		lst->front = NULL;
+	else
+		lst->rear->next = NULL;
+	free(tmp);
+	tmp = NULL;
+	lst->size--;
+}

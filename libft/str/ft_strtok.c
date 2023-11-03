@@ -1,21 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minirt.h                                           :+:      :+:    :+:   */
+/*   ft_strtok.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nahyulee <nahyulee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/01 17:25:10 by nahyulee          #+#    #+#             */
-/*   Updated: 2023/11/04 03:25:32 by nahyulee         ###   ########.fr       */
+/*   Created: 2023/05/23 02:18:09 by nahyulee          #+#    #+#             */
+/*   Updated: 2023/08/31 17:19:52 by nahyulee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINIRT_H
-# define MINIRT_H
+#include "../libft.h"
 
-# include "minilibx_opengl_20191021/mlx.h"
-# include "libft/libft.h"
-# include <fcntl.h>
-# include <stdbool.h>
+char	*ft_strtok(char *str, const char *delim)
+{
+	static char	*last;
+	char		*token;
 
-#endif
+	if (str != NULL)
+		last = str;
+	if (last == NULL || *last == '\0')
+		return (NULL);
+	token = last;
+	while (*last != '\0')
+	{
+		if (ft_strchr(delim, *last) != NULL)
+		{
+			*last = '\0';
+			last++;
+			break ;
+		}
+		last++;
+	}
+	return (token);
+}
