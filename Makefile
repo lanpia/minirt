@@ -1,7 +1,7 @@
 NAME		= miniRT
 LIBFT		= libft
 LIBFT_LIB	= libft.a
-MLX			= mlx
+MLX			= minilibx_opengl_20191021
 MLX_LIB		= libmlx.a
 SRCS		= minirt.c
 OBJS 		= $(SRCS:.c=.o)
