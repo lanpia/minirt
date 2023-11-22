@@ -6,8 +6,7 @@ MLX_LIB		= libmlx.a
 SRCS		= minirt.c \
 				file_read.c \
 				camera.c \
-				vector.c\
-				math.c
+				vector.c
 OBJS 		= $(SRCS:.c=.o)
 SRCS_BONUS = bonus/minirt_bonus.c
 OBJS_BONUS = $(SRCS_BONUS:.c=.o)

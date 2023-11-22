@@ -6,14 +6,29 @@
 /*   By: nahyulee <nahyulee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 03:28:03 by nahyulee          #+#    #+#             */
-/*   Updated: 2023/11/22 03:34:19 by nahyulee         ###   ########.fr       */
+/*   Updated: 2023/11/22 10:19:36 by nahyulee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-// 간단한 3D 점을 2D로 투영하는 함수
+// // 레이와 구의 교차 검사
+int	intersectRaySphere(t_ray ray, t_sp sphere, float* t)
+{
+	t_vtr3 oc = subtract_vector(ray.origin, sphere.center);
+	float a = dotProduct(ray.direction, ray.direction);
+	float b = 2.0 * dotProduct(oc, ray.direction);
+	float c = dotProduct(oc, oc) - sphere.radius * sphere.radius;
+	float discriminant = b * b - 4 * a * c;
 
+	if (discriminant < 0)
+		return (0);
+	else
+	{
+		*t = (-b - sqrt(discriminant)) / (2.0 * a);
+		return (1);
+	}
+}
 // 구 그리기
 void	drawsphere(t_rt *rt, t_sp sphere)
 {
@@ -54,71 +69,30 @@ int	press_key(int key_val, t_rt *rt)
 int	main(int ac, char **av)
 {
 	t_rt	*rt;
-	t_sp sphere = {{0.0, 0.0, 20.6}, 12.6, 0x0A00FF}; // 색상: 10, 0, 255
+	t_sp	sphere;
 
 	(void)av;
 	if (ac != 2)
 		ft_exit(1, "bad argument\n");
 	rt = make_array();
 	// read_data(rt, av);
+	sphere.center.x = 0.0;
+	sphere.center.y = 0.0;
+	sphere.center.z = 20.6;
+	sphere.radius = 12.6;
+	sphere.color = rgb_hex(10, 100, 225);
 	rt->mlx = mlx_init();
 	rt->window = mlx_new_window(rt->mlx, rt->width, rt->height, "miniRT");
 
 	drawsphere(rt, sphere);
-
+	Ray ray = {{0, 0, 0}, {1, 2, 3}};
+	if (intersectRaySphere(ray, sphere, &t))
+		mlx_pixel_put(rt->mlx, rt->window, rt->width / 2, rt->height / 2, 0x00FF00);
 	mlx_hook(rt->window, X_EVENT_KEY_PRESS, 0, press_key, rt);
 	mlx_hook(rt->window, X_EVENT_KEY_EXIT, 0, press_key, rt);
 	mlx_loop(rt->mlx);
 	return (0);
 }
-
-
-
-// #include <mlx.h>
-// #include <stdio.h>
-// #include <math.h>
-
-// #define WIN_WIDTH 800
-// #define WIN_HEIGHT 600
-
-// typedef struct {
-//     float x, y, z;
-// } Vector3D;
-
-// typedef struct {
-//     Vector3D origin;
-//     Vector3D direction;
-// } Ray;
-
-// typedef struct {
-//     Vector3D center;
-//     float radius;
-// } Sphere;
-
-// // 벡터 연산들
-// Vector3D vectorSubtract(Vector3D a, Vector3D b) {
-//     return (Vector3D){a.x - b.x, a.y - b.y, a.z - b.z};
-// }
-
-// float dotProduct(Vector3D a, Vector3D b) {
-//     return a.x * b.x + a.y * b.y + a.z * b.z;
-// }
-
-// // 레이와 구의 교차 검사
-// int intersectRaySphere(Ray ray, Sphere sphere, float* t) {
-//     Vector3D oc = vectorSubtract(ray.origin, sphere.center);
-//     float a = dotProduct(ray.direction, ray.direction);
-//     float b = 2.0 * dotProduct(oc, ray.direction);
-//     float c = dotProduct(oc, oc) - sphere.radius * sphere.radius;
-//     float discriminant = b * b - 4 * a * c;
-//     if (discriminant < 0) {
-//         return 0; // 교차하지 않음
-//     } else {
-//         // 최소 t 값을 계산
-//         *t = (-b - sqrt(discriminant)) / (2.0 * a);
-//         return 1; // 교차함
-//     }
-// }
 
 // int main() {
 //     void *mlx_ptr, *win_ptr;

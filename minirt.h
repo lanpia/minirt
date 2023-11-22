@@ -6,7 +6,7 @@
 /*   By: nahyulee <nahyulee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 17:25:10 by nahyulee          #+#    #+#             */
-/*   Updated: 2023/11/22 03:27:53 by nahyulee         ###   ########.fr       */
+/*   Updated: 2023/11/22 10:19:29 by nahyulee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,12 +46,11 @@ typedef struct s_2d
 	int	y;
 }	t_2d;
 
-typedef struct s_pow
+typedef struct
 {
-	double	base;
-	double	value;
-	int		exponent;
-}	t_pow;
+    t_vtr3 origin;
+    t_vtr3 direction;
+} t_ray;
 
 typedef struct s_sphere
 {
@@ -92,7 +91,7 @@ typedef struct s_mlx
 /* ***********************file_read****************************************** */
 t_rt	*make_array(void);
 void	read_data(t_rt *d, char **av);
-char	*rgb_hex(int red, int green, int blue);
+unsigned int	rgb_hex(int red, int green, int blue);
 /* ***********************vector********************************************* */
 t_2d	project3dto2d(t_rt *rt, t_vtr3 point3d, t_2d point2d);
 t_vtr3	add_vector(t_vtr3 a, t_vtr3 b);

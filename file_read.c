@@ -6,7 +6,7 @@
 /*   By: nahyulee <nahyulee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 10:16:44 by nahyulee          #+#    #+#             */
-/*   Updated: 2023/11/22 01:19:19 by nahyulee         ###   ########.fr       */
+/*   Updated: 2023/11/22 10:13:09 by nahyulee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,15 +36,10 @@ void	read_data(t_rt *d, char **av)
 	}
 }
 
-char	*rgb_hex(int red, int green, int blue)
+unsigned int	rgb_hex(int red, int green, int blue)
 {
 	unsigned int	color;
-	char			*tmp;
-	char			*hexcolor;
 
 	color = (red << 16) | (green << 8) | blue;
-	tmp = ft_itoa(color);
-	hexcolor = ft_strjoin("0x", tmp);
-	free(tmp);
-	return (hexcolor);
+	return (color);
 }

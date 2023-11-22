@@ -6,11 +6,18 @@
 /*   By: nahyulee <nahyulee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 03:05:32 by nahyulee          #+#    #+#             */
-/*   Updated: 2023/11/22 03:33:58 by nahyulee         ###   ########.fr       */
+/*   Updated: 2023/11/22 10:16:28 by nahyulee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
+
+typedef struct s_pow
+{
+	double	base;
+	double	value;
+	int		exponent;
+}	t_pow;
 
 double	factorial(int n)
 {
