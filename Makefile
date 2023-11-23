@@ -30,7 +30,8 @@ all			:	$(NAME)
 $(NAME): $(OBJ_CUR)
 		@make all -C $(LIBFT)/
 		@make all -C $(MLX)/
-		@$(CC) $(CFLAGS) $(LIBFT)/$(LIBFT_LIB) $(MLX)/$(MLX_LIB) -framework OpenGL -framework AppKit -lz -o $@ $^
+		# @$(CC) $(CFLAGS) $(LIBFT)/$(LIBFT_LIB) $(MLX)/$(MLX_LIB) -I//usr/include/GLES3/gl3.h -framework OpenGL -framework AppKit -lz -o $@ $^
+		@$(CC) $(CFLAGS) $(LIBFT)/$(LIBFT_LIB) $(MLX)/$(MLX_LIB) -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
 		@echo ${GREEN} "Compilation Done ✅"
 
 bonus:

@@ -6,29 +6,29 @@
 /*   By: nahyulee <nahyulee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 03:28:03 by nahyulee          #+#    #+#             */
-/*   Updated: 2023/11/22 10:19:36 by nahyulee         ###   ########.fr       */
+/*   Updated: 2023/11/22 20:15:11 by nahyulee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
 // // 레이와 구의 교차 검사
-int	intersectRaySphere(t_ray ray, t_sp sphere, float* t)
-{
-	t_vtr3 oc = subtract_vector(ray.origin, sphere.center);
-	float a = dotProduct(ray.direction, ray.direction);
-	float b = 2.0 * dotProduct(oc, ray.direction);
-	float c = dotProduct(oc, oc) - sphere.radius * sphere.radius;
-	float discriminant = b * b - 4 * a * c;
+// int	intersectRaySphere(t_ray ray, t_sp sphere, float* t)
+// {
+	// t_vtr3 oc = subtract_vector(ray.origin, sphere.center);
+	// float a = dotProduct(ray.direction, ray.direction);
+	// float b = 2.0 * dotProduct(oc, ray.direction);
+	// float c = dotProduct(oc, oc) - sphere.radius * sphere.radius;
+	// float discriminant = b * b - 4 * a * c;
 
-	if (discriminant < 0)
-		return (0);
-	else
-	{
-		*t = (-b - sqrt(discriminant)) / (2.0 * a);
-		return (1);
-	}
-}
+	// if (discriminant < 0)
+	// 	return (0);
+	// else
+	// {
+	// 	*t = (-b - sqrt(discriminant)) / (2.0 * a);
+	// 	return (1);
+	// }
+// }
 // 구 그리기
 void	drawsphere(t_rt *rt, t_sp sphere)
 {
@@ -72,22 +72,17 @@ int	main(int ac, char **av)
 	t_sp	sphere;
 
 	(void)av;
-	if (ac != 2)
+	if (ac != 2 || ac != 3)
 		ft_exit(1, "bad argument\n");
-	rt = make_array();
-	// read_data(rt, av);
-	sphere.center.x = 0.0;
-	sphere.center.y = 0.0;
-	sphere.center.z = 20.6;
-	sphere.radius = 12.6;
-	sphere.color = rgb_hex(10, 100, 225);
+	rt = (t_rt *)ft_calloc(sizeof(t_rt), 1);
+	read_data(rt, av);
 	rt->mlx = mlx_init();
 	rt->window = mlx_new_window(rt->mlx, rt->width, rt->height, "miniRT");
 
 	drawsphere(rt, sphere);
-	Ray ray = {{0, 0, 0}, {1, 2, 3}};
-	if (intersectRaySphere(ray, sphere, &t))
-		mlx_pixel_put(rt->mlx, rt->window, rt->width / 2, rt->height / 2, 0x00FF00);
+	// t_ray ray = {{0, 0, 0}, {1, 2, 3}};
+	// if (intersectRaySphere(ray, sphere, &rt))
+	// 	mlx_pixel_put(rt->mlx, rt->window, rt->width / 2, rt->height / 2, 0x00FF00);
 	mlx_hook(rt->window, X_EVENT_KEY_PRESS, 0, press_key, rt);
 	mlx_hook(rt->window, X_EVENT_KEY_EXIT, 0, press_key, rt);
 	mlx_loop(rt->mlx);
