@@ -6,7 +6,7 @@
 /*   By: nahyulee <nahyulee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 21:00:18 by nahyulee          #+#    #+#             */
-/*   Updated: 2023/11/25 21:23:28 by nahyulee         ###   ########.fr       */
+/*   Updated: 2023/11/25 21:46:51 by nahyulee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,31 +31,33 @@ t_vtr2	project3dto2d(t_rt *rt, t_vtr3 point3d)
 {
 	t_vtr2	point2d;
 
-    point2d.x = (int)(rt->width / 2 + point3d.x);
-    point2d.y = (int)(rt->height / 2 - point3d.y);
+	point2d.x = (int)(rt->width / 2 + point3d.x);
+	point2d.y = (int)(rt->height / 2 - point3d.y);
 	return (point2d);
 }
 
 void	drawsphere(t_rt *rt, t_sp sphere)
 {
 	t_vtr3	point3d;
-    t_vtr2	coord;
+	t_vtr2	coord;
 	float	u;
-    float	angle;
+	float	angle;
 	float	v;
 
 	angle = 0.0f;
-    while (angle < 360.0f)
+	while (angle < 360.0f)
 	{
-        v = -rt->data.sphere.radius;
-        while (v < rt->data.sphere.radius)
+		v = -sphere.radius;
+		while (v < sphere.radius)
 		{
-            u = sqrt(rt->data.sphere.radius * rt->data.sphere.radius - v * v);
-            point3d = (t_vtr3){rt->data.sphere.center.x + u * cos(angle * M_PI / 180), rt->data.sphere.center.y + v, rt->data.sphere.center.z + u * sin(angle * M_PI / 180)};
-            coord = project3dto2d(rt, point3d);
+			u = sqrt(sphere.radius * sphere.radius - v * v);
+			point3d = (t_vtr3){sphere.center.x + u * cos(angle * M_PI / 180), \
+							sphere.center.y + v, \
+							sphere.center.z + u * sin(angle * M_PI / 180)};
+			coord = project3dto2d(rt, point3d);
 			mlx_pixel_put(rt->mlx, rt->window, coord.x, coord.y, sphere.color);
-            v += 0.1f;
-        }
-        angle += 0.1f;
-    }
+			v += 0.1f;
+		}
+		angle += 0.1f;
+	}
 }

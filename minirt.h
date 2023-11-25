@@ -6,7 +6,7 @@
 /*   By: nahyulee <nahyulee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 17:25:10 by nahyulee          #+#    #+#             */
-/*   Updated: 2023/11/25 21:36:29 by nahyulee         ###   ########.fr       */
+/*   Updated: 2023/11/25 22:09:35 by nahyulee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ typedef struct s_camera
 	t_vtr3	cam;
 	t_vtr3	dir;
 	int		fov;
-}	t_cam;
+}	t_c;
 
 typedef struct s_light
 {
@@ -96,7 +96,7 @@ typedef struct s_cylinder
 typedef struct s_data
 {
 	t_a		ambient;
-	t_cam	camera;
+	t_c		camera;
 	t_l		light;
 	t_pl	plane;
 	t_sp	sphere;
@@ -126,7 +126,7 @@ t_vtr3			divide_vector(t_vtr3 v, float scalar);
 int				press_key(int key_val, t_rt *rt);
 int				print_error(int key_val, t_rt *rt);
 /* ***********************camera********************************************* */
-void			move_camera(t_cam camera, int x, int y, int z);
+void			move_camera(t_c camera, int x, int y, int z);
 /* ***********************draw*********************************************** */
 t_vtr2			project3dto2d(t_rt *rt, t_vtr3 point3d);
 void			drawsphere(t_rt *rt, t_sp sphere);
