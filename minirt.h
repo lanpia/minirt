@@ -14,7 +14,7 @@
 # define MINIRT_H
 
 // # include "minilibx_opengl_20191021/mlx.h"
-# include "minilibx-linux/mlx.h"
+# include "mlx/mlx.h"
 # include "libft/libft.h"
 # include <fcntl.h>
 # include <math.h>
