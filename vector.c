@@ -1,22 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   3dvector.c                                         :+:      :+:    :+:   */
+/*   vector.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nahyulee <nahyulee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 03:28:03 by nahyulee          #+#    #+#             */
-/*   Updated: 2023/11/22 02:23:50 by nahyulee         ###   ########.fr       */
+/*   Updated: 2023/11/25 21:30:10 by nahyulee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-t_2d	project3dto2d(t_rt *rt, t_vtr3 point3d, t_2d point2d)
+float	dot_product(t_vtr3 a, t_vtr3 b)
 {
-	point2d.x = (int)(rt->width / 2 + point3d.x);
-	point2d.y = (int)(rt->height / 2 - point3d.y);
-	return (point2d);
+	return (a.x * b.x + a.y * b.y + a.z * b.z);
+}
+
+t_vtr3	cross_product(t_vtr3 a, t_vtr3 b)
+{
+	t_vtr3	result;
+
+	result.x = a.y * b.z - a.z * b.y;
+	result.y = a.z * b.x - a.x * b.z;
+	result.z = a.x * b.y - a.y * b.x;
+	return (result);
 }
 
 t_vtr3	add_vector(t_vtr3 a, t_vtr3 b)
