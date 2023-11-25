@@ -1,10 +1,10 @@
 NAME		= miniRT
 LIBFT		= libft
 LIBFT_LIB	= libft.a
-# MLX			= minilibx_opengl_20191021
-# MLX_LIB		= libmlx.a
-MLX			= minilibx-linux
-MLX_LIB		= libmlx_Linux.a
+MLX			= mlx
+MLX_LIB		= libmlx.a
+# MLX			= minilibx-linux
+# MLX_LIB		= libmlx_Linux.a
 SRCS		= minirt.c \
 				file_read.c \
 				camera.c \
@@ -34,7 +34,7 @@ all			:	$(NAME)
 $(NAME): $(OBJ_CUR)
 		@make all -C $(LIBFT)/
 		@make all -C $(MLX)/
-		$(CC) $(CFLAGS) -o $@ $^ $(LIBFT)/$(LIBFT_LIB) $(MLX)/$(MLX_LIB) -lz -lXext -lX11 -lm
+		@$(CC) $(CFLAGS) -o $@ $^ $(LIBFT)/$(LIBFT_LIB) $(MLX)/$(MLX_LIB) -framework OpenGL -framework AppKit -lz -lm
 		@echo ${GREEN} "Compilation Done ✅"
 
 bonus:
@@ -58,3 +58,6 @@ fclean: clean
 re : fclean all
 
 .PHONY : all clean fclean re bonus
+
+# $(CC) $(CFLAGS) -o $@ $^ $(LIBFT)/$(LIBFT_LIB) $(MLX)/$(MLX_LIB) -lz -lXext -lX11 -lm
+# @$(CC) $(CFLAGS) -o $@ $^ $(LIBFT)/$(LIBFT_LIB) $(MLX)/$(MLX_LIB) -framework OpenGL -framework AppKit -lz -lm

@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "minirt.h"
+#include "mlx/mlx.h"
 
 void	read_data(t_rt *rt, char **av)
 {
@@ -35,39 +36,40 @@ void	read_data(t_rt *rt, char **av)
 	rt->data.camera.dir = (t_vtr3){0, 0, 0};
 	rt->data.camera.fov = 70;
 
+	
 	// fd = open(av[i], O_RDONLY);
 	// tmp = get_next_line(fd);
-	while (*tmp)
-	{
-		check_data_condition(rt, tmp);
-		free(tmp);
-		tmp = get_next_line(fd);
-	}
+	// while (*tmp)
+	// {
+	// 	check_data_condition(rt, tmp);
+	// 	free(tmp);
+	// 	tmp = get_next_line(fd);
+	// }
 }
 
-void	check_data_condition(t_rt *rt, char *tmp)
-{
-	if (!ft_strnstr(tmp, "R", ft_strlen(tmp)))
-		put_r(rt, tmp);
-	else if (!ft_strnstr(tmp, "A", ft_strlen(tmp)))
-		put_a(rt, tmp);
-	else if (!ft_strnstr(tmp, "c", ft_strlen(tmp)))
-		put_c(rt, tmp);
-	else if (!ft_strnstr(tmp, "l", ft_strlen(tmp)))
-		put_l(rt, tmp);
-	else if (!ft_strnstr(tmp, "pl", ft_strlen(tmp)))
-		put_pl(rt, tmp);
-	else if (!ft_strnstr(tmp, "sp", ft_strlen(tmp)))
-		put_sp(rt, tmp);
-	else if (!ft_strnstr(tmp, "cy", ft_strlen(tmp)))
-		put_cy(rt, tmp);
-	// else if (!ft_strnstr(tmp, "sq", ft_strlen(tmp)))
-	// 	put_sq(rt, tmp);
-	// else if (!ft_strnstr(tmp, "tr", ft_strlen(tmp)))
-	// 	put_tr(rt, tmp);
-	else
-		ft_exit(1, "Error\nData is not exist\n");
-}
+// void	check_data_condition(t_rt *rt, char *tmp)
+// {
+// 	if (!ft_strnstr(tmp, "R", ft_strlen(tmp)))
+// 		put_r(rt, tmp);
+// 	else if (!ft_strnstr(tmp, "A", ft_strlen(tmp)))
+// 		put_a(rt, tmp);
+// 	else if (!ft_strnstr(tmp, "c", ft_strlen(tmp)))
+// 		put_c(rt, tmp);
+// 	else if (!ft_strnstr(tmp, "l", ft_strlen(tmp)))
+// 		put_l(rt, tmp);
+// 	else if (!ft_strnstr(tmp, "pl", ft_strlen(tmp)))
+// 		put_pl(rt, tmp);
+// 	else if (!ft_strnstr(tmp, "sp", ft_strlen(tmp)))
+// 		put_sp(rt, tmp);
+// 	else if (!ft_strnstr(tmp, "cy", ft_strlen(tmp)))
+// 		put_cy(rt, tmp);
+// 	// else if (!ft_strnstr(tmp, "sq", ft_strlen(tmp)))
+// 	// 	put_sq(rt, tmp);
+// 	// else if (!ft_strnstr(tmp, "tr", ft_strlen(tmp)))
+// 	// 	put_tr(rt, tmp);
+// 	else
+// 		ft_exit(1, "Error\nData is not exist\n");
+// }
 
 // void	put_r(t_rt *rt, char *tmp)
 // {
