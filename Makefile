@@ -32,6 +32,7 @@ endif
 all			:	$(NAME)
 
 $(NAME): $(OBJ_CUR)
+		@mkdir -p obj
 		@make all -C $(LIBFT)/
 		@make all -C $(MLX)/
 		@$(CC) $(CFLAGS) -o $@ $^ $(LIBFT)/$(LIBFT_LIB) $(MLX)/$(MLX_LIB) -framework OpenGL -framework AppKit -lz -lm
@@ -41,10 +42,11 @@ bonus:
 	make BONUS=1 all
 
 .c.o:
-		@$(CC) $(CFLAGS) -c $< -o $@
+		@mkdir -p obj
+		@$(CC) $(CFLAGS) -c $< -o obj/$@
 
 clean:
-		@$(RM) $(OBJS) $(OBJS_BONUS)
+		@$(RM) obj/*.o
 		@make clean -C $(LIBFT)
 		@make clean -C $(MLX)
 		@echo ${RED}"Object Files Deleted"${WHITE}
