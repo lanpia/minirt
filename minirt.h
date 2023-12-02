@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minirt.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nahyulee <nahyulee@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: soohkang <soohkang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 17:25:10 by nahyulee          #+#    #+#             */
-/*   Updated: 2023/11/25 22:09:35 by nahyulee         ###   ########.fr       */
+/*   Updated: 2023/12/02 18:40:25 by soohkang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,8 @@ typedef struct s_vector2d
 // 환경광
 typedef struct s_ambentlight
 {
-	float			ratio;
-	unsigned int	color;
+	float			ratio; // 0.0 완전한 어둠, 1.0 최대 밝기
+	unsigned int	color; //rgb
 }	t_a;
 
 // 카메라
