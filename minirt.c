@@ -6,7 +6,7 @@
 /*   By: soohkang <soohkang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 03:28:03 by nahyulee          #+#    #+#             */
-/*   Updated: 2023/12/02 17:56:38 by soohkang         ###   ########.fr       */
+/*   Updated: 2023/12/02 18:11:06 by soohkang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,32 +47,29 @@ return (0);
 
 void	parse_extens(char **av)
 {
-	const char	*f_name;
 	int			last_i;
 	int			f_len;
 	int			j;
 	int			flag;
 
-	f_name = av[1];
-	f_len = ft_strlen(f_name);
-	last_i = f_len;
+	f_len = ft_strlen(av[1]);
+	last_i = f_len--;
 	last_i--;
 	flag = 0;
 	if (av[1][last_i] == 't' && av[1][last_i - 1] == 'r' && av[1][last_i - 2] == '.')
 	{
-		j = 0;
-		while (j < (last_i - 3))
+		j = -1;
+		while (++j < (last_i - 3))
 		{
 			if (av[1][j] == '.' && av[1][j + 1] == 'r' && av[1][j + 2] == 't')
 			{
 				flag = 1;
 				break ;
 			}
-			j++;
 		}
 	}
 	else
-		printf("Error: File '%s' is not a valid .rt file\n", f_name);
+		printf("Error: File '%s' is not a valid .rt file\n", av[1]);
 	if (flag == 1)
-		printf("Error: The '%s' contains .rt multiple times.\n", f_name);
+		printf("Error: The '%s' contains .rt multiple times.\n", av[1]);
 }
