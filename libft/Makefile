@@ -49,6 +49,7 @@ SRCS = arr/ft_2d_arr_free.c \
 		printf/ft_format.c \
 		printf/ft_format2.c \
 		printf/ft_printf.c \
+		str/ft_atof.c \
 		str/ft_atoi.c \
 		str/ft_atol.c \
 		str/ft_exit.c \
