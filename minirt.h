@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minirt.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nahyulee <nahyulee@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: soohkang <soohkang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 17:25:10 by nahyulee          #+#    #+#             */
-/*   Updated: 2023/11/25 22:09:35 by nahyulee         ###   ########.fr       */
+/*   Updated: 2023/12/02 18:40:25 by soohkang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@
 #  define M_PI	3.14159265358979323846
 # endif
 
+// 3차원 벡터
 typedef struct s_vector3d
 {
 	float	x;
@@ -44,18 +45,21 @@ typedef struct s_vector3d
 	float	z;
 }	t_vtr3;
 
+// 2차원 벡터
 typedef struct s_vector2d
 {
 	int	x;
 	int	y;
 }	t_vtr2;
 
+// 환경광
 typedef struct s_ambentlight
 {
-	float			ratio;
-	unsigned int	color;
+	float			ratio; // 0.0 완전한 어둠, 1.0 최대 밝기
+	unsigned int	color; //rgb
 }	t_a;
 
+// 카메라
 typedef struct s_camera
 {
 	t_vtr3	cam;
@@ -63,6 +67,7 @@ typedef struct s_camera
 	int		fov;
 }	t_c;
 
+// 조명
 typedef struct s_light
 {
 	t_vtr3			position;
@@ -70,6 +75,7 @@ typedef struct s_light
 	unsigned int	color;
 }	t_l;
 
+// 평면
 typedef struct s_plane
 {
 	t_vtr3			position;
@@ -77,6 +83,7 @@ typedef struct s_plane
 	unsigned int	color;
 }	t_pl;
 
+// 구
 typedef struct s_sphere
 {
 	t_vtr3			center;
@@ -84,6 +91,7 @@ typedef struct s_sphere
 	unsigned int	color;
 }	t_sp;
 
+// 원통
 typedef struct s_cylinder
 {
 	t_vtr3			position;
@@ -93,6 +101,7 @@ typedef struct s_cylinder
 	unsigned int	color;
 }	t_cy;
 
+// 장면 데이터
 typedef struct s_data
 {
 	t_a		ambient;
@@ -103,6 +112,7 @@ typedef struct s_data
 	t_cy	cylinder;
 }	t_d;
 
+// miniRT 메인 구조체
 typedef struct s_mlx
 {
 	void	*mlx;
