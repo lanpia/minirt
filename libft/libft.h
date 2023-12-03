@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nahyulee <nahyulee@student.42seoul.>       +#+  +:+       +#+        */
+/*   By: nahyulee <nahyulee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 21:54:27 by nahyulee          #+#    #+#             */
-/*   Updated: 2023/03/13 21:54:29 by nahyulee         ###   ########.fr       */
+/*   Updated: 2023/12/02 21:18:24 by nahyulee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ int			ft_strcmp(const char *s1, const char *s2);
 size_t		ft_strcspn(const char *str, const char *reject);
 char		*ft_strrchr(const char *s, int c);
 int			ft_strncmp(const char *s1, const char *s2, size_t n);
+double		ft_atof(const char *str);
 int			ft_atoi(const char *str);
 long		ft_atol(const char *str);
 char		*ft_strdup(const char *s1);
