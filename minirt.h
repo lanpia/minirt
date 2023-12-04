@@ -6,7 +6,7 @@
 /*   By: soohkang <soohkang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 17:25:10 by nahyulee          #+#    #+#             */
-/*   Updated: 2023/12/02 18:40:25 by soohkang         ###   ########.fr       */
+/*   Updated: 2023/12/04 16:38:00 by soohkang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,9 @@
 # include <fcntl.h>
 # include <math.h>
 # include <stdbool.h>
+
+// delete after submitted ~!~!~!~!~!!!!!!!!!!!!
+#include <stdio.h>
 
 # define X_EVENT_KEY_PRESS		2
 # define X_EVENT_KEY_EXIT		17
@@ -122,9 +125,16 @@ typedef struct s_mlx
 	t_d		data;
 }	t_rt;
 
+
+/* ***********************parsing******************************************** */
+void			parse_extens(char **av);
 /* ***********************file_read****************************************** */
 void			read_data(t_rt *d, char **av);
 unsigned int	rgb_hex(int red, int green, int blue);
+void			check_data_condition(t_rt *rt, char *tmp);
+void			put_r(t_rt *rt, char *tmp);
+void			put_a(t_rt *rt, char *tmp);
+void			sphere(t_rt *rt);
 /* ***********************vector********************************************* */
 float			dot_product(t_vtr3 a, t_vtr3 b);
 t_vtr3			cross_product(t_vtr3 a, t_vtr3 b);
