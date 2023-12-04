@@ -6,12 +6,13 @@ MLX_LIB		= libmlx.a
 # MLX			= minilibx-linux
 # MLX_LIB		= libmlx_Linux.a
 SRCS		= minirt.c \
-			_parse/read_data.c \
+			_parse/extension.c \
+			_parse/open_scene_file.c \
+			_parse/check_data_condition.c \
 			_raytracing/camera.c \
-			vector/vector.c \
+			_vector/vector.c \
 			_utils/util.c \
 			_draw/draw.c \
-			_parse/extension.c \
 
 OBJS 		= $(SRCS:.c=.o)
 OBJS = $(addprefix obj/,$(SRCS:.c=.o))

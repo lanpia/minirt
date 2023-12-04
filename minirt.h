@@ -6,7 +6,7 @@
 /*   By: soohkang <soohkang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 17:25:10 by nahyulee          #+#    #+#             */
-/*   Updated: 2023/12/04 23:39:41 by soohkang         ###   ########.fr       */
+/*   Updated: 2023/12/05 02:35:17 by soohkang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,8 +129,9 @@ typedef struct s_mlx
 /* ***********************parsing******************************************** */
 void			parse_extens(char **av, int *i);
 void			part_of_parse_extens(char **av, int **i);
-/* ***********************file_read****************************************** */
-void			read_data(t_rt *d, char **av, int *i);
+/* ***********************open_file****************************************** */
+void			open_scene_file(t_rt *d, char **av, int *i);
+/* ***********************open_file****************************************** */
 unsigned int	rgb_hex(int red, int green, int blue);
 void			check_data_condition(t_rt *rt, char *tmp);
 void			put_r(t_rt *rt, char *tmp);
