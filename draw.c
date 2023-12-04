@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nahyulee <nahyulee@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: soohkang <soohkang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 21:00:18 by nahyulee          #+#    #+#             */
-/*   Updated: 2023/11/25 21:46:51 by nahyulee         ###   ########.fr       */
+/*   Updated: 2023/12/04 15:34:46 by soohkang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,21 @@ t_vtr2	project3dto2d(t_rt *rt, t_vtr3 point3d)
 	point2d.y = (int)(rt->height / 2 - point3d.y);
 	return (point2d);
 }
+
+/*
+void	sphere(t_rt *rt)
+{
+	// 구체를 고정값으로 처리한 상태. 즉, 파싱해서 이 고정된 값에 다가 값을 넣어야 함
+	// sphere: 구체
+	rt->data.sphere.center = (t_vtr3){0, 0, 20};
+	rt->data.sphere.radius = 20;
+	rt->data.sphere.color = rgb_hex(255, 0, 0);
+	
+	rt->data.camera.cam = (t_vtr3){-50, 0, 20};
+	rt->data.camera.dir = (t_vtr3){0, 0, 0};
+	rt->data.camera.fov = 70;
+}
+*/
 
 void	drawsphere(t_rt *rt, t_sp sphere)
 {
