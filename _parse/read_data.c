@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   file_read.c                                        :+:      :+:    :+:   */
+/*   read_data.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: soohkang <soohkang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 10:16:44 by nahyulee          #+#    #+#             */
-/*   Updated: 2023/12/04 17:45:11 by soohkang         ###   ########.fr       */
+/*   Updated: 2023/12/04 22:04:50 by soohkang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minirt.h"
 #include "../mlx/mlx.h"
 
-// void	read_data(char **av)
 void	read_data(t_rt *rt, char **av)
 {
 	// (void) rt;
@@ -24,9 +23,6 @@ void	read_data(t_rt *rt, char **av)
 	i = 1;
 	if (!ft_strcmp(av[i], "--save"))
 		i++;
-	if (ft_strnstr(av[i], ".rt", ft_strlen(av[i])) == NULL)
-		ft_exit(1, "Error\nFile is not .rt\n");
-	
 
 	rt->height = 300; // 창 가로
 	rt->width = 300; // 창 세로

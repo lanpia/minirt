@@ -6,26 +6,28 @@
 /*   By: soohkang <soohkang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 16:59:35 by soohkang          #+#    #+#             */
-/*   Updated: 2023/12/04 17:03:07 by soohkang         ###   ########.fr       */
+/*   Updated: 2023/12/04 22:56:13 by soohkang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minirt.h"
 
-void	parse_extens(char **av)
+void	part_of_parse_extens(char **av, int *i)
 {
-	int			last_i;
-	int			f_len;
-	int			j;
-	int			flag;
-	int		i;
+	if (!ft_strcmp(av[*i], "--save"))
+		(*i)++;
+	if (ft_strnstr(av[*i], ".rt", ft_strlen(av[*i])) == NULL)
+		ft_exit(1, "Error\nFile is not .rt\n");
+}
 
-	i = 1;
-	if (!ft_strcmp(av[i], "--save"))
-		i++;
+void	parse_extens(char **av, int i)
+{
+	int	last_i;
+	int	j;
+	int	flag;
 
-	f_len = ft_strlen(av[i]);
-	last_i = f_len--;
+	part_of_parse_extens(av, &i);
+	last_i = ft_strlen(av[i]);
 	last_i--;
 	flag = 0;
 	if (av[i][last_i] == 't' && av[i][last_i - 1] == 'r' && av[i][last_i - 2] == '.')
@@ -41,7 +43,7 @@ void	parse_extens(char **av)
 		}
 	}
 	else
-		printf("Error\n:File '%s' is not a valid .rt file\n", av[i]);
+		ft_exit(1, "Error\n:File '%s' is not a valid .rt file\n"); //av[i]
 	if (flag == 1)
-		printf("Error\n:The '%s' contains .rt multiple times.\n", av[i]);
+		ft_exit(1, "Error\n:The '%s' contains .rt multiple times.\n"); //av[i]
 }
