@@ -6,7 +6,7 @@
 /*   By: soohkang <soohkang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 03:28:03 by nahyulee          #+#    #+#             */
-/*   Updated: 2023/12/04 22:56:56 by soohkang         ###   ########.fr       */
+/*   Updated: 2023/12/04 23:39:18 by soohkang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ int	main(int ac, char **av)
 
 	/* parsing */
 	i = 1;
-	parse_extens(av, i); // file name extensions
-	read_data(rt, av); // scene file reading and parsing
-	
+	parse_extens(av, &i); // file name extensions
+	read_data(rt, av, &i); // scene file reading and parsing
+
 	/* mlx */
 	rt->mlx = mlx_init();
 	rt->window = mlx_new_window(rt->mlx, rt->width, rt->height, "miniRT");

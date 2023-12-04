@@ -6,36 +6,38 @@
 /*   By: soohkang <soohkang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 10:16:44 by nahyulee          #+#    #+#             */
-/*   Updated: 2023/12/04 22:04:50 by soohkang         ###   ########.fr       */
+/*   Updated: 2023/12/04 23:42:02 by soohkang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minirt.h"
 #include "../mlx/mlx.h"
 
-void	read_data(t_rt *rt, char **av)
+void	read_data(t_rt *rt, char **av, int *i)
 {
+	// printf("i:%d\n", *i);
+	(void) av;
 	// (void) rt;
-	// char	*tmp;
-	// int		fd;
-	int		i;
-
-	i = 1;
-	if (!ft_strcmp(av[i], "--save"))
-		i++;
+	char	*tmp;
+	int		fd;
 
 	rt->height = 300; // 창 가로
 	rt->width = 300; // 창 세로
+	
+	/* 고정값 테스트 */
 	sphere(rt);
 	
-	// fd = open(av[i], O_RDONLY);
-	// tmp = get_next_line(fd);
-	// while (*tmp)
-	// {
-	// 	check_data_condition(rt, tmp);
-	// 	free(tmp);
-	// 	tmp = get_next_line(fd);
-	// }
+	/* open, read */
+	fd = open(av[*i], O_RDONLY);
+	if (fd < 0)
+		ft_exit(1, "Error\n: not exist file");
+	tmp = get_next_line(fd);
+	while (*tmp)
+	{
+		check_data_condition(rt, tmp);
+		free(tmp);
+		tmp = get_next_line(fd);
+	}
 }
 
 void	check_data_condition(t_rt *rt, char *tmp)
