@@ -3,24 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atof.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nahyulee <nahyulee@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: soohkang <soohkang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 16:22:06 by nahyulee          #+#    #+#             */
-/*   Updated: 2023/12/02 21:17:22 by nahyulee         ###   ########.fr       */
+/*   Updated: 2023/12/04 00:51:34 by soohkang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-void	check_sign(char **str, int *sign)
+void check_sign(const char **str, int *sign)
 {
-	while (ft_isspace(*str))
-		str++;
-	if (*str == '+' || *str == '-')
+	while (ft_isspace(**str))
+		(*str)++;
+	if (**str == '+' || **str == '-')
 	{
-		if (*str == '-')
-			sign = -1;
-		str++;
+		if (**str == '-')
+			*sign = -1;
+		(*str)++;
 	}
 }
 
