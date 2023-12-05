@@ -6,7 +6,7 @@
 /*   By: soohkang <soohkang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 03:15:07 by soohkang          #+#    #+#             */
-/*   Updated: 2023/12/05 03:15:26 by soohkang         ###   ########.fr       */
+/*   Updated: 2023/12/05 14:34:50 by soohkang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,9 @@
 
 void	check_data_condition(t_rt *rt, char *tmp)
 {
-	if (!ft_strnstr(tmp, "R", ft_strlen(tmp)))
+	// printf("tmp:%s", tmp);
+
+	if (ft_strnstr(tmp, "R", ft_strlen(tmp)))
 		put_r(rt, tmp);
 	else if (!ft_strnstr(tmp, "A", ft_strlen(tmp)))
 		put_a(rt, tmp);
@@ -40,20 +42,22 @@ void	check_data_condition(t_rt *rt, char *tmp)
 void	put_r(t_rt *rt, char *tmp)
 {
 	char	**data;
-	int		i;
+	// int		i;
 
 	data = ft_split_bonus(tmp, " \t\n,");
 	if (data[0][0] == 'R')
 	{
+		// printf(">>>> 1 >>>>> width:%s, height:%s\n", data[1], data[2]); // R 뒤의 값 출력
 		rt->width = ft_atoi(data[1]);
 		rt->height = ft_atoi(data[2]);
+		// printf(">>>> 2 >>>>> width:%d, height:%d\n", rt->width, rt->height); // 출력되는 것 확인
 	}
 	else
 		ft_exit(1, "Error\nR is not exist\n");
-	i = 0;
-	while (data[i])
-		i++;
-	ft_2d_arr_free(data, i);
+	// i = 0;
+	// while (data[i])
+	// 	i++;
+	// ft_2d_arr_free(data, i);
 }
 
 void	put_a(t_rt *rt, char *tmp)
@@ -65,7 +69,7 @@ void	put_a(t_rt *rt, char *tmp)
 	if (data[0][0] == 'A')
 	{
 		rt->data.ambient.ratio = ft_atof(data[1]);
-		rt->data.ambient.ratio = atof(data[1]); //ft_atof로 변경하세용, 나중에 만드세용 수캉
+		rt->data.ambient.ratio = ft_atof(data[1]);
 		rt->data.ambient.color = rgb_hex(ft_atoi(data[2]), ft_atoi(data[3]), ft_atoi(data[4]));
 	}
 	else

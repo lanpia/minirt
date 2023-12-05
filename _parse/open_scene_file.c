@@ -6,7 +6,7 @@
 /*   By: soohkang <soohkang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 10:16:44 by nahyulee          #+#    #+#             */
-/*   Updated: 2023/12/05 03:18:24 by soohkang         ###   ########.fr       */
+/*   Updated: 2023/12/05 14:34:31 by soohkang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ void	sphere(t_rt *rt)
 
 void	open_scene_file(t_rt *rt, char **av, int *i)
 {
-	// printf("i:%d\n", *i);
 	// (void) av;
 	// (void) rt;
 	char	*tmp;
@@ -46,17 +45,21 @@ void	open_scene_file(t_rt *rt, char **av, int *i)
 	rt->width = 300; // 창 세로
 
 	/* 고정값 테스트 */
-	sphere(rt);
+	// sphere(rt);
 
+	// printf("Result\ti:%d\n", *i);
 	/* open, read */
 	fd = open(av[*i], O_RDONLY);
 	if (fd < 0)
 		ft_exit(1, "Error\n: not exist file");
 	tmp = get_next_line(fd);
+	// printf("tmp:%s", tmp);
 	while (*tmp)
 	{
 		check_data_condition(rt, tmp);
 		free(tmp);
 		tmp = get_next_line(fd);
 	}
+	printf("~~~~~~~>>>> width:%d, height:%d\n", rt->width, rt->height); // 출력되는 것 확인
+	
 }
