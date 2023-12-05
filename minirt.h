@@ -6,7 +6,7 @@
 /*   By: soohkang <soohkang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 17:25:10 by nahyulee          #+#    #+#             */
-/*   Updated: 2023/12/05 02:35:17 by soohkang         ###   ########.fr       */
+/*   Updated: 2023/12/05 20:34:24 by soohkang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,6 +136,11 @@ unsigned int	rgb_hex(int red, int green, int blue);
 void			check_data_condition(t_rt *rt, char *tmp);
 void			put_r(t_rt *rt, char *tmp);
 void			put_a(t_rt *rt, char *tmp);
+void			put_c(t_rt *rt, char *tmp);
+void			put_l(t_rt *rt, char *tmp);
+void			put_pl(t_rt *rt, char *tmp);
+void			put_sp(t_rt *rt, char *tmp);
+void			put_cy(t_rt *rt, char *tmp);
 void			sphere(t_rt *rt);
 /* ***********************vector********************************************* */
 float			dot_product(t_vtr3 a, t_vtr3 b);

@@ -6,7 +6,7 @@
 /*   By: soohkang <soohkang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 10:16:44 by nahyulee          #+#    #+#             */
-/*   Updated: 2023/12/05 14:34:31 by soohkang         ###   ########.fr       */
+/*   Updated: 2023/12/05 19:16:22 by soohkang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,10 @@ void	open_scene_file(t_rt *rt, char **av, int *i)
 		check_data_condition(rt, tmp);
 		free(tmp);
 		tmp = get_next_line(fd);
+		if (!tmp)
+			break ;
 	}
-	printf("~~~~~~~>>>> width:%d, height:%d\n", rt->width, rt->height); // 출력되는 것 확인
+	printf("R width:%d, height:%d\n", rt->width, rt->height); // 출력되는 것 확인
+	printf("A ratio:%f, color:%x\n", rt->data.ambient.ratio, rt->data.ambient.color); // 출력되는 것 확인
 	
 }
