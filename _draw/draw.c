@@ -6,7 +6,7 @@
 /*   By: soohkang <soohkang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 21:00:18 by nahyulee          #+#    #+#             */
-/*   Updated: 2023/12/06 18:04:07 by soohkang         ###   ########.fr       */
+/*   Updated: 2023/12/06 18:06:58 by soohkang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	draw(t_rt *rt)
 {
 	drawsphere(rt, rt->data.sphere);
 	// draw_cylinder(rt, rt ->data.cylinder);
-	// draw_???(rt, rt ->data.);
+	// draw_plane(rt, rt ->data.);
 }
 
 void	drawsphere(t_rt *rt, t_sp sphere)
@@ -43,6 +43,15 @@ void	drawsphere(t_rt *rt, t_sp sphere)
 		}
 		angle += 0.1f;
 	}
+}
+
+t_vtr2	project3dto2d(t_rt *rt, t_vtr3 point3d)
+{
+	t_vtr2	point2d;
+
+	point2d.x = (int)(rt->width / 2 + point3d.x);
+	point2d.y = (int)(rt->height / 2 - point3d.y);
+	return (point2d);
 }
 
 /* 고정값 sphere */
@@ -73,12 +82,3 @@ void	drawsphere(t_rt *rt, t_sp sphere)
 // 	point2d.y = (int)((1 - yProjected) * rt->height / 2);
 // 	return (point2d);
 // }
-
-t_vtr2	project3dto2d(t_rt *rt, t_vtr3 point3d)
-{
-	t_vtr2	point2d;
-
-	point2d.x = (int)(rt->width / 2 + point3d.x);
-	point2d.y = (int)(rt->height / 2 - point3d.y);
-	return (point2d);
-}

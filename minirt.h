@@ -6,7 +6,7 @@
 /*   By: soohkang <soohkang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 17:25:10 by nahyulee          #+#    #+#             */
-/*   Updated: 2023/12/06 17:58:04 by soohkang         ###   ########.fr       */
+/*   Updated: 2023/12/06 18:06:16 by soohkang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include <math.h>
 # include <stdbool.h>
 
-// delete after submitted ~!~!~!~!~!!!!!!!!!!!!
+/**** **** **** DELETE after submitted ~!~!~!~!~!!!!!!!!!!!! **** **** ****/
 #include <stdio.h>
 
 # define X_EVENT_KEY_PRESS		2
