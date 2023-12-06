@@ -6,7 +6,7 @@
 /*   By: soohkang <soohkang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 17:25:10 by nahyulee          #+#    #+#             */
-/*   Updated: 2023/12/05 20:34:24 by soohkang         ###   ########.fr       */
+/*   Updated: 2023/12/06 17:58:04 by soohkang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -155,6 +155,7 @@ int				print_error(int key_val, t_rt *rt);
 /* ***********************camera********************************************* */
 void			move_camera(t_c camera, int x, int y, int z);
 /* ***********************draw*********************************************** */
+void			draw(t_rt *rt);
 t_vtr2			project3dto2d(t_rt *rt, t_vtr3 point3d);
 void			drawsphere(t_rt *rt, t_sp sphere);
 /* ************************************************************************** */

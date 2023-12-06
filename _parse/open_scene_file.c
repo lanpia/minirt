@@ -6,7 +6,7 @@
 /*   By: soohkang <soohkang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 10:16:44 by nahyulee          #+#    #+#             */
-/*   Updated: 2023/12/06 15:54:20 by soohkang         ###   ########.fr       */
+/*   Updated: 2023/12/06 18:03:15 by soohkang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,16 +44,11 @@ void	open_scene_file(t_rt *rt, char **av, int *i)
 	rt->height = 300; // 창 가로
 	rt->width = 300; // 창 세로
 
-	/* 고정값 테스트 */
-	// sphere(rt);
-
-	// printf("Result\ti:%d\n", *i);
 	/* open, read */
 	fd = open(av[*i], O_RDONLY);
 	if (fd < 0)
 		ft_exit(1, "Error\n: not exist file");
 	tmp = get_next_line(fd);
-	// printf("tmp:%s", tmp);
 	while (*tmp)
 	{
 		check_data_condition(rt, tmp);
@@ -63,21 +58,20 @@ void	open_scene_file(t_rt *rt, char **av, int *i)
 			break ;
 	}
 
-
-	printf("R width:%d, height:%d\n", rt->width, rt->height);
-	printf("A ratio:%f, color:%u\n", rt->data.ambient.ratio, rt->data.ambient.color);
+	/* 값 잘 들어어가는지 확인*/
+	// printf("R width:%d, height:%d\n", rt->width, rt->height);
+	// printf("A ratio:%f, color:%u\n", rt->data.ambient.ratio, rt->data.ambient.color);
 	
-	printf("c cam:%f, %f, %f\n", rt->data.camera.cam.x, rt->data.camera.cam.y, rt->data.camera.cam.z);
-	printf("l position:%f, %f, %f\n", rt->data.light.position.x, rt->data.light.position.y, rt->data.light.position.z);
-	printf("l brightness:%f, color:%u\n", rt->data.light.brightness, rt->data.light.color);
+	// printf("c cam:%f, %f, %f\n", rt->data.camera.cam.x, rt->data.camera.cam.y, rt->data.camera.cam.z);
+	// printf("l position:%f, %f, %f\n", rt->data.light.position.x, rt->data.light.position.y, rt->data.light.position.z);
+	// printf("l brightness:%f, color:%u\n", rt->data.light.brightness, rt->data.light.color);
 	
-	printf("pl position:%f, %f, %f\n", rt->data.plane.position.x, rt->data.plane.position.y, rt->data.plane.position.z);
-	printf("pl orientation:%f, %f, %f\n", rt->data.plane.orientation.x, rt->data.plane.orientation.y, rt->data.plane.orientation.z);
-	printf("pl color:%u\n", rt->data.plane.color);
-	printf("sp center:%f, %f, %f\n", rt->data.sphere.center.x, rt->data.sphere.center.y, rt->data.sphere.center.z);
-	printf("sp radius:%f, color:%u\n", rt->data.sphere.radius, rt->data.sphere.color);
-	printf("cy center:%f, %f, %f\n", rt->data.cylinder.position.x, rt->data.cylinder.position.y, rt->data.cylinder.position.z);
-	printf("cy orientation:%f, %f, %f\n", rt->data.cylinder.orientation.x, rt->data.cylinder.orientation.y, rt->data.cylinder.orientation.z);
-	printf("cy diameter:%f, height:%f, color:%u\n", rt->data.cylinder.diameter, rt->data.cylinder.height, rt->data.cylinder.color);
-
+	// printf("pl position:%f, %f, %f\n", rt->data.plane.position.x, rt->data.plane.position.y, rt->data.plane.position.z);
+	// printf("pl orientation:%f, %f, %f\n", rt->data.plane.orientation.x, rt->data.plane.orientation.y, rt->data.plane.orientation.z);
+	// printf("pl color:%u\n", rt->data.plane.color);
+	// printf("sp center:%f, %f, %f\n", rt->data.sphere.center.x, rt->data.sphere.center.y, rt->data.sphere.center.z);
+	// printf("sp radius:%f, color:%u\n", rt->data.sphere.radius, rt->data.sphere.color);
+	// printf("cy center:%f, %f, %f\n", rt->data.cylinder.position.x, rt->data.cylinder.position.y, rt->data.cylinder.position.z);
+	// printf("cy orientation:%f, %f, %f\n", rt->data.cylinder.orientation.x, rt->data.cylinder.orientation.y, rt->data.cylinder.orientation.z);
+	// printf("cy diameter:%f, height:%f, color:%u\n", rt->data.cylinder.diameter, rt->data.cylinder.height, rt->data.cylinder.color);
 }

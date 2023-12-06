@@ -6,18 +6,11 @@
 /*   By: soohkang <soohkang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 03:28:03 by nahyulee          #+#    #+#             */
-/*   Updated: 2023/12/05 02:35:11 by soohkang         ###   ########.fr       */
+/*   Updated: 2023/12/06 17:57:43 by soohkang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
-
-void	draw(t_rt *rt)
-{
-	drawsphere(rt, rt->data.sphere);
-	// draw_cylinder(rt, rt ->data.cylinder);
-	// draw_???(rt, rt ->data.);
-}
 
 int	main(int ac, char **av)
 {
