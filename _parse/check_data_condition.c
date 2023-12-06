@@ -6,7 +6,7 @@
 /*   By: soohkang <soohkang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 03:15:07 by soohkang          #+#    #+#             */
-/*   Updated: 2023/12/06 03:51:04 by soohkang         ###   ########.fr       */
+/*   Updated: 2023/12/06 15:36:09 by soohkang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,19 @@
 
 void	check_data_condition(t_rt *rt, char *tmp)
 {
-	if (ft_strnstr(tmp, "R", ft_strlen(tmp)))
+	if (ft_strcmp("R", tmp) == 0)
 		put_r(rt, tmp);
-	else if (ft_strnstr(tmp, "A", ft_strlen(tmp)))
+	else if (ft_strcmp("A", tmp) == 0)
 		put_a(rt, tmp);
-	else if (ft_strnstr(tmp, "c", ft_strlen(tmp)))
+	else if (ft_strcmp("c", tmp) == 0)
 		put_c(rt, tmp);
-	else if (ft_strnstr(tmp, "l", ft_strlen(tmp)))
+	else if (ft_strcmp("l", tmp) == 0)
 		put_l(rt, tmp);
-	else if (ft_strnstr(tmp, "pl", ft_strlen(tmp)))
+	else if (ft_strcmp("pl", tmp) == 0)
 		put_pl(rt, tmp);
-	else if (ft_strnstr(tmp, "sp", ft_strlen(tmp)))
+	else if (ft_strcmp("sp", tmp) == 0)
 		put_sp(rt, tmp);
-	else if (ft_strnstr(tmp, "cy", ft_strlen(tmp)))
+	else if (ft_strcmp("cy", tmp) == 0)
 		put_cy(rt, tmp);
 	else
 		return ;
@@ -39,12 +39,10 @@ void	put_r(t_rt *rt, char *tmp)
 	int		i;
 
 	data = ft_split_bonus(tmp, " \t\n,");
-	if (data[0][0] == 'R')
+	if (ft_strcmp("R", data[0]) == 0)
 	{
-		// printf(">>>> 1 >>>>> width:%s, height:%s\n", data[1], data[2]); // R 뒤의 값 출력
 		rt->width = ft_atoi(data[1]);
 		rt->height = ft_atoi(data[2]);
-		// printf(">>>> 2 >>>>> width:%d, height:%d\n", rt->width, rt->height); // 출력되는 것 확인
 	}
 	else
 		ft_exit(1, "Error\nR is not exist\n");
@@ -60,7 +58,7 @@ void	put_a(t_rt *rt, char *tmp)
 	int		i;
 
 	data = ft_split_bonus(tmp, " \t\n,");
-	if (data[0][0] == 'A')
+	if (ft_strcmp("A", data[0]) == 0)
 	{
 		rt->data.ambient.ratio = ft_atof(data[1]);
 		rt->data.ambient.ratio = ft_atof(data[2]);
@@ -80,7 +78,7 @@ void	put_c(t_rt *rt, char *tmp)
 	int		i;
 
 	data = ft_split_bonus(tmp, " \t\n,");
-	if (data[0][0] == 'c')
+	if (ft_strcmp("c", data[0]) == 0)
 	{
 		rt->data.camera.cam = (t_vtr3){ft_atof(data[1]), ft_atof(data[2]), ft_atof(data[3])};
 		rt->data.camera.dir = (t_vtr3){ft_atof(data[4]), ft_atof(data[5]), ft_atof(data[6])};
@@ -103,7 +101,7 @@ void	put_l(t_rt *rt, char *tmp)
 	int		i;
 
 	data = ft_split_bonus(tmp, " \t\n,");
-	if (data[0][0] == 'l')
+	if (ft_strcmp("l", data[0]) == 0)
 	{
 		rt->data.light.position = (t_vtr3){ft_atof(data[1]), ft_atof(data[2]), ft_atof(data[3])};
 		rt->data.light.brightness = ft_atof(data[4]);

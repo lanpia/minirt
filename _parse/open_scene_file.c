@@ -6,7 +6,7 @@
 /*   By: soohkang <soohkang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 10:16:44 by nahyulee          #+#    #+#             */
-/*   Updated: 2023/12/05 19:16:22 by soohkang         ###   ########.fr       */
+/*   Updated: 2023/12/06 15:54:20 by soohkang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,22 @@ void	open_scene_file(t_rt *rt, char **av, int *i)
 		if (!tmp)
 			break ;
 	}
-	printf("R width:%d, height:%d\n", rt->width, rt->height); // 출력되는 것 확인
-	printf("A ratio:%f, color:%x\n", rt->data.ambient.ratio, rt->data.ambient.color); // 출력되는 것 확인
+
+
+	printf("R width:%d, height:%d\n", rt->width, rt->height);
+	printf("A ratio:%f, color:%u\n", rt->data.ambient.ratio, rt->data.ambient.color);
 	
+	printf("c cam:%f, %f, %f\n", rt->data.camera.cam.x, rt->data.camera.cam.y, rt->data.camera.cam.z);
+	printf("l position:%f, %f, %f\n", rt->data.light.position.x, rt->data.light.position.y, rt->data.light.position.z);
+	printf("l brightness:%f, color:%u\n", rt->data.light.brightness, rt->data.light.color);
+	
+	printf("pl position:%f, %f, %f\n", rt->data.plane.position.x, rt->data.plane.position.y, rt->data.plane.position.z);
+	printf("pl orientation:%f, %f, %f\n", rt->data.plane.orientation.x, rt->data.plane.orientation.y, rt->data.plane.orientation.z);
+	printf("pl color:%u\n", rt->data.plane.color);
+	printf("sp center:%f, %f, %f\n", rt->data.sphere.center.x, rt->data.sphere.center.y, rt->data.sphere.center.z);
+	printf("sp radius:%f, color:%u\n", rt->data.sphere.radius, rt->data.sphere.color);
+	printf("cy center:%f, %f, %f\n", rt->data.cylinder.position.x, rt->data.cylinder.position.y, rt->data.cylinder.position.z);
+	printf("cy orientation:%f, %f, %f\n", rt->data.cylinder.orientation.x, rt->data.cylinder.orientation.y, rt->data.cylinder.orientation.z);
+	printf("cy diameter:%f, height:%f, color:%u\n", rt->data.cylinder.diameter, rt->data.cylinder.height, rt->data.cylinder.color);
+
 }
