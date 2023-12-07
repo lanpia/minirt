@@ -6,52 +6,11 @@
 /*   By: nahyulee <nahyulee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 21:00:18 by nahyulee          #+#    #+#             */
-/*   Updated: 2023/12/07 17:15:12 by nahyulee         ###   ########.fr       */
+/*   Updated: 2023/12/07 19:31:27 by nahyulee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minirt.h"
-
-/**/
-// void	sphere(t_rt *rt)
-// {
-// 	// 구체를 고정값으로 처리한 상태. 즉, 파싱해서 이 고정된 값에 다가 값을 넣어야 함
-// 	// sphere: 구체
-// 	rt->data.sphere.center = (t_vtr3){0, 0, 20};
-// 	rt->data.sphere.radius = 20;
-// 	rt->data.sphere.color = rgb_hex(255, 0, 0);
-	
-// 	rt->data.camera.cam = (t_vtr3){-50, 0, 20};
-// 	rt->data.camera.dir = (t_vtr3){0, 0, 0};
-// 	rt->data.camera.fov = 70;
-// }
-
-
-// void	drawsphere(t_rt *rt, t_sp sphere)
-// {
-// 	t_vtr3	point3d;
-// 	t_vtr2	coord;
-// 	float	u;
-// 	float	angle;
-// 	float	v;
-
-// 	angle = 0.0f;
-// 	while (angle < 360.0f)
-// 	{
-// 		v = -sphere.radius;
-// 		while (v < sphere.radius)
-// 		{
-// 			u = sqrt(sphere.radius * sphere.radius - v * v);
-// 			point3d = (t_vtr3){sphere.center.x + u * cos(angle * M_PI / 180), 
-// 							sphere.center.y + v, 
-// 							sphere.center.z + u * sin(angle * M_PI / 180)};
-// 			coord = project3dto2d(rt, point3d);
-// 			mlx_pixel_put(rt->mlx, rt->window, coord.x, coord.y, sphere.color);
-// 			v += 0.1f;
-// 		}
-// 		angle += 0.1f;
-// 	}
-// }
 
 void	draw(t_rt *rt)
 {
