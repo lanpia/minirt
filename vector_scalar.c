@@ -6,11 +6,23 @@
 /*   By: nahyulee <nahyulee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 01:25:16 by nahyulee          #+#    #+#             */
-/*   Updated: 2023/11/26 05:11:10 by nahyulee         ###   ########.fr       */
+/*   Updated: 2023/12/05 18:00:23 by nahyulee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
+
+t_vtr3	normalize_vector(t_vtr3 v)
+{
+	t_vtr3	result;
+	float	len;
+
+	len = sqrt(v.x * v.x + v.y * v.y + v.z * v.z);
+	result.x = v.x / len;
+	result.y = v.y / len;
+	result.z = v.z / len;
+	return (result);
+}
 
 t_vtr3	add_val_vtr3(t_vtr3 v, float x, float y, float z)
 {

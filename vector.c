@@ -6,7 +6,7 @@
 /*   By: nahyulee <nahyulee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 03:28:03 by nahyulee          #+#    #+#             */
-/*   Updated: 2023/11/25 21:30:10 by nahyulee         ###   ########.fr       */
+/*   Updated: 2023/12/07 14:41:59 by nahyulee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,27 +47,14 @@ t_vtr3	subtract_vector(t_vtr3 a, t_vtr3 b)
 	return (result);
 }
 
-t_vtr3	multiply_vector(t_vtr3 v, float scalar)
+t_vtr3	vtr3_length(t_vtr3 v)
 {
 	t_vtr3	result;
+	float	len;
 
-	result.x = v.x * scalar;
-	result.y = v.y * scalar;
-	result.z = v.z * scalar;
-	return (result);
-}
-
-t_vtr3	divide_vector(t_vtr3 v, float scalar)
-{
-	t_vtr3	result;
-
-	if (scalar == 0)
-	{
-		write(1, "Error: Division by zero.\n", 25);
-		return (v);
-	}
-	result.x = v.x / scalar;
-	result.y = v.y / scalar;
-	result.z = v.z / scalar;
+	len = sqrt(v.x * v.x + v.y * v.y + v.z * v.z);
+	result.x = v.x / len;
+	result.y = v.y / len;
+	result.z = v.z / len;
 	return (result);
 }

@@ -7,7 +7,7 @@ MLX			= minilibx-linux
 MLX_LIB		= libmlx_Linux.a
 SRCS		= minirt.c \
 				file_read.c \
-				camera.c \
+				vector_scalar.c \
 				vector.c \
 				util.c \
 				draw.c
@@ -34,7 +34,7 @@ all			:	$(NAME)
 $(NAME): $(OBJ_CUR)
 		@make all -C $(LIBFT)/
 		@make all -C $(MLX)/
-		$(CC) $(CFLAGS) -o $@ $^ $(LIBFT)/$(LIBFT_LIB) $(MLX)/$(MLX_LIB) -lz -lXext -lX11 -lm
+		@$(CC) $(CFLAGS) -o $@ $^ $(LIBFT)/$(LIBFT_LIB) $(MLX)/$(MLX_LIB) -lz -lXext -lX11 -lm
 		@echo ${GREEN} "Compilation Done ✅"
 
 bonus:

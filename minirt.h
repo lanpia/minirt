@@ -6,7 +6,7 @@
 /*   By: nahyulee <nahyulee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 17:25:10 by nahyulee          #+#    #+#             */
-/*   Updated: 2023/11/25 22:09:35 by nahyulee         ###   ########.fr       */
+/*   Updated: 2023/12/07 14:46:10 by nahyulee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@
 # define KEY_S					1
 # define KEY_D					2
 # define KEY_UP					126
+
 # define KEY_LEFT				123
 # define KEY_DOWN				125
 # define KEY_RIGHT				124
@@ -50,17 +51,41 @@ typedef struct s_vector2d
 	int	y;
 }	t_vtr2;
 
+typedef struct s_uvw
+{
+	t_vtr3	u;
+	t_vtr3	v;
+	t_vtr3	w;
+}	t_uvw;
+
+typedef struct s_ray
+{
+	t_vtr3	origin;
+	t_vtr3	dir;
+}	t_ray;
+
 typedef struct s_ambentlight
 {
 	float			ratio;
 	unsigned int	color;
 }	t_a;
 
+typedef struct s_viewplane
+{
+	double	half_width;
+	double	half_height;
+}	t_vwpl;
+
 typedef struct s_camera
 {
 	t_vtr3	cam;
 	t_vtr3	dir;
 	int		fov;
+	t_uvw	uvw;
+	int		color;
+	t_ray	ray;
+	t_vwpl	viewplane;
+	double	t;
 }	t_c;
 
 typedef struct s_light
@@ -75,6 +100,9 @@ typedef struct s_plane
 	t_vtr3			position;
 	t_vtr3			orientation;
 	unsigned int	color;
+	double			t;
+	int				normal;
+	t_vtr3			hit_point;
 }	t_pl;
 
 typedef struct s_sphere
@@ -82,6 +110,9 @@ typedef struct s_sphere
 	t_vtr3			center;
 	float			radius;
 	unsigned int	color;
+	double			t;
+	int				normal;
+	t_vtr3			hit_point;
 }	t_sp;
 
 typedef struct s_cylinder
@@ -91,6 +122,9 @@ typedef struct s_cylinder
 	float			diameter;
 	float			height;
 	unsigned int	color;
+	double			t;
+	int				normal;
+	t_vtr3			hit_point;
 }	t_cy;
 
 typedef struct s_data
@@ -120,17 +154,24 @@ float			dot_product(t_vtr3 a, t_vtr3 b);
 t_vtr3			cross_product(t_vtr3 a, t_vtr3 b);
 t_vtr3			add_vector(t_vtr3 a, t_vtr3 b);
 t_vtr3			subtract_vector(t_vtr3 a, t_vtr3 b);
-t_vtr3			multiply_vector(t_vtr3 v, float scalar);
-t_vtr3			divide_vector(t_vtr3 v, float scalar);
 /* ***********************util********************************************** */
 int				press_key(int key_val, t_rt *rt);
 int				print_error(int key_val, t_rt *rt);
-/* ***********************camera********************************************* */
-void			move_camera(t_c camera, int x, int y, int z);
+/* ***********************vector********************************************* */
+float			dot_product(t_vtr3 a, t_vtr3 b);
+t_vtr3			cross_product(t_vtr3 a, t_vtr3 b);
+t_vtr3			add_vector(t_vtr3 a, t_vtr3 b);
+t_vtr3			subtract_vector(t_vtr3 a, t_vtr3 b);
+t_vtr3			vtr3_length(t_vtr3 v);
+/* ***********************vector_scalar************************************* */
+t_vtr3			normalize_vector(t_vtr3 v);
+t_vtr3			add_val_vtr3(t_vtr3 v, float x, float y, float z);
+t_vtr3			multiply_vector(t_vtr3 v, float x, float y, float z);
+t_vtr3			divide_vector(t_vtr3 v, float x, float y, float z);
 /* ***********************draw*********************************************** */
 t_vtr2			project3dto2d(t_rt *rt, t_vtr3 point3d);
 void			drawsphere(t_rt *rt, t_sp sphere);
-/* ************************************************************************** */
+void			drawplane(t_rt *rt, t_pl plane);
 /* ************************************************************************** */
 
 #endif
