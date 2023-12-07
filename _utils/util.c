@@ -6,11 +6,22 @@
 /*   By: nahyulee <nahyulee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 20:50:10 by nahyulee          #+#    #+#             */
+<<<<<<< HEAD:util.c
 /*   Updated: 2023/11/30 16:22:24 by nahyulee         ###   ########.fr       */
+=======
+/*   Updated: 2023/12/07 16:22:00 by nahyulee         ###   ########.fr       */
+>>>>>>> main:_utils/util.c
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt.h"
+#include "../minirt.h"
+
+void	move_camera(t_c camera, int x, int y, int z)
+{
+	camera.cam.x += x;
+	camera.cam.y += y;
+	camera.cam.z += z;
+}
 
 int	press_key(int key_val, t_rt *rt)
 {

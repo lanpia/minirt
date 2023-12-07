@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nahyulee <nahyulee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/07 15:21:50 by nahyulee          #+#    #+#             */
-/*   Updated: 2023/12/07 15:28:39 by nahyulee         ###   ########.fr       */
+/*   Created: 2023/11/22 01:25:16 by nahyulee          #+#    #+#             */
+/*   Updated: 2023/12/07 16:44:40 by nahyulee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt.h"
+#include "../minirt.h"
 
 void	cam_lookat(t_rt *rt)
 {
@@ -73,12 +73,20 @@ void	raycast(t_rt *rt)
 	}
 }
 
-void	find_normal(t_rt *rt)
+// void	find_normal(t_rt *rt)
+// {
+// 	if (rt->data.camera.t == rt->data.sphere.t)
+// 		rt->data.camera.normal = rt->data.sphere.normal;
+// 	else if (rt->data.camera.t == rt->data.plane.t)
+// 		rt->data.camera.normal = rt->data.plane.normal;
+// 	else if (rt->data.camera.t == rt->data.cylinder.t)
+// 		rt->data.camera.normal = rt->data.cylinder.normal;
+// }
+
+void	my_mlx_pixel_put(t_rt *rt, int x, int y, int color)
 {
-	if (rt->data.camera.t == rt->data.sphere.t)
-		rt->data.camera.normal = rt->data.sphere.normal;
-	else if (rt->data.camera.t == rt->data.plane.t)
-		rt->data.camera.normal = rt->data.plane.normal;
-	else if (rt->data.camera.t == rt->data.cylinder.t)
-		rt->data.camera.normal = rt->data.cylinder.normal;
+	char	*dst;
+
+	dst = rt->addr + (y * rt->line_length + x * (rt->bits_per_pixel / 8));
+	*(unsigned int *)dst = color;
 }

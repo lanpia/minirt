@@ -6,7 +6,11 @@
 /*   By: nahyulee <nahyulee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 17:25:10 by nahyulee          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2023/12/07 15:27:56 by nahyulee         ###   ########.fr       */
+=======
+/*   Updated: 2023/12/07 16:44:51 by nahyulee         ###   ########.fr       */
+>>>>>>> main
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +23,9 @@
 # include <fcntl.h>
 # include <math.h>
 # include <stdbool.h>
+
+// delete after submitted ~!~!~!~!~!!!!!!!!!!!!
+# include <stdio.h>
 
 # define X_EVENT_KEY_PRESS		2
 # define X_EVENT_KEY_EXIT		17
@@ -38,6 +45,7 @@
 #  define M_PI	3.14159265358979323846
 # endif
 
+// 3차원 벡터
 typedef struct s_vector3d
 {
 	float	x;
@@ -45,6 +53,7 @@ typedef struct s_vector3d
 	float	z;
 }	t_vtr3;
 
+// 2차원 벡터
 typedef struct s_vector2d
 {
 	int	x;
@@ -64,18 +73,32 @@ typedef struct s_ray
 	t_vtr3	dir;
 }	t_ray;
 
-typedef struct s_ambentlight
-{
-	float			ratio;
-	unsigned int	color;
-}	t_a;
-
+<<<<<<< HEAD
+=======
 typedef struct s_viewplane
 {
 	double	half_width;
 	double	half_height;
 }	t_vwpl;
 
+// 환경광
+>>>>>>> main
+typedef struct s_ambentlight
+{
+	float			ratio; // 0.0 완전한 어둠, 1.0 최대 밝기
+	unsigned int	color; //rgb
+}	t_a;
+
+<<<<<<< HEAD
+typedef struct s_viewplane
+{
+	double	half_width;
+	double	half_height;
+}	t_vwpl;
+
+=======
+// 카메라
+>>>>>>> main
 typedef struct s_camera
 {
 	t_vtr3	cam;
@@ -88,6 +111,7 @@ typedef struct s_camera
 	double	t;
 }	t_c;
 
+// 조명
 typedef struct s_light
 {
 	t_vtr3			position;
@@ -95,6 +119,7 @@ typedef struct s_light
 	unsigned int	color;
 }	t_l;
 
+// 평면
 typedef struct s_plane
 {
 	t_vtr3			position;
@@ -127,6 +152,7 @@ typedef struct s_cylinder
 	t_vtr3			hit_point;
 }	t_cy;
 
+// 장면 데이터
 typedef struct s_data
 {
 	t_a		ambient;
@@ -137,6 +163,7 @@ typedef struct s_data
 	t_cy	cylinder;
 }	t_d;
 
+// miniRT 메인 구조체
 typedef struct s_mlx
 {
 	void	*mlx;
@@ -146,15 +173,46 @@ typedef struct s_mlx
 	t_d		data;
 }	t_rt;
 
-/* ***********************file_read****************************************** */
-void			read_data(t_rt *d, char **av);
+
+/* ***********************draw*********************************************** */
+void			draw(t_rt *rt);
+void			drawsphere(t_rt *rt, t_sp sphere);
+void			drawplane(t_rt *rt, t_pl plane);
+void			drawcylinder(t_rt *rt, t_cy cylinder);
+/* ***********************check_data_condition******************************* */
+void			check_data_condition(t_rt *rt, char *tmp);
+void			put_r(t_rt *rt, char *tmp);
+void			put_a(t_rt *rt, char *tmp);
+/* ***********************extension***************************************** */
+void			part_of_parse_extens(char **av, int **i);
+void			parse_extens(char **av, int *i);
+/* ***********************open_scene_file************************************ */
 unsigned int	rgb_hex(int red, int green, int blue);
+<<<<<<< HEAD
 /* ***********************camera********************************************* */
 void			cam_lookat(t_rt *rt);
 void			viewplane(t_rt *rt);
 void			raycast(t_rt *rt);
 void			find_normal(t_rt *rt);
 /* ***********************util********************************************** */
+=======
+void			sphere(t_rt *rt);
+void			open_scene_file(t_rt *rt, char **av, int *i);
+/* ***********************camera******************************************** */
+void			cam_lookat(t_rt *rt);
+void			viewplane(t_rt *rt);
+void			raycast(t_rt *rt);
+// void			find_normal(t_rt *rt);
+void			my_mlx_pixel_put(t_rt *rt, int x, int y, int color);
+/* ***********************intersect***************************************** */
+void			intersect(t_rt *rt);
+void			intersect_sphere(t_rt *rt);
+void			intersect_plane(t_rt *rt);
+void			intersect_cylinder(t_rt *rt);
+void			find_min_hit_intersection(t_rt *rt);
+/* ***********************util********************************************** */
+void			move_camera(t_c camera, int x, int y, int z);
+>>>>>>> main
 int				press_key(int key_val, t_rt *rt);
 int				print_error(int key_val, t_rt *rt);
 /* ***********************vector********************************************* */
@@ -168,10 +226,13 @@ t_vtr3			normalize_vector(t_vtr3 v);
 t_vtr3			add_val_vtr3(t_vtr3 v, float x, float y, float z);
 t_vtr3			multiply_vector(t_vtr3 v, float x, float y, float z);
 t_vtr3			divide_vector(t_vtr3 v, float x, float y, float z);
+<<<<<<< HEAD
 /* ***********************draw*********************************************** */
 t_vtr2			project3dto2d(t_rt *rt, t_vtr3 point3d);
 void			drawsphere(t_rt *rt, t_sp sphere);
 void			drawplane(t_rt *rt, t_pl plane);
+=======
+>>>>>>> main
 /* ************************************************************************** */
 
 #endif
