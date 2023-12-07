@@ -6,7 +6,7 @@
 /*   By: soohkang <soohkang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 21:00:18 by nahyulee          #+#    #+#             */
-/*   Updated: 2023/12/07 09:19:20 by soohkang         ###   ########.fr       */
+/*   Updated: 2023/12/07 22:29:51 by soohkang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	draw(t_rt *rt)
 {
 	drawsphere(rt, rt->data.sphere);
-	// draw_cylinder(rt, rt ->data.cylinder);
+	draw_cylinder(rt, rt->data.cylinder);
 	// draw_plane(rt, rt ->data.);
 }
 
@@ -34,9 +34,10 @@ void	drawsphere(t_rt *rt, t_sp sphere)
 		while (v < sphere.radius)
 		{
 			u = sqrt(sphere.radius * sphere.radius - v * v);
+			// 구의 각 점의 위치 계산
 			point3d = (t_vtr3){sphere.center.x + u * cos(angle * M_PI / 180), \
 								sphere.center.y + v, \
-								sphere.center.z + u * sin(angle * M_PI / 180)}; // 구의 각 점의 위치 계산
+								sphere.center.z + u * sin(angle * M_PI / 180)};
 			coord = project3dto2d(rt, point3d);
 			mlx_pixel_put(rt->mlx, rt->window, coord.x, coord.y, sphere.color);
 			v += 0.1f;
