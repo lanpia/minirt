@@ -6,7 +6,7 @@
 /*   By: nahyulee <nahyulee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 17:25:10 by nahyulee          #+#    #+#             */
-/*   Updated: 2023/12/07 14:46:10 by nahyulee         ###   ########.fr       */
+/*   Updated: 2023/12/07 15:27:56 by nahyulee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,11 +149,11 @@ typedef struct s_mlx
 /* ***********************file_read****************************************** */
 void			read_data(t_rt *d, char **av);
 unsigned int	rgb_hex(int red, int green, int blue);
-/* ***********************vector********************************************* */
-float			dot_product(t_vtr3 a, t_vtr3 b);
-t_vtr3			cross_product(t_vtr3 a, t_vtr3 b);
-t_vtr3			add_vector(t_vtr3 a, t_vtr3 b);
-t_vtr3			subtract_vector(t_vtr3 a, t_vtr3 b);
+/* ***********************camera********************************************* */
+void			cam_lookat(t_rt *rt);
+void			viewplane(t_rt *rt);
+void			raycast(t_rt *rt);
+void			find_normal(t_rt *rt);
 /* ***********************util********************************************** */
 int				press_key(int key_val, t_rt *rt);
 int				print_error(int key_val, t_rt *rt);

@@ -6,7 +6,7 @@
 /*   By: nahyulee <nahyulee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 21:00:18 by nahyulee          #+#    #+#             */
-/*   Updated: 2023/12/05 14:59:53 by nahyulee         ###   ########.fr       */
+/*   Updated: 2023/12/07 15:20:30 by nahyulee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,46 +27,137 @@
 // 	return (point2d);
 // }
 
-t_vtr2	project3dto2d(t_rt *rt, t_vtr3 point3d)
-{
-	t_vtr2	point2d;
+// t_vtr2	project3dto2d(t_rt *rt, t_vtr3 point3d)
+// {
+// 	t_vtr2	point2d;
 
-	point2d.x = (int)(rt->width / 2 + point3d.x);
-	point2d.y = (int)(rt->height / 2 - point3d.y);
-	return (point2d);
-}
+// 	point2d.x = (int)(rt->width / 2 + point3d.x);
+// 	point2d.y = (int)(rt->height / 2 - point3d.y);
+// 	return (point2d);
+// }
+
+// void	drawsphere(t_rt *rt, t_sp sphere)
+// {
+// 	t_vtr3	point3d;
+// 	t_vtr2	coord;
+// 	float	u;
+// 	float	angle;
+// 	float	v;
+
+// 	angle = 0.0f;
+// 	while (angle < 360.0f)
+// 	{
+// 		v = -sphere.radius;
+// 		while (v < sphere.radius)
+// 		{
+// 			u = sqrt(sphere.radius * sphere.radius - v * v);
+// 			point3d = (t_vtr3){sphere.center.x + u * cos(angle * M_PI / 180), \
+// 							sphere.center.y + v, \
+// 							sphere.center.z + u * sin(angle * M_PI / 180)};
+// 			coord = project3dto2d(rt, point3d);
+// 			mlx_pixel_put(rt->mlx, rt->window, coord.x, coord.y, sphere.color);
+// 			v += 0.1f;
+// 		}
+// 		angle += 0.1f;
+// 	}
+// }
+
+// void	drawplane(t_rt *rt, t_pl plane)
+// {
+// 	float		d;
+
+// 	d = dot_product(multiply_vector(plane.orientation, -1.0, -1.0, -1.0), plane.position);
+// 	// plane.position.x * X + plane.position.y * Y + plane.position.z * Z + d = 0; 평면의 방정식
+	
+// }
+
 
 void	drawsphere(t_rt *rt, t_sp sphere)
 {
-	t_vtr3	point3d;
-	t_vtr2	coord;
-	float	u;
-	float	angle;
-	float	v;
+	int		i;
+	int		j;
+	double	x;
+	double	y;
+	double	u;
+	double	v;
+	t_ray	ray;
 
-	angle = 0.0f;
-	while (angle < 360.0f)
+	i = -1;
+	while (++i < rt->height)
 	{
-		v = -sphere.radius;
-		while (v < sphere.radius)
+		j = -1;
+		while (++j < rt->width)
 		{
-			u = sqrt(sphere.radius * sphere.radius - v * v);
-			point3d = (t_vtr3){sphere.center.x + u * cos(angle * M_PI / 180), \
-							sphere.center.y + v, \
-							sphere.center.z + u * sin(angle * M_PI / 180)};
-			coord = project3dto2d(rt, point3d);
-			mlx_pixel_put(rt->mlx, rt->window, coord.x, coord.y, sphere.color);
-			v += 0.1f;
+			x = (2 * ((j + 0.5) / rt->width) - 1) * rt->data.camera.viewplane.half_width;
+			y = (1 - 2 * ((i + 0.5) / rt->height)) * rt->data.camera.viewplane.half_height;
+			u = x * rt->data.camera.uvw.u.x + y * rt->data.camera.uvw.v.x + rt->data.camera.uvw.w.x;
+			v = x * rt->data.camera.uvw.u.y + y * rt->data.camera.uvw.v.y + rt->data.camera.uvw.w.y;
+			ray.dir = normalize_vector((t_vtr3){u, v, -1});
+			ray.origin = rt->data.camera.cam;
+			rt->data.camera.ray = ray;
+			intersect_sphere(rt);
+			rt->data.camera.color = ray_color(rt);
+			my_mlx_pixel_put(rt, j, i, rt->data.camera.color);
 		}
-		angle += 0.1f;
 	}
 }
 
 void	drawplane(t_rt *rt, t_pl plane)
 {
-	float		d;
+	int		i;
+	int		j;
+	double	x;
+	double	y;
+	double	u;
+	double	v;
+	t_ray	ray;
 
-	d = dot_product(multiply_vector(plane.orientation, -1.0, -1.0, -1.0), plane.position);
-	// plane.position.x * X + plane.position.y * Y + plane.position.z * Z + d = 0; 평면의 방정식
-	
+	i = -1;
+	while (++i < rt->height)
+	{
+		j = -1;
+		while (++j < rt->width)
+		{
+			x = (2 * ((j + 0.5) / rt->width) - 1) * rt->data.camera.viewplane.half_width;
+			y = (1 - 2 * ((i + 0.5) / rt->height)) * rt->data.camera.viewplane.half_height;
+			u = x * rt->data.camera.uvw.u.x + y * rt->data.camera.uvw.v.x + rt->data.camera.uvw.w.x;
+			v = x * rt->data.camera.uvw.u.y + y * rt->data.camera.uvw.v.y + rt->data.camera.uvw.w.y;
+			ray.dir = normalize_vector((t_vtr3){u, v, -1});
+			ray.origin = rt->data.camera.cam;
+			rt->data.camera.ray = ray;
+			intersect_plane(rt);
+			rt->data.camera.color = ray_color(rt);
+			my_mlx_pixel_put(rt, j, i, rt->data.camera.color);
+		}
+	}
+}
+
+void	drawcylinder(t_rt *rt, t_cy cylinder)
+{
+	int		i;
+	int		j;
+	double	x;
+	double	y;
+	double	u;
+	double	v;
+	t_ray	ray;
+
+	i = -1;
+	while (++i < rt->height)
+	{
+		j = -1;
+		while (++j < rt->width)
+		{
+			x = (2 * ((j + 0.5) / rt->width) - 1) * rt->data.camera.viewplane.half_width;
+			y = (1 - 2 * ((i + 0.5) / rt->height)) * rt->data.camera.viewplane.half_height;
+			u = x * rt->data.camera.uvw.u.x + y * rt->data.camera.uvw.v.x + rt->data.camera.uvw.w.x;
+			v = x * rt->data.camera.uvw.u.y + y * rt->data.camera.uvw.v.y + rt->data.camera.uvw.w.y;
+			ray.dir = normalize_vector((t_vtr3){u, v, -1});
+			ray.origin = rt->data.camera.cam;
+			rt->data.camera.ray = ray;
+			intersect_cylinder(rt);
+			rt->data.camera.color = ray_color(rt);
+			my_mlx_pixel_put(rt, j, i, rt->data.camera.color);
+		}
+	}
 }
