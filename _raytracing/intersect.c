@@ -6,11 +6,11 @@
 /*   By: nahyulee <nahyulee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 15:20:51 by nahyulee          #+#    #+#             */
-/*   Updated: 2023/12/07 15:21:17 by nahyulee         ###   ########.fr       */
+/*   Updated: 2023/12/07 19:25:30 by nahyulee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt.h"
+#include "../minirt.h"
 
 void	intersect(t_rt *rt)
 {

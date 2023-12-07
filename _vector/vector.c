@@ -6,15 +6,11 @@
 /*   By: nahyulee <nahyulee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 03:28:03 by nahyulee          #+#    #+#             */
-<<<<<<< HEAD:vector.c
-/*   Updated: 2023/12/07 14:41:59 by nahyulee         ###   ########.fr       */
-=======
-/*   Updated: 2023/12/07 16:18:14 by nahyulee         ###   ########.fr       */
->>>>>>> main:_vector/vector.c
+/*   Updated: 2023/12/07 19:25:02 by nahyulee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt.h"
+#include "../minirt.h"
 
 float	dot_product(t_vtr3 a, t_vtr3 b)
 {

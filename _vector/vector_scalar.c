@@ -6,11 +6,11 @@
 /*   By: nahyulee <nahyulee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 01:25:16 by nahyulee          #+#    #+#             */
-/*   Updated: 2023/12/07 16:18:37 by nahyulee         ###   ########.fr       */
+/*   Updated: 2023/12/07 19:24:52 by nahyulee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt.h"
+#include "../minirt.h"
 
 t_vtr3	normalize_vector(t_vtr3 v)
 {

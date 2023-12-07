@@ -188,14 +188,6 @@ void			part_of_parse_extens(char **av, int **i);
 void			parse_extens(char **av, int *i);
 /* ***********************open_scene_file************************************ */
 unsigned int	rgb_hex(int red, int green, int blue);
-<<<<<<< HEAD
-/* ***********************camera********************************************* */
-void			cam_lookat(t_rt *rt);
-void			viewplane(t_rt *rt);
-void			raycast(t_rt *rt);
-void			find_normal(t_rt *rt);
-/* ***********************util********************************************** */
-=======
 void			sphere(t_rt *rt);
 void			open_scene_file(t_rt *rt, char **av, int *i);
 /* ***********************camera******************************************** */
@@ -212,7 +204,6 @@ void			intersect_cylinder(t_rt *rt);
 void			find_min_hit_intersection(t_rt *rt);
 /* ***********************util********************************************** */
 void			move_camera(t_c camera, int x, int y, int z);
->>>>>>> main
 int				press_key(int key_val, t_rt *rt);
 int				print_error(int key_val, t_rt *rt);
 /* ***********************vector********************************************* */
@@ -226,13 +217,6 @@ t_vtr3			normalize_vector(t_vtr3 v);
 t_vtr3			add_val_vtr3(t_vtr3 v, float x, float y, float z);
 t_vtr3			multiply_vector(t_vtr3 v, float x, float y, float z);
 t_vtr3			divide_vector(t_vtr3 v, float x, float y, float z);
-<<<<<<< HEAD
-/* ***********************draw*********************************************** */
-t_vtr2			project3dto2d(t_rt *rt, t_vtr3 point3d);
-void			drawsphere(t_rt *rt, t_sp sphere);
-void			drawplane(t_rt *rt, t_pl plane);
-=======
->>>>>>> main
 /* ************************************************************************** */
 
 #endif

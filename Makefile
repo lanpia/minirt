@@ -4,13 +4,6 @@ LIBFT_LIB	= libft.a
 MLX			= mlx
 MLX_LIB		= libmlx.a
 SRCS		= minirt.c \
-<<<<<<< HEAD
-				file_read.c \
-				vector_scalar.c \
-				vector.c \
-				util.c \
-				draw.c
-=======
 			_draw/draw.c \
 			_parse/check_data_condition.c \
 			_parse/extension.c \
@@ -20,7 +13,6 @@ SRCS		= minirt.c \
 			_utils/util.c \
 			_vector/vector_scalar.c \
 			_vector/vector.c
->>>>>>> main
 OBJS 		= $(SRCS:.c=.o)
 OBJS		= $(addprefix obj/,$(SRCS:.c=.o))
 OBJS_BONUS	= $(addprefix obj/,$(SRCS_BONUS:.c=.o))
@@ -44,11 +36,7 @@ all			:	$(NAME)
 $(NAME): $(OBJ_CUR)
 		@make all -C $(LIBFT)/
 		@make all -C $(MLX)/
-<<<<<<< HEAD
 		@$(CC) $(CFLAGS) -o $@ $^ $(LIBFT)/$(LIBFT_LIB) $(MLX)/$(MLX_LIB) -lz -lXext -lX11 -lm
-=======
-		@$(CC) $(CFLAGS) -o $@ $(OBJ_CUR) $(LIBFT)/$(LIBFT_LIB) $(MLX)/$(MLX_LIB) -framework OpenGL -framework AppKit -lz -lm
->>>>>>> main
 		@echo ${GREEN} "Compilation Done ✅"
 
 bonus:
@@ -73,3 +61,5 @@ fclean: clean
 re : fclean all
 
 .PHONY : all clean fclean re bonus
+
+#@$(CC) $(CFLAGS) -o $@ $(OBJ_CUR) $(LIBFT)/$(LIBFT_LIB) $(MLX)/$(MLX_LIB) -framework OpenGL -framework AppKit -lz -lm
