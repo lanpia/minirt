@@ -6,7 +6,7 @@
 /*   By: nahyulee <nahyulee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 17:25:10 by nahyulee          #+#    #+#             */
-/*   Updated: 2023/12/07 16:39:32 by nahyulee         ###   ########.fr       */
+/*   Updated: 2023/12/07 16:44:51 by nahyulee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -178,6 +178,13 @@ void			cam_lookat(t_rt *rt);
 void			viewplane(t_rt *rt);
 void			raycast(t_rt *rt);
 // void			find_normal(t_rt *rt);
+void			my_mlx_pixel_put(t_rt *rt, int x, int y, int color);
+/* ***********************intersect***************************************** */
+void			intersect(t_rt *rt);
+void			intersect_sphere(t_rt *rt);
+void			intersect_plane(t_rt *rt);
+void			intersect_cylinder(t_rt *rt);
+void			find_min_hit_intersection(t_rt *rt);
 /* ***********************util********************************************** */
 void			move_camera(t_c camera, int x, int y, int z);
 int				press_key(int key_val, t_rt *rt);

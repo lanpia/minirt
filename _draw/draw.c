@@ -6,7 +6,7 @@
 /*   By: nahyulee <nahyulee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 21:00:18 by nahyulee          #+#    #+#             */
-/*   Updated: 2023/12/07 16:21:02 by nahyulee         ###   ########.fr       */
+/*   Updated: 2023/12/07 17:15:12 by nahyulee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@
 // 		while (v < sphere.radius)
 // 		{
 // 			u = sqrt(sphere.radius * sphere.radius - v * v);
-// 			point3d = (t_vtr3){sphere.center.x + u * cos(angle * M_PI / 180), \
-// 							sphere.center.y + v, \
+// 			point3d = (t_vtr3){sphere.center.x + u * cos(angle * M_PI / 180), 
+// 							sphere.center.y + v, 
 // 							sphere.center.z + u * sin(angle * M_PI / 180)};
 // 			coord = project3dto2d(rt, point3d);
 // 			mlx_pixel_put(rt->mlx, rt->window, coord.x, coord.y, sphere.color);
@@ -57,7 +57,7 @@ void	draw(t_rt *rt)
 {
 	drawsphere(rt, rt->data.sphere);
 	drawplane(rt, rt->data.plane);
-	draw_cylinder(rt, rt ->data.cylinder);
+	drawcylinder(rt, rt ->data.cylinder);
 }
 
 void	drawsphere(t_rt *rt, t_sp sphere)

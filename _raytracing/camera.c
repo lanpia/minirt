@@ -6,7 +6,7 @@
 /*   By: nahyulee <nahyulee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 01:25:16 by nahyulee          #+#    #+#             */
-/*   Updated: 2023/12/07 16:21:52 by nahyulee         ###   ########.fr       */
+/*   Updated: 2023/12/07 16:44:40 by nahyulee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,3 +82,11 @@ void	raycast(t_rt *rt)
 // 	else if (rt->data.camera.t == rt->data.cylinder.t)
 // 		rt->data.camera.normal = rt->data.cylinder.normal;
 // }
+
+void	my_mlx_pixel_put(t_rt *rt, int x, int y, int color)
+{
+	char	*dst;
+
+	dst = rt->addr + (y * rt->line_length + x * (rt->bits_per_pixel / 8));
+	*(unsigned int *)dst = color;
+}

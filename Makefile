@@ -9,6 +9,7 @@ SRCS		= minirt.c \
 			_parse/extension.c \
 			_parse/open_scene_file.c \
 			_raytracing/camera.c \
+			_raytracing/intersect.c \
 			_utils/util.c \
 			_vector/vector_scalar.c \
 			_vector/vector.c

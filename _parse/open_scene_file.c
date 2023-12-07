@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   open_scene_file.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soohkang <soohkang@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: nahyulee <nahyulee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 10:16:44 by nahyulee          #+#    #+#             */
-/*   Updated: 2023/12/05 14:34:31 by soohkang         ###   ########.fr       */
+/*   Updated: 2023/12/07 16:53:28 by nahyulee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minirt.h"
-#include "../mlx/mlx.h"
 
 unsigned int	rgb_hex(int red, int green, int blue)
 {
