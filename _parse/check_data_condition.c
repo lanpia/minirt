@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   check_data_condition.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soohkang <soohkang@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: nahyulee <nahyulee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 03:15:07 by soohkang          #+#    #+#             */
-/*   Updated: 2023/12/05 14:34:50 by soohkang         ###   ########.fr       */
+/*   Updated: 2023/12/07 16:27:06 by nahyulee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minirt.h"
-#include "../mlx/mlx.h"
 
 void	check_data_condition(t_rt *rt, char *tmp)
 {
