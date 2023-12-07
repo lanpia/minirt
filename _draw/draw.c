@@ -6,7 +6,7 @@
 /*   By: soohkang <soohkang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 21:00:18 by nahyulee          #+#    #+#             */
-/*   Updated: 2023/12/06 18:06:58 by soohkang         ###   ########.fr       */
+/*   Updated: 2023/12/07 09:19:20 by soohkang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,22 +21,22 @@ void	draw(t_rt *rt)
 
 void	drawsphere(t_rt *rt, t_sp sphere)
 {
-	t_vtr3	point3d;
-	t_vtr2	coord;
-	float	u;
-	float	angle;
-	float	v;
+	t_vtr3	point3d; // 3차원 공간 구의 각 점의 위치
+	t_vtr2	coord; // 3차원 점점을 2차원 화면 좌표로 변환하여 저장
+	float	u; // 구의 반지름
+	float	angle; // 구의 각도
+	float	v; // 구의 반지름
 
 	angle = 0.0f;
-	while (angle < 360.0f)
+	while (angle < 360.0f) // 360도, 구의 위도 반복
 	{
 		v = -sphere.radius;
 		while (v < sphere.radius)
 		{
 			u = sqrt(sphere.radius * sphere.radius - v * v);
 			point3d = (t_vtr3){sphere.center.x + u * cos(angle * M_PI / 180), \
-							sphere.center.y + v, \
-							sphere.center.z + u * sin(angle * M_PI / 180)};
+								sphere.center.y + v, \
+								sphere.center.z + u * sin(angle * M_PI / 180)}; // 구의 각 점의 위치 계산
 			coord = project3dto2d(rt, point3d);
 			mlx_pixel_put(rt->mlx, rt->window, coord.x, coord.y, sphere.color);
 			v += 0.1f;
@@ -49,8 +49,8 @@ t_vtr2	project3dto2d(t_rt *rt, t_vtr3 point3d)
 {
 	t_vtr2	point2d;
 
-	point2d.x = (int)(rt->width / 2 + point3d.x);
-	point2d.y = (int)(rt->height / 2 - point3d.y);
+	point2d.x = (int)((float)rt->width / 2 + point3d.x);
+	point2d.y = (int)((float)rt->height / 2 - point3d.y);
 	return (point2d);
 }
 
