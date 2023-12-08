@@ -6,7 +6,7 @@
 /*   By: soohkang <soohkang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 21:00:18 by nahyulee          #+#    #+#             */
-/*   Updated: 2023/12/07 22:29:51 by soohkang         ###   ########.fr       */
+/*   Updated: 2023/12/08 17:29:38 by soohkang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,15 @@
 
 void	draw(t_rt *rt)
 {
+	// 고정값 sphere
 	drawsphere(rt, rt->data.sphere);
-	draw_cylinder(rt, rt->data.cylinder);
+	
+	// 타원 그리기
+	// draw_ellipsoid(rt, rt->data.ellipsoid);
+	
+	// 원기둥 그리기
+	// draw_cylinder(rt, rt->data.cylinder);
+	
 	// draw_plane(rt, rt ->data.);
 }
 
