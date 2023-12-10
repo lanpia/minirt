@@ -6,7 +6,7 @@
 /*   By: soohkang <soohkang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 16:59:35 by soohkang          #+#    #+#             */
-/*   Updated: 2023/12/04 23:39:00 by soohkang         ###   ########.fr       */
+/*   Updated: 2023/12/09 17:06:32 by soohkang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	part_of_parse_extens(char **av, int **i)
 		ft_exit(1, "Error\nFile is not .rt\n");
 }
 
-void	parse_extens(char **av, int *i)
+void	parse_extensions(char **av, int *i)
 {
 	int	last_i;
 	int	j;

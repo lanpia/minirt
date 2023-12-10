@@ -6,7 +6,7 @@
 /*   By: soohkang <soohkang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 17:25:10 by nahyulee          #+#    #+#             */
-/*   Updated: 2023/12/08 07:08:53 by soohkang         ###   ########.fr       */
+/*   Updated: 2023/12/10 16:55:38 by soohkang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,10 +127,12 @@ typedef struct s_mlx
 
 
 /* ***********************parsing******************************************** */
-void			parse_extens(char **av, int *i);
+void			parse_extensions(char **av, int *i);
 void			part_of_parse_extens(char **av, int **i);
+
 /* ***********************open_file****************************************** */
 void			open_scene_file(t_rt *d, char **av, int *i);
+
 /* ***********************open_file****************************************** */
 unsigned int	rgb_hex(int red, int green, int blue);
 void			check_data_condition(t_rt *rt, char *tmp);
@@ -141,7 +143,7 @@ void			put_l(t_rt *rt, char *tmp);
 void			put_pl(t_rt *rt, char *tmp);
 void			put_sp(t_rt *rt, char *tmp);
 void			put_cy(t_rt *rt, char *tmp);
-void			sphere(t_rt *rt);
+
 /* ***********************vector********************************************* */
 float			dot_product(t_vtr3 a, t_vtr3 b);
 t_vtr3			cross_product(t_vtr3 a, t_vtr3 b);
@@ -149,18 +151,19 @@ t_vtr3			add_vector(t_vtr3 a, t_vtr3 b);
 t_vtr3			subtract_vector(t_vtr3 a, t_vtr3 b);
 t_vtr3			multiply_vector(t_vtr3 v, float scalar);
 t_vtr3			divide_vector(t_vtr3 v, float scalar);
+
 /* ***********************util********************************************** */
 int				press_key(int key_val, t_rt *rt);
 int				print_error(int key_val, t_rt *rt);
+
 /* ***********************camera********************************************* */
+void			turn_on_camera(t_rt *rt);
 void			move_camera(t_c camera, int x, int y, int z);
+
 /* ***********************draw*********************************************** */
-void			draw(t_rt *rt);
+void			draw_start(t_rt *rt);
 t_vtr2			project3dto2d(t_rt *rt, t_vtr3 point3d);
-void			drawsphere(t_rt *rt, t_sp sphere);
+void			sphere(t_rt *rt, t_sp sphere);
 void			draw_cylinder(t_rt *rt, t_sp cylinder);
-/* ************************************************************************** */
 
-
-/* ************************************************************************** */
 #endif

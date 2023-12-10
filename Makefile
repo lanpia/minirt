@@ -3,23 +3,24 @@ LIBFT		= libft
 LIBFT_LIB	= libft.a
 MLX			= mlx
 MLX_LIB		= libmlx.a
-# MLX			= minilibx-linux
-# MLX_LIB		= libmlx_Linux.a
+# MLX		= minilibx-linux
+# MLX_LIB	= libmlx_Linux.a
 SRCS		= minirt.c \
 			_parse/extension.c \
 			_parse/open_scene_file.c \
 			_parse/check_data_condition.c \
 			_raytracing/camera.c \
 			_vector/vector.c \
+			_draw/start.c \
+			_draw/sphere.c \
 			_utils/util.c \
-			_draw/draw.c \
 
 OBJS 		= $(SRCS:.c=.o)
-OBJS = $(addprefix obj/,$(SRCS:.c=.o))
-OBJS_BONUS = $(addprefix obj/,$(SRCS_BONUS:.c=.o))
+OBJS 		= $(addprefix obj/,$(SRCS:.c=.o))
+OBJS_BONUS 	= $(addprefix obj/,$(SRCS_BONUS:.c=.o))
 LIBC		= ar rc
 CC 			= cc
-CFLAGS 		= -Wall -Wextra -Werror -g -g3 -fsanitize=address
+CFLAGS 		= -Wall -Wextra -Werror -g -g3 -fsanitize=address -O2 -DSTRINGPUTX11 -DGL_SILENCE_DEPRECATION 
 RM 			= rm -rf
 
 GREEN		= "\033[1;32m"
