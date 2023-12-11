@@ -20,7 +20,7 @@ OBJS 		= $(addprefix obj/,$(SRCS:.c=.o))
 OBJS_BONUS 	= $(addprefix obj/,$(SRCS_BONUS:.c=.o))
 LIBC		= ar rc
 CC 			= cc
-CFLAGS 		= -Wall -Wextra -Werror -g -g3 -fsanitize=address -O2 -DSTRINGPUTX11 -DGL_SILENCE_DEPRECATION 
+CFLAGS 		= -Wall -Wextra -Werror -g -g3 -fsanitize=address
 RM 			= rm -rf
 
 GREEN		= "\033[1;32m"
