@@ -6,7 +6,7 @@
 /*   By: soohkang <soohkang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 01:25:16 by nahyulee          #+#    #+#             */
-/*   Updated: 2023/12/10 01:30:25 by soohkang         ###   ########.fr       */
+/*   Updated: 2023/12/11 21:06:02 by soohkang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@
 void	turn_on_camera(t_rt *rt)
 {
 	(void)rt;
+	double	viewport[2]; // width, height
+
 	
 }
 

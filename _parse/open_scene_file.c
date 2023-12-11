@@ -6,34 +6,12 @@
 /*   By: soohkang <soohkang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 10:16:44 by nahyulee          #+#    #+#             */
-/*   Updated: 2023/12/10 16:56:52 by soohkang         ###   ########.fr       */
+/*   Updated: 2023/12/11 19:15:57 by soohkang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minirt.h"
 #include "../mlx/mlx.h"
-
-unsigned int	rgb_hex(int red, int green, int blue)
-{
-	unsigned int	color;
-
-	color = (red << 16) | (green << 8) | blue;
-	return (color);
-}
-
-/* sphere: 구체 */
-// 예시 함수고, 안씀
-// void	sphere(t_rt *rt)
-// {
-// 	// 구체를 고정값으로 처리한 상태. 즉, 파싱해서 이 고정된 값에 다가 값을 넣어야 함
-// 	rt->data.sphere.center = (t_vtr3){0, 0, 20};
-// 	rt->data.sphere.radius = 20;
-// 	rt->data.sphere.color = rgb_hex(255, 0, 0);
-	
-// 	rt->data.camera.cam = (t_vtr3){-50, 0, 20};
-// 	rt->data.camera.dir = (t_vtr3){0, 0, 0};
-// 	rt->data.camera.fov = 70;
-// }
 
 void	open_scene_file(t_rt *rt, char **av, int *i)
 {
@@ -76,3 +54,25 @@ void	open_scene_file(t_rt *rt, char **av, int *i)
 	// printf("cy orientation:%f, %f, %f\n", rt->data.cylinder.orientation.x, rt->data.cylinder.orientation.y, rt->data.cylinder.orientation.z);
 	// printf("cy diameter:%f, height:%f, color:%u\n", rt->data.cylinder.diameter, rt->data.cylinder.height, rt->data.cylinder.color);
 }
+
+// unsigned int	rgb_hex(int red, int green, int blue)
+// {
+// 	unsigned int	color;
+
+// 	color = (red << 16) | (green << 8) | blue;
+// 	return (color);
+// }
+
+/* sphere: 구체 */
+// 예시 함수고, 안씀
+// void	sphere(t_rt *rt)
+// {
+// 	// 구체를 고정값으로 처리한 상태. 즉, 파싱해서 이 고정된 값에 다가 값을 넣어야 함
+// 	rt->data.sphere.center = (t_vtr3){0, 0, 20};
+// 	rt->data.sphere.radius = 20;
+// 	rt->data.sphere.color = rgb_hex(255, 0, 0);
+	
+// 	rt->data.camera.cam = (t_vtr3){-50, 0, 20};
+// 	rt->data.camera.dir = (t_vtr3){0, 0, 0};
+// 	rt->data.camera.fov = 70;
+// }
