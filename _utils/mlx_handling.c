@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   util.c                                             :+:      :+:    :+:   */
+/*   mlx_handling.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: soohkang <soohkang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 20:50:10 by nahyulee          #+#    #+#             */
-/*   Updated: 2023/12/04 17:46:57 by soohkang         ###   ########.fr       */
+/*   Updated: 2023/12/12 12:48:26 by soohkang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,5 @@ int	press_key(int key_val, t_rt *rt)
 		move_camera(rt->data.camera, 0, -1, 0);
 	if (key_val == KEY_D || key_val == KEY_RIGHT)
 		move_camera(rt->data.camera, 1, 0, 0);
-	return (0);
-}
-
-int	print_error(int key_val, t_rt *rt)
-{
-	(void)rt;
-	(void)key_val;
-	ft_exit(1, "Exit_miniRT\n");
 	return (0);
 }
