@@ -11,9 +11,9 @@ MLX_LIB		= libmlx.a
 # MLX_LIB	= libmlx_Linux.a
 
 SRCS		= minirt.c \
-			_parse/extension.c \
-			_parse/open_scene_file.c \
-			_parse/check_data_condition.c \
+			_parse/parse_extension.c \
+			_parse/parse_open_scene_file.c \
+			_parse/parse_check_data_condition.c \
 			_raytracing/camera.c \
 			_vector/vector_operations.c \
 			_draw/draw_start.c \
