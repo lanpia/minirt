@@ -6,7 +6,7 @@
 /*   By: soohkang <soohkang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 17:25:10 by nahyulee          #+#    #+#             */
-/*   Updated: 2023/12/10 16:55:38 by soohkang         ###   ########.fr       */
+/*   Updated: 2023/12/15 04:09:47 by soohkang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,8 +120,8 @@ typedef struct s_mlx
 {
 	void	*mlx;
 	void	*window;
-	int		width;
-	int		height;
+	int		width; // viewport width
+	int		height; // viewport height
 	t_d		data;
 }	t_rt;
 
@@ -134,7 +134,7 @@ void			part_of_parse_extens(char **av, int **i);
 void			open_scene_file(t_rt *d, char **av, int *i);
 
 /* ***********************open_file****************************************** */
-unsigned int	rgb_hex(int red, int green, int blue);
+// unsigned int	rgb_hex(int red, int green, int blue);
 void			check_data_condition(t_rt *rt, char *tmp);
 void			put_r(t_rt *rt, char *tmp);
 void			put_a(t_rt *rt, char *tmp);
@@ -158,12 +158,15 @@ int				print_error(int key_val, t_rt *rt);
 
 /* ***********************camera********************************************* */
 void			turn_on_camera(t_rt *rt);
-void			move_camera(t_c camera, int x, int y, int z);
+// void			move_camera(t_c camera, int x, int y, int z);
 
 /* ***********************draw*********************************************** */
 void			draw_start(t_rt *rt);
 t_vtr2			project3dto2d(t_rt *rt, t_vtr3 point3d);
 void			sphere(t_rt *rt, t_sp sphere);
 void			draw_cylinder(t_rt *rt, t_sp cylinder);
+
+/* ***********************math*********************************************** */
+float			degree_to_radian(float degree);
 
 #endif

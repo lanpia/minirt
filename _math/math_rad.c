@@ -1,33 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   camera.c                                           :+:      :+:    :+:   */
+/*   math_rad.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: soohkang <soohkang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/22 01:25:16 by nahyulee          #+#    #+#             */
-/*   Updated: 2023/12/15 03:28:09 by soohkang         ###   ########.fr       */
+/*   Created: 2023/12/13 14:42:16 by soohkang          #+#    #+#             */
+/*   Updated: 2023/12/15 03:38:15 by soohkang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minirt.h"
 
-// camera setting
-void	turn_on_camera(t_rt *rt)
+float degree_to_radian(float degree)
 {
-	// 카메라 관련 변수 선언
-	double	viewport[2]; // width, height
-	double	fov_degree_to_rad; // field of view
+	float PI = 3.14;
+	float rad;
 
-	viewport[0] = 3.0;
-	viewport[1] = 3.0;
-	fov_degree_to_rad = tan(degree_to_radian(rt->data.camera.fov));
-	
+	rad = degree * (PI / 180);
+	return (rad);
 }
-
-// void	move_camera(t_c camera, int x, int y, int z)
-// {
-// 	camera.cam.x += x;
-// 	camera.cam.y += y;
-// 	camera.cam.z += z;
-// }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_data_condition.c                             :+:      :+:    :+:   */
+/*   parse_check_data_condition.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: soohkang <soohkang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 03:15:07 by soohkang          #+#    #+#             */
-/*   Updated: 2023/12/06 15:36:09 by soohkang         ###   ########.fr       */
+/*   Updated: 2023/12/15 03:31:53 by soohkang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void	put_a(t_rt *rt, char *tmp)
 	{
 		rt->data.ambient.ratio = ft_atof(data[1]);
 		rt->data.ambient.ratio = ft_atof(data[2]);
-		rt->data.ambient.color = rgb_hex(ft_atoi(data[2]), ft_atoi(data[3]), ft_atoi(data[4]));
+		// rt->data.ambient.color = rgb_hex(ft_atoi(data[2]), ft_atoi(data[3]), ft_atoi(data[4]));
 	}
 	else
 		ft_exit(1, "Error\nA is not exist\n");
@@ -105,7 +105,7 @@ void	put_l(t_rt *rt, char *tmp)
 	{
 		rt->data.light.position = (t_vtr3){ft_atof(data[1]), ft_atof(data[2]), ft_atof(data[3])};
 		rt->data.light.brightness = ft_atof(data[4]);
-		rt->data.light.color = rgb_hex(ft_atoi(data[5]), ft_atoi(data[6]), ft_atoi(data[7]));
+		// rt->data.light.color = rgb_hex(ft_atoi(data[5]), ft_atoi(data[6]), ft_atoi(data[7]));
 	}
 	else
 		ft_exit(1, "Error\nl is not exist\n");
@@ -125,7 +125,7 @@ void	put_pl(t_rt *rt, char *tmp)
 	{
 		rt->data.plane.position = (t_vtr3){ft_atof(data[1]), ft_atof(data[2]), ft_atof(data[3])};
 		rt->data.plane.orientation = (t_vtr3){ft_atof(data[4]), ft_atof(data[5]), ft_atof(data[6])};
-		rt->data.plane.color = rgb_hex(ft_atoi(data[7]), ft_atoi(data[8]), ft_atoi(data[9]));
+		// rt->data.plane.color = rgb_hex(ft_atoi(data[7]), ft_atoi(data[8]), ft_atoi(data[9]));
 	}
 	else
 		ft_exit(1, "Error\npl is not exist\n");
@@ -145,7 +145,7 @@ void	put_sp(t_rt *rt, char *tmp)
 	{
 		rt->data.sphere.center = (t_vtr3){ft_atof(data[1]), ft_atof(data[2]), ft_atof(data[3])};
 		rt->data.sphere.radius = ft_atof(data[4]);
-		rt->data.sphere.color = rgb_hex(ft_atoi(data[5]), ft_atoi(data[6]), ft_atoi(data[7]));
+		// rt->data.sphere.color = rgb_hex(ft_atoi(data[5]), ft_atoi(data[6]), ft_atoi(data[7]));
 	}
 	else
 		ft_exit(1, "Error\nsp is not exist\n");
@@ -167,7 +167,7 @@ void	put_cy(t_rt *rt, char *tmp)
 		rt->data.cylinder.orientation = (t_vtr3){ft_atof(data[1]), ft_atof(data[2]), ft_atof(data[3])};
 		rt->data.cylinder.diameter = ft_atof(data[4]);
 		rt->data.cylinder.height = ft_atof(data[5]);
-		rt->data.cylinder.color = rgb_hex(ft_atoi(data[6]), ft_atoi(data[7]), ft_atoi(data[8]));
+		// rt->data.cylinder.color = rgb_hex(ft_atoi(data[6]), ft_atoi(data[7]), ft_atoi(data[8]));
 	}
 	else
 		ft_exit(1, "Error\ncy is not exist\n");

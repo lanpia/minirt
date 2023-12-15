@@ -14,6 +14,7 @@ SRCS		= minirt.c \
 			_parse/parse_extension.c \
 			_parse/parse_open_scene_file.c \
 			_parse/parse_check_data_condition.c \
+			_math/math_rad.c \
 			_raytracing/camera.c \
 			_vector/vector_operations.c \
 			_draw/draw_start.c \

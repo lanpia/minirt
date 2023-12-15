@@ -6,7 +6,7 @@
 /*   By: soohkang <soohkang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 03:28:03 by nahyulee          #+#    #+#             */
-/*   Updated: 2023/12/10 16:51:25 by soohkang         ###   ########.fr       */
+/*   Updated: 2023/12/15 03:32:39 by soohkang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ int	main(int ac, char **av)
 
 	/* mlx */
 	rt->mlx = mlx_init();
-	rt->window = mlx_new_window(rt->mlx, rt->width, rt->height, "miniRT");
+	rt->window = mlx_new_window(rt->mlx, rt->width, \
+		rt->height, "miniRT");
 
 	/* camera setting */
 	turn_on_camera(rt);
