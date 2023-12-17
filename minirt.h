@@ -6,7 +6,7 @@
 /*   By: soohkang <soohkang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 17:25:10 by nahyulee          #+#    #+#             */
-/*   Updated: 2023/12/17 18:20:30 by soohkang         ###   ########.fr       */
+/*   Updated: 2023/12/18 05:18:47 by soohkang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,6 @@
 # define KEY_DOWN				125
 # define KEY_RIGHT				124
 
-# ifndef M_PI
-	define M_PI	3.14159265358979323846
-# endif
-
 // 3차원 벡터
 typedef struct s_vector3d
 {
@@ -61,6 +57,19 @@ typedef struct s_ambentlight
 	float			ratio; // 0.0 완전한 어둠, 1.0 최대 밝기
 	unsigned int	color; //rgb
 }	t_a;
+
+typedef struct s_ray
+{
+	t_vtr3	origin;		// 광선의 원점
+	t_vtr3	direction;	// 광선의 방향
+}	t_ray;
+
+typedef struct s_color
+{
+	float	r; // 빨간색 채널
+	float	g; // 녹색 채널
+	float	b; // 파란색 채널
+}	t_color;
 
 // 카메라
 typedef struct s_camera
@@ -126,15 +135,10 @@ typedef struct s_mlx
 }	t_rt;
 
 
-/* ***********************parsing******************************************** */
+/* ***************		_parse		************************************ */
 void			parse_extensions(char **av, int *i);
 void			part_of_parse_extens(char **av, int **i);
-
-/* ***********************open_file****************************************** */
 void			open_scene_file(t_rt *d, char **av, int *i);
-
-/* ***********************open_file****************************************** */
-// unsigned int	rgb_hex(int red, int green, int blue);
 void			check_data_condition(t_rt *rt, char *tmp);
 void			put_r(t_rt *rt, char *tmp);
 void			put_a(t_rt *rt, char *tmp);
@@ -143,8 +147,9 @@ void			put_l(t_rt *rt, char *tmp);
 void			put_pl(t_rt *rt, char *tmp);
 void			put_sp(t_rt *rt, char *tmp);
 void			put_cy(t_rt *rt, char *tmp);
+// unsigned int	rgb_hex(int red, int green, int blue);
 
-/* ***********************vector********************************************* */
+/* ***************		_vector		************************************* */
 float			dot_product(t_vtr3 a, t_vtr3 b);
 t_vtr3			cross_product(t_vtr3 a, t_vtr3 b);
 t_vtr3			add_vector(t_vtr3 a, t_vtr3 b);
@@ -152,21 +157,25 @@ t_vtr3			subtract_vector(t_vtr3 a, t_vtr3 b);
 t_vtr3			multiply_vector(t_vtr3 v, float scalar);
 t_vtr3			divide_vector(t_vtr3 v, float scalar);
 
-/* ***********************util********************************************** */
+/* ***************		_utils		************************************** */
 int				press_key(int key_val, t_rt *rt);
 int				print_error(int key_val, t_rt *rt);
 
-/* ***********************camera********************************************* */
+/* ***************		_raytracing		********************************** */
 void			initialize_camera(t_rt *rt);
 // void			move_camera(t_c camera, int x, int y, int z);
 
-/* ***********************render*********************************************** */
+/* ***************		_render		*************************************** */
 void			render_scene(t_rt *rt);
-t_vtr2			project3dto2d(t_rt *rt, t_vtr3 point3d);
+void	trace_ray(t_ray *ray, t_rt *rt);
+
+
 void			sphere(t_rt *rt, t_sp sphere);
 void			render_cylinder(t_rt *rt, t_sp cylinder);
+t_vtr2			project3dto2d(t_rt *rt, t_vtr3 point3d);
 
-/* ***********************math*********************************************** */
+/* ***************		_math		*************************************** */
 float			degree_to_radian(float degree);
+
 
 #endif
