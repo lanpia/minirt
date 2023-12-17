@@ -6,7 +6,7 @@
 /*   By: soohkang <soohkang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 03:28:03 by nahyulee          #+#    #+#             */
-/*   Updated: 2023/12/15 03:32:39 by soohkang         ###   ########.fr       */
+/*   Updated: 2023/12/17 11:26:53 by soohkang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ int	main(int ac, char **av)
 	int		i;
 
 	// file만 받으면 받으면 되서 `3`에 `=` 붙임
-	// --save라는 옵션을 넣을거면 = 빼야함
 	if (ac < 2 || ac >= 3)
 		ft_exit(1, "Error\n:bad argument\n");
 	rt = (t_rt *)ft_calloc(sizeof(t_rt), 1);
@@ -30,14 +29,13 @@ int	main(int ac, char **av)
 
 	/* mlx */
 	rt->mlx = mlx_init();
-	rt->window = mlx_new_window(rt->mlx, rt->width, \
-		rt->height, "miniRT");
+	rt->window = mlx_new_window(rt->mlx, rt->width, rt->height, "miniRT");
 
 	/* camera setting */
-	turn_on_camera(rt);
+	initialize_camera(rt);
 
-	/* draw objects */
-	draw_start(rt);
+	/* render objects */
+	render_scene(rt);
 
 	mlx_hook(rt->window, X_EVENT_KEY_PRESS, 0, press_key, rt);
 	mlx_hook(rt->window, X_EVENT_KEY_EXIT, 0, print_error, rt);

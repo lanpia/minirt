@@ -6,7 +6,7 @@
 /*   By: soohkang <soohkang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 17:25:10 by nahyulee          #+#    #+#             */
-/*   Updated: 2023/12/15 04:09:47 by soohkang         ###   ########.fr       */
+/*   Updated: 2023/12/17 18:20:30 by soohkang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -157,14 +157,14 @@ int				press_key(int key_val, t_rt *rt);
 int				print_error(int key_val, t_rt *rt);
 
 /* ***********************camera********************************************* */
-void			turn_on_camera(t_rt *rt);
+void			initialize_camera(t_rt *rt);
 // void			move_camera(t_c camera, int x, int y, int z);
 
-/* ***********************draw*********************************************** */
-void			draw_start(t_rt *rt);
+/* ***********************render*********************************************** */
+void			render_scene(t_rt *rt);
 t_vtr2			project3dto2d(t_rt *rt, t_vtr3 point3d);
 void			sphere(t_rt *rt, t_sp sphere);
-void			draw_cylinder(t_rt *rt, t_sp cylinder);
+void			render_cylinder(t_rt *rt, t_sp cylinder);
 
 /* ***********************math*********************************************** */
 float			degree_to_radian(float degree);

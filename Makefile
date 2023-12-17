@@ -17,8 +17,8 @@ SRCS		= minirt.c \
 			_math/math_rad.c \
 			_raytracing/camera.c \
 			_vector/vector_operations.c \
-			_draw/draw_start.c \
-			_draw/draw_sphere.c \
+			_render/render.c \
+			_render/render_sphere.c \
 			_utils/error_handling.c \
 			_utils/mlx_handling.c \
 
