@@ -6,7 +6,7 @@
 /*   By: soohkang <soohkang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 01:25:16 by nahyulee          #+#    #+#             */
-/*   Updated: 2023/12/17 18:26:34 by soohkang         ###   ########.fr       */
+/*   Updated: 2023/12/17 18:30:06 by soohkang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,11 @@ void	initialize_camera(t_rt *rt)
 
 	// setting fov degree
 	rt->data.camera.fov = 120;
-	fov_degree_to_rad = tan(degree_to_radian(rt->data.camera.fov));
+	fov_degree_to_rad = tan(degree_to_radian(rt->data.camera.fov / 2.0));
 
 	// setting viewport
 	viewport[0] = 3.0;
 	viewport[1] = 3.0;
-	
-	
 }
 
 // void	move_camera(t_c camera, int x, int y, int z)
