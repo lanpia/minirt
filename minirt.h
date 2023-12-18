@@ -6,7 +6,7 @@
 /*   By: soohkang <soohkang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 17:25:10 by nahyulee          #+#    #+#             */
-/*   Updated: 2023/12/18 05:18:47 by soohkang         ###   ########.fr       */
+/*   Updated: 2023/12/18 10:58:35 by soohkang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,12 +51,13 @@ typedef struct s_vector2d
 	int	y;
 }	t_vtr2;
 
-// 환경광
-typedef struct s_ambentlight
+// 카메라
+typedef struct s_camera
 {
-	float			ratio; // 0.0 완전한 어둠, 1.0 최대 밝기
-	unsigned int	color; //rgb
-}	t_a;
+	t_vtr3	cam;
+	t_vtr3	dir;
+	int		fov;
+}	t_c;
 
 typedef struct s_ray
 {
@@ -71,14 +72,6 @@ typedef struct s_color
 	float	b; // 파란색 채널
 }	t_color;
 
-// 카메라
-typedef struct s_camera
-{
-	t_vtr3	cam;
-	t_vtr3	dir;
-	int		fov;
-}	t_c;
-
 // 조명
 typedef struct s_light
 {
@@ -86,6 +79,13 @@ typedef struct s_light
 	float			brightness;
 	unsigned int	color;
 }	t_l;
+
+// 환경광
+typedef struct s_ambentlight
+{
+	float			ratio; // 0.0 완전한 어둠, 1.0 최대 밝기
+	unsigned int	color; //rgb
+}	t_a;
 
 // 평면
 typedef struct s_plane
@@ -167,7 +167,7 @@ void			initialize_camera(t_rt *rt);
 
 /* ***************		_render		*************************************** */
 void			render_scene(t_rt *rt);
-void	trace_ray(t_ray *ray, t_rt *rt);
+void			trace_ray(t_ray *ray, t_rt *rt);
 
 
 void			sphere(t_rt *rt, t_sp sphere);
@@ -175,7 +175,7 @@ void			render_cylinder(t_rt *rt, t_sp cylinder);
 t_vtr2			project3dto2d(t_rt *rt, t_vtr3 point3d);
 
 /* ***************		_math		*************************************** */
-float			degree_to_radian(float degree);
+double			degree_to_radian(float degree);
 
 
 #endif
