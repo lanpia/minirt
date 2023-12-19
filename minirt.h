@@ -6,7 +6,7 @@
 /*   By: soohkang <soohkang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 17:25:10 by nahyulee          #+#    #+#             */
-/*   Updated: 2023/12/18 10:58:35 by soohkang         ###   ########.fr       */
+/*   Updated: 2023/12/19 14:40:44 by soohkang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,16 @@ typedef struct s_color
 	float	b; // 파란색 채널
 }	t_color;
 
+// intersection
+typedef struct s_intersec
+{
+	t_vtr3			position;		// 교차점의 위치
+	t_vtr3			normal;			// 교차점에서의 법선벡터
+	float			distance;		// 광선의 시작점으로부터 교차점까지의 거리
+	int				object_type;	// 교차한 객체의 종류 (구, 평면, 기둥)
+	unsigned int	color;			// 교차한 객체의 색상
+}	t_intersec;
+
 // 조명
 typedef struct s_light
 {
@@ -129,8 +139,12 @@ typedef struct s_mlx
 {
 	void	*mlx;
 	void	*window;
+	void	*img_buffer; // 이미지 버퍼
 	int		width; // viewport width
 	int		height; // viewport height
+	int		bits_per_pixel; // 픽셀당 비트 수수
+	int		line_length; // 이미지의 한 줄 당 바이트 수
+	int		endian; // 엔디안 타입 0: little endian, 1: big endian
 	t_d		data;
 }	t_rt;
 
@@ -167,7 +181,7 @@ void			initialize_camera(t_rt *rt);
 
 /* ***************		_render		*************************************** */
 void			render_scene(t_rt *rt);
-void			trace_ray(t_ray *ray, t_rt *rt);
+t_color			trace_ray(t_ray *ray, t_rt *rt);
 
 
 void			sphere(t_rt *rt, t_sp sphere);
