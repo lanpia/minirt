@@ -12,6 +12,7 @@
 
 #include "../minirt.h"
 
+// 두 3차원 벡터 간의 내적을 계산하는 함수
 float	dot_product(t_vtr3 a, t_vtr3 b)
 {
 	return (a.x * b.x + a.y * b.y + a.z * b.z);
