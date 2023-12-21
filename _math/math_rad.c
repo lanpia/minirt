@@ -1,31 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   math_rad.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: soohkang <soohkang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/14 03:18:48 by nahyulee          #+#    #+#             */
-/*   Updated: 2023/12/05 19:42:32 by soohkang         ###   ########.fr       */
+/*   Created: 2023/12/13 14:42:16 by soohkang          #+#    #+#             */
+/*   Updated: 2023/12/18 10:58:18 by soohkang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft.h"
+#include "../minirt.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+double degree_to_radian(float degree)
 {
-	size_t			i;
-	unsigned char	*arr1;
-	unsigned char	*arr2;
+	double rad;
 
-	i = 0;
-	arr1 = (unsigned char *)s1;
-	arr2 = (unsigned char *)s2;
-	while (i < n)
-	{
-		if (arr1[i] == '\0' || arr1[i] != arr2[i])
-			return (arr1[i] - arr2[i]);
-		i++;
-	}
-	return (0);
+	rad = degree * (M_PI / 180.0);
+	return (rad);
 }

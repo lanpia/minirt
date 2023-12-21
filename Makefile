@@ -1,24 +1,39 @@
 NAME		= miniRT
+
 LIBFT		= libft
+
 LIBFT_LIB	= libft.a
+
 MLX			= mlx
+
 MLX_LIB		= libmlx.a
+# MLX		= minilibx-linux
+# MLX_LIB	= libmlx_Linux.a
+
 SRCS		= minirt.c \
-			_draw/draw.c \
-			_parse/check_data_condition.c \
-			_parse/extension.c \
-			_parse/open_scene_file.c \
+			_parse/parse_extension.c \
+			_parse/parse_open_scene_file.c \
+			_parse/parse_check_data_condition.c \
+			_math/math_rad.c \
 			_raytracing/camera.c \
-			_raytracing/intersect.c \
-			_utils/util.c \
-			_vector/vector_scalar.c \
-			_vector/vector.c
+			_vector/vector_operations.c \
+			_render/render.c \
+			_render/render_sphere.c \
+			_utils/error_handling.c \
+			_utils/mlx_handling.c \
+
 OBJS 		= $(SRCS:.c=.o)
-OBJS		= $(addprefix obj/,$(SRCS:.c=.o))
-OBJS_BONUS	= $(addprefix obj/,$(SRCS_BONUS:.c=.o))
+
+OBJS 		= $(addprefix obj/,$(SRCS:.c=.o))
+
+OBJS_BONUS 	= $(addprefix obj/,$(SRCS_BONUS:.c=.o))
+
 LIBC		= ar rc
+
 CC 			= cc
-CFLAGS 		= -Wall -Wextra -Werror# -g -g3 -fsanitize=address
+
+CFLAGS 		= -Wall -Wextra -Werror -g -g3 -fsanitize=address
+
 RM 			= rm -rf
 
 GREEN		= "\033[1;32m"
