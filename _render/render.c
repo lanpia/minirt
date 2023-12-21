@@ -43,12 +43,13 @@ bool	intersect_sphere(t_ray *ray, t_sp *sphere, t_intersec *intersection)
 	float	a;
 	float	b;
 	float	c;
+	(void) intersection;
 
 	oc = subtract_vector(ray->origin, sphere->center);
-	a = doc_product(ray->direction, ray->direction);
-	b = (2.0 * doc_product(oc, ray->direction));
-	c = doc_product(oc, oc) - (sphere->radius * sphere->radius);
-
+	a = dot_product(ray->direction, ray->direction);
+	b = (2.0 * dot_product(oc, ray->direction));
+	c = dot_product(oc, oc) - (sphere->radius * sphere->radius);
+	return (1);
 }
 
 // 장면에 있는 각 객체와 광선의 교차를 확인하고 가장 가까운 교차점을 찾는 함수
