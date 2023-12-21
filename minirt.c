@@ -40,10 +40,8 @@ int	main(int ac, char **av)
 	// render objects
 	render_scene(rt);
 
-	mlx_hook(rt->window, X_EVENT_KEY_PRESS, 0,
-												press_key, rt);
-	mlx_hook(rt->window, X_EVENT_KEY_EXIT, 0, 
-												print_error, rt);
+	mlx_hook(rt->window, X_EVENT_KEY_PRESS, 0, press_key, rt);
+	mlx_hook(rt->window, X_EVENT_KEY_EXIT, 0, print_error, rt);
 	mlx_loop(rt->mlx);
 	return (0);
 }
