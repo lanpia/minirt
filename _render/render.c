@@ -12,11 +12,6 @@
 
 #include "../minirt.h"
 
-// 두 3차원 벡터 간의 내적을 계산하는 함수
-float dot_product(t_vtr3 a, t_vtr3 b)
-{
-	return a.x * b.x + a.y * b.y + a.z * b.z;
-}
 
 // unsigned int 형태의 RGB 색상을 t_color 구조체로 변환하는 함수
 t_color	convert_int_to_color(unsigned int rgb_color)
