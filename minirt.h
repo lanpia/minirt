@@ -6,7 +6,7 @@
 /*   By: soohkang <soohkang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 17:25:10 by nahyulee          #+#    #+#             */
-/*   Updated: 2023/12/19 14:40:44 by soohkang         ###   ########.fr       */
+/*   Updated: 2023/12/22 11:06:41 by soohkang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -181,7 +181,14 @@ void			initialize_camera(t_rt *rt);
 
 /* ***************		_render		*************************************** */
 void			render_scene(t_rt *rt);
+
+t_color			convert_int_to_color(unsigned int rgb_color);
+unsigned int	convert_color_to_int(t_color color);
+bool			intersect_sphere(t_ray *ray, t_sp *sphere, t_intersec *intersection);
 t_color			trace_ray(t_ray *ray, t_rt *rt);
+t_vtr3			nomalize_vector(t_vtr3 v);
+t_ray			generate_ray(t_rt *rt, int x, int y);
+void			set_pixel_color(t_rt *rt, int x, int y, t_color color);
 
 
 void			sphere(t_rt *rt, t_sp sphere);

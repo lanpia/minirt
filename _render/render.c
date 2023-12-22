@@ -12,19 +12,39 @@
 
 #include "../minirt.h"
 
+void	render_scene(t_rt *rt)
+{
+	int		y;
+	int		x;
+	t_ray	ray;
+	t_color	color;
+
+	y = 0;
+	while (y < rt->height)
+	{
+		x = 0;
+		while (x < rt->width)
+		{
+			// 각 픽셀에 대한 광선 생성
+			ray = generate_ray(rt, x, y);
+			// 광선과 기하학적 객체의 교차 계산
+			color = trace_ray(&ray, rt);
+			// 계산된 색상을 이미지 버퍼에 저장
+			set_pixel_color(rt, x, y, color);
+			x++;
+		}
+		y++;
+	}
+}
 
 // unsigned int 형태의 RGB 색상을 t_color 구조체로 변환하는 함수
 t_color	convert_int_to_color(unsigned int rgb_color)
 {
 	t_color	color;
 
-	// 00000000 00000000 xxxxxxxx xxxxxxxx  &  00000000 00000000 00000000 11111111
 	color.r = (float)((rgb_color >> 16) & 0xFF) / 255.0;
-	// rgb_color = xxxxxxx1 xxxxxxx2 xxxxxxx3 xxxxxxx4
 	color.g = (float)((rgb_color >> 8) & 0xFF) / 255.0;
-	// 00000000 00000000 xxxxxxx1 xxxxxxx2
 	color.b = (float)(rgb_color & 0xFF) / 255.0;
-
 	return (color);
 }
 
@@ -149,29 +169,4 @@ void set_pixel_color(t_rt *rt, int x, int y, t_color color)
 	*(unsigned int*)(dst + y * rt->line_length 
 						 + x * (rt->bits_per_pixel / 8)) 
 						 = mlx_get_color_value(rt->mlx, color_value);
-}
-
-void	render_scene(t_rt *rt)
-{
-	int		y;
-	int		x;
-	t_ray	ray;
-	t_color	color;
-
-	y = 0;
-	while (y < rt->height)
-	{
-		x = 0;
-		while (x < rt->width)
-		{
-			// 각 픽셀에 대한 광선 생성
-			ray = generate_ray(rt, x, y);
-			// 광선과 기하학적 객체의 교차 계산
-			color = trace_ray(&ray, rt);
-			// 계산된 색상을 이미지 버퍼에 저장
-			set_pixel_color(rt, x, y, color);
-			x++;
-		}
-		y++;
-	}
 }
