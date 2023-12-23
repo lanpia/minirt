@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minirt.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soohkang <soohkang@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: suhyeon <suhyeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 17:25:10 by nahyulee          #+#    #+#             */
-/*   Updated: 2023/12/22 11:06:41 by soohkang         ###   ########.fr       */
+/*   Updated: 2023/12/24 06:27:19 by suhyeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -154,6 +154,7 @@ void			parse_extensions(char **av, int *i);
 void			part_of_parse_extens(char **av, int **i);
 void			open_scene_file(t_rt *d, char **av, int *i);
 void			check_data_condition(t_rt *rt, char *tmp);
+
 void			put_r(t_rt *rt, char *tmp);
 void			put_a(t_rt *rt, char *tmp);
 void			put_c(t_rt *rt, char *tmp);
@@ -171,29 +172,32 @@ t_vtr3			subtract_vector(t_vtr3 a, t_vtr3 b);
 t_vtr3			multiply_vector(t_vtr3 v, float scalar);
 t_vtr3			divide_vector(t_vtr3 v, float scalar);
 
+t_vtr3			normalize_vector(t_vtr3 v);
+
 /* ***************		_utils		************************************** */
 int				press_key(int key_val, t_rt *rt);
 int				print_error(int key_val, t_rt *rt);
 
 /* ***************		_raytracing		********************************** */
 void			initialize_camera(t_rt *rt);
+bool			intersect_sphere(t_ray *ray, t_sp *sphere, t_intersec *intersection);
+
 // void			move_camera(t_c camera, int x, int y, int z);
 
 /* ***************		_render		*************************************** */
 void			render_scene(t_rt *rt);
-
-t_color			convert_int_to_color(unsigned int rgb_color);
-unsigned int	convert_color_to_int(t_color color);
-bool			intersect_sphere(t_ray *ray, t_sp *sphere, t_intersec *intersection);
 t_color			trace_ray(t_ray *ray, t_rt *rt);
-t_vtr3			nomalize_vector(t_vtr3 v);
 t_ray			generate_ray(t_rt *rt, int x, int y);
 void			set_pixel_color(t_rt *rt, int x, int y, t_color color);
 
-
 void			sphere(t_rt *rt, t_sp sphere);
 void			render_cylinder(t_rt *rt, t_sp cylinder);
+
 t_vtr2			project3dto2d(t_rt *rt, t_vtr3 point3d);
+
+// rgb
+t_color			convert_int_to_color(unsigned int rgb_color);
+unsigned int	convert_color_to_int(t_color color);
 
 /* ***************		_math		*************************************** */
 double			degree_to_radian(float degree);

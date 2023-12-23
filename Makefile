@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: suhyeon <suhyeon@student.42.fr>            +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/12/24 06:26:03 by suhyeon           #+#    #+#              #
+#    Updated: 2023/12/24 06:26:40 by suhyeon          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME		= miniRT
 
 LIBFT		= libft
@@ -16,8 +28,10 @@ SRCS		= minirt.c \
 			_parse/parse_check_data_condition.c \
 			_math/math_rad.c \
 			_raytracing/camera.c \
+			_raytracing/ray_intersect.c \
 			_vector/vector_operations.c \
 			_render/render.c \
+			_render/render_rgb_trans.c \
 			_render/render_sphere.c \
 			_utils/error_handling.c \
 			_utils/mlx_handling.c \
