@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minirt.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: suhyeon <suhyeon@student.42.fr>            +#+  +:+       +#+        */
+/*   By: soohkang <soohkang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 17:25:10 by nahyulee          #+#    #+#             */
-/*   Updated: 2023/12/24 06:27:19 by suhyeon          ###   ########.fr       */
+/*   Updated: 2023/12/25 07:34:43 by soohkang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ typedef struct s_intersec
 typedef struct s_light
 {
 	t_vtr3			position;
-	float			brightness;
+	float			brightness; // 0.0 완전한 어둠, 1.0 최대 밝기
 	unsigned int	color;
 }	t_l;
 
@@ -174,17 +174,24 @@ t_vtr3			divide_vector(t_vtr3 v, float scalar);
 
 t_vtr3			normalize_vector(t_vtr3 v);
 
-/* ***************		_utils		************************************** */
+/* ***************		_utils		************************************* */
 int				press_key(int key_val, t_rt *rt);
 int				print_error(int key_val, t_rt *rt);
 
-/* ***************		_raytracing		********************************** */
+/* ***************		_raytracing		********************************* */
 void			initialize_camera(t_rt *rt);
-bool			intersect_sphere(t_ray *ray, t_sp *sphere, t_intersec *intersection);
+
+bool			ray_intersect(t_ray *ray, t_rt *rt, t_intersec *intersection);
+bool			ray_intersect_sphere(t_ray *ray, t_sp *sphere, 
+												t_intersec *intersection);
+bool			ray_intersect_plane(t_ray *ray, t_pl *plane, 
+												t_intersec *intersection);
+bool			ray_intersect_cylinder(t_ray *ray, t_cy *cylinder, 
+												t_intersec *intersection);
 
 // void			move_camera(t_c camera, int x, int y, int z);
 
-/* ***************		_render		*************************************** */
+/* ***************		_render		************************************* */
 void			render_scene(t_rt *rt);
 t_color			trace_ray(t_ray *ray, t_rt *rt);
 t_ray			generate_ray(t_rt *rt, int x, int y);
@@ -199,8 +206,7 @@ t_vtr2			project3dto2d(t_rt *rt, t_vtr3 point3d);
 t_color			convert_int_to_color(unsigned int rgb_color);
 unsigned int	convert_color_to_int(t_color color);
 
-/* ***************		_math		*************************************** */
+/* ***************		_math		************************************* */
 double			degree_to_radian(float degree);
-
 
 #endif
