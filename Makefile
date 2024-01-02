@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: soohkang <soohkang@student.42.fr>            +#+  +:+       +#+         #
+#    By: soohkang <soohkang@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/12/24 06:26:03 by soohkang           #+#    #+#              #
-#    Updated: 2023/12/24 06:26:40 by soohkang          ###   ########.fr        #
+#    Created: 2024/01/02 22:18:47 by soohkang          #+#    #+#              #
+#    Updated: 2024/01/02 22:18:48 by soohkang         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 

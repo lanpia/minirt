@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: suhyeon <suhyeon@student.42.fr>            +#+  +:+       +#+        */
+/*   By: soohkang <soohkang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/26 11:16:12 by soohkang          #+#    #+#             */
-/*   Updated: 2023/12/29 15:57:15 by suhyeon          ###   ########.fr       */
+/*   Created: 2024/01/02 20:44:25 by soohkang          #+#    #+#             */
+/*   Updated: 2024/01/02 22:55:34 by soohkang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,10 @@ t_color trace_ray(t_ray *ray, t_rt *rt)
 
 	hit = ray_intersect(ray, rt, &nearest_intersection);
 	if (hit)
-		return convert_int_to_color(nearest_intersection.color); // 교차한 객체의 색상 반환
+	{
+		// 교차한 객체의 색상 반환
+		return convert_int_to_color(nearest_intersection.color);
+	}
 	else
 		return (t_color){255, 255, 255}; // 교차하지 않은 경우, 흰색 배경 사용
 }
