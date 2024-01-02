@@ -6,13 +6,17 @@
 /*   By: nahyulee <nahyulee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 17:25:10 by nahyulee          #+#    #+#             */
-/*   Updated: 2024/01/02 23:42:00 by nahyulee         ###   ########.fr       */
+/*   Updated: 2024/01/03 04:00:31 by nahyulee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef VECTOR_H
 # define VECTOR_H
 
+# include <math.h>
+# include <stdbool.h>
+# include <stdlib.h>
+# include <stdio.h>
 typedef struct s_vector3d
 {
 	float	x;

@@ -6,14 +6,17 @@
 /*   By: nahyulee <nahyulee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 17:25:10 by nahyulee          #+#    #+#             */
-/*   Updated: 2024/01/03 03:27:55 by nahyulee         ###   ########.fr       */
+/*   Updated: 2024/01/03 08:15:59 by nahyulee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef OBJ_H
 # define OBJ_H
 
-# include "vector.h"
+# include "_vector/vector.h"
+
+enum e_obj{plane, sphere, cylinder};
+enum e_color{red, green, blue};
 
 typedef struct s_ambentlight
 {
@@ -68,22 +71,17 @@ typedef struct s_viewplane
 {
 	double	half_width;
 	double	half_height;
-	double	aspect_ratio;
 	double	theta;
-	double	distance;
+	double	t;
 	t_vtr3	center;
 	t_vtr3	left_top;
 }	t_vwpl;
-
-
-enum e_obj{plane, sphere, cylinder};
-enum e_color{red, green, blue};
 
 typedef struct s_intersec
 {
 	t_vtr3	position;		// 교차점의 위치
 	t_vtr3	normal;			// 교차점에서의 법선벡터
-	float	distance;		// 광선의 시작점으로부터 교차점까지의 거리
+	float	t;		// 광선의 시작점으로부터 교차점까지의 거리
 	int		object_type;	// 교차한 객체의 종류 (구, 평면, 기둥)
 	int		color[3];			// 교차한 객체의 색상
 }	t_intersec;
@@ -96,7 +94,7 @@ typedef struct s_data
 	t_pl		plane;
 	t_sp		sphere;
 	t_cy		cylinder;
-	bool		*obj_flag;
+	int			obj_cnt[3];
 	t_vwpl		viewplane;
 	t_ray		ray;
 	t_intersec	intersec;
