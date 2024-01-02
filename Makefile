@@ -1,8 +1,10 @@
 NAME		= miniRT
 LIBFT		= libft
 LIBFT_LIB	= libft.a
-MLX			= mlx
-MLX_LIB		= libmlx.a
+# MLX			= mlx
+# MLX_LIB		= libmlx.a
+MLX			= example/minilibx-linux
+MLX_LIB		= libmlx_Linux.a
 SRCS		= minirt.c \
 			_draw/draw.c \
 			_parse/check_data_condition.c \
@@ -18,7 +20,7 @@ OBJS		= $(addprefix obj/,$(SRCS:.c=.o))
 OBJS_BONUS	= $(addprefix obj/,$(SRCS_BONUS:.c=.o))
 LIBC		= ar rc
 CC 			= cc
-CFLAGS 		= -Wall -Wextra -Werror# -g -g3 -fsanitize=address
+CFLAGS 		= -Wall -Wextra -Werror -g -g3 -fsanitize=address
 RM 			= rm -rf
 
 GREEN		= "\033[1;32m"
@@ -36,7 +38,7 @@ all			:	$(NAME)
 $(NAME): $(OBJ_CUR)
 		@make all -C $(LIBFT)/
 		@make all -C $(MLX)/
-		@$(CC) $(CFLAGS) -o $@ $(OBJ_CUR) $(LIBFT)/$(LIBFT_LIB) $(MLX)/$(MLX_LIB) -framework OpenGL -framework AppKit -lz -lm
+		@$(CC) $(CFLAGS) -o $@ $^ $(LIBFT)/$(LIBFT_LIB) $(MLX)/$(MLX_LIB) -lz -lXext -lX11 -lm
 		@echo ${GREEN} "Compilation Done ✅"
 
 bonus:
@@ -61,3 +63,5 @@ fclean: clean
 re : fclean all
 
 .PHONY : all clean fclean re bonus
+
+#@$(CC) $(CFLAGS) -o $@ $(OBJ_CUR) $(LIBFT)/$(LIBFT_LIB) $(MLX)/$(MLX_LIB) -framework OpenGL -framework AppKit -lz -lm

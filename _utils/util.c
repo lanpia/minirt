@@ -6,7 +6,7 @@
 /*   By: nahyulee <nahyulee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 20:50:10 by nahyulee          #+#    #+#             */
-/*   Updated: 2023/12/07 16:22:00 by nahyulee         ###   ########.fr       */
+/*   Updated: 2023/12/30 04:27:55 by nahyulee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,17 @@ int	print_error(int key_val, t_rt *rt)
 	(void)key_val;
 	ft_exit(1, "Exit_miniRT\n");
 	return (0);
+}
+
+int	get_color_component(int color, int shift)
+{
+	return ((color >> shift) & 0xFF);
+}
+
+unsigned int	rgb_hex(int red, int green, int blue)
+{
+	unsigned int	color;
+
+	color = (red << 16) | (green << 8) | blue;
+	return (color);
 }
