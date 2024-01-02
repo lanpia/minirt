@@ -11,6 +11,7 @@ SRCS = arr/ft_2d_arr_free.c \
 		fd/ft_putnbr_fd.c \
 		fd/get_next_line_bonus.c \
 		fd/get_next_line.c \
+		int/ft_compare_int.c \
 		int/ft_ltoa.c \
 		int/ft_itoa.c \
 		int/ft_max.c \

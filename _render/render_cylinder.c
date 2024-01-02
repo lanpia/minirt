@@ -1,31 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   draw_cylinder.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: soohkang <soohkang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/14 03:18:48 by nahyulee          #+#    #+#             */
-/*   Updated: 2023/12/05 19:42:32 by soohkang         ###   ########.fr       */
+/*   Created: 2023/12/04 17:44:57 by soohkang          #+#    #+#             */
+/*   Updated: 2023/12/17 11:13:42 by soohkang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft.h"
+#include "../minirt.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+void	render_cylinder(t_rt *rt, t_sp cylinder)
 {
-	size_t			i;
-	unsigned char	*arr1;
-	unsigned char	*arr2;
+	(void)rt;
+	(void)cylinder;
 
-	i = 0;
-	arr1 = (unsigned char *)s1;
-	arr2 = (unsigned char *)s2;
-	while (i < n)
-	{
-		if (arr1[i] == '\0' || arr1[i] != arr2[i])
-			return (arr1[i] - arr2[i]);
-		i++;
-	}
-	return (0);
 }
