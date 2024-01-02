@@ -6,7 +6,7 @@
 /*   By: nahyulee <nahyulee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 15:20:51 by nahyulee          #+#    #+#             */
-/*   Updated: 2023/12/29 04:41:16 by nahyulee         ###   ########.fr       */
+/*   Updated: 2024/01/03 00:01:14 by nahyulee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	intersect(t_rt *rt)
 {
-	// intersect_plane(rt);
+	intersect_plane(rt);
 	intersect_sphere(rt);
 	// intersect_cylinder(rt);
 }

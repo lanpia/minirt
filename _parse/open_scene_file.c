@@ -6,7 +6,7 @@
 /*   By: nahyulee <nahyulee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 10:16:44 by nahyulee          #+#    #+#             */
-/*   Updated: 2023/12/15 23:55:05 by nahyulee         ###   ########.fr       */
+/*   Updated: 2024/01/03 00:00:41 by nahyulee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,13 +55,13 @@ void	open_scene_file(t_rt *rt, char **av, int *i)
 	// printf("cy diameter:%f, height:%f, color:%u\n", rt->data.cylinder.diameter, rt->data.cylinder.height, rt->data.cylinder.color);
 }
 
-unsigned int	rgb_hex(int red, int green, int blue)
-{
-	unsigned int	color;
+// unsigned int	rgb_hex(int red, int green, int blue)
+// {
+// 	unsigned int	color;
 
-	color = (red << 16) | (green << 8) | blue;
-	return (color);
-}
+// 	color = (red << 16) | (green << 8) | blue;
+// 	return (color);
+// }
 
 /* sphere: 구체 */
 // 예시 함수고, 안씀
