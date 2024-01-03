@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   extension.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soohkang <soohkang@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: nahyulee <nahyulee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 16:59:35 by soohkang          #+#    #+#             */
-/*   Updated: 2023/12/04 23:39:00 by soohkang         ###   ########.fr       */
+/*   Updated: 2023/12/15 21:59:43 by nahyulee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	part_of_parse_extens(char **av, int **i)
 		ft_exit(1, "Error\nFile is not .rt\n");
 }
 
-void	parse_extens(char **av, int *i)
+void	parse_extensions(char **av, int *i)
 {
 	int	last_i;
 	int	j;
@@ -30,7 +30,8 @@ void	parse_extens(char **av, int *i)
 	last_i = ft_strlen(av[*i]);
 	last_i--;
 	flag = 0;
-	if (av[*i][last_i] == 't' && av[*i][last_i - 1] == 'r' && av[*i][last_i - 2] == '.')
+	if (av[*i][last_i] == 't' && av[*i][last_i - 1] == 'r' && 
+		av[*i][last_i - 2] == '.')
 	{
 		j = -1;
 		while (++j < (last_i - 3))

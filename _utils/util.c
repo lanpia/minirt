@@ -6,7 +6,7 @@
 /*   By: nahyulee <nahyulee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 20:50:10 by nahyulee          #+#    #+#             */
-/*   Updated: 2023/12/07 19:25:07 by nahyulee         ###   ########.fr       */
+/*   Updated: 2023/12/30 04:27:55 by nahyulee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,17 +24,17 @@ int	press_key(int key_val, t_rt *rt)
 	if (key_val == KEY_ESC)
 		ft_exit(0, "Exit_miniRT\n");
 	if (key_val == KEY_W)
-		add_val_vtr3(rt->data.camera.cam, 0, 0, 1);
+		move_camera(rt->data.camera, 0, 0, 1);
 	if (key_val == KEY_UP)
-		add_val_vtr3(rt->data.camera.cam, 0, 1, 0);
+		move_camera(rt->data.camera, 0, 1, 0);
 	if (key_val == KEY_A || key_val == KEY_LEFT)
-		add_val_vtr3(rt->data.camera.cam, -1, 0, 0);
+		move_camera(rt->data.camera, -1, 0, 0);
 	if (key_val == KEY_S)
-		add_val_vtr3(rt->data.camera.cam, 0, 0, -1);
+		move_camera(rt->data.camera, 0, 0, -1);
 	if (key_val == KEY_DOWN)
-		add_val_vtr3(rt->data.camera.cam, 0, -1, 0);
+		move_camera(rt->data.camera, 0, -1, 0);
 	if (key_val == KEY_D || key_val == KEY_RIGHT)
-		add_val_vtr3(rt->data.camera.cam, 1, 0, 0);
+		move_camera(rt->data.camera, 1, 0, 0);
 	return (0);
 }
 
@@ -44,4 +44,17 @@ int	print_error(int key_val, t_rt *rt)
 	(void)key_val;
 	ft_exit(1, "Exit_miniRT\n");
 	return (0);
+}
+
+int	get_color_component(int color, int shift)
+{
+	return ((color >> shift) & 0xFF);
+}
+
+unsigned int	rgb_hex(int red, int green, int blue)
+{
+	unsigned int	color;
+
+	color = (red << 16) | (green << 8) | blue;
+	return (color);
 }
