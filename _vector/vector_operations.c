@@ -6,7 +6,7 @@
 /*   By: soohkang <soohkang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 01:25:16 by nahyulee          #+#    #+#             */
-/*   Updated: 2024/01/03 13:09:03 by soohkang         ###   ########.fr       */
+/*   Updated: 2024/01/03 13:11:19 by soohkang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,12 @@ t_vtr3	normalize_vector(t_vtr3 v)
 {
 	float	len;
 
-	// if (isnanf(v.x)) -> 이 함수 만들어서 사용하기
-	// 	v.x = 0;
-	// if (isnanf(v.y))
-	// 	v.y = 0;
-	// if (isnanf(v.z))
-	// 	v.z = 0;
+	if (ft_isnanf(v.x))
+		v.x = 0;
+	if (ft_isnanf(v.y))
+		v.y = 0;
+	if (ft_isnanf(v.z))
+		v.z = 0;
 	len = sqrt(v.x * v.x + v.y * v.y + v.z * v.z);
 	if (len == 0)
 		len = 1;
