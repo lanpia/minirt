@@ -6,7 +6,7 @@
 /*   By: nahyulee <nahyulee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 21:54:27 by nahyulee          #+#    #+#             */
-/*   Updated: 2023/12/02 21:18:24 by nahyulee         ###   ########.fr       */
+/*   Updated: 2024/01/03 06:38:58 by nahyulee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdarg.h>
+# include <stdbool.h>
 
 # define BUFFER_SIZE 1024
 
@@ -124,6 +125,9 @@ void		ft_lx(t_ui X, int *i);
 int			ft_printf(const char *format, ...);
 void		ft_format(char c, va_list va, int *result);
 //////////////////////int/////////////////////
+bool		ft_compare_int(int check, int min, int max);
+bool		ft_compare_float(float check, float min, float max);
+bool		ft_compare_double(double check, double min, double max);
 char		*ft_ltoa(int nn);
 char		*ft_itoa(int nn);
 int			ft_max(int *arr, int n);
