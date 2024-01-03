@@ -6,7 +6,7 @@
 #    By: nahyulee <nahyulee@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/02 22:18:47 by soohkang          #+#    #+#              #
-#    Updated: 2024/01/03 03:42:39 by nahyulee         ###   ########.fr        #
+#    Updated: 2024/01/03 05:51:26 by nahyulee         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,17 +23,13 @@ MLX		= minilibx-linux
 MLX_LIB	= libmlx_Linux.a
 
 SRCS		= minirt.c \
+			_parse/parse_check_data_condition.c \
 			_parse/parse_extension.c \
 			_parse/parse_open_scene_file.c \
-			_parse/parse_check_data_condition.c \
 			_raytracing/camera.c \
-			_raytracing/ray_intersect.c \
-			_vector/vector_operations.c \
 			_render/render.c \
-			_render/render_rgb_trans.c \
-			_render/render_sphere.c \
-			_utils/error_handling.c \
 			_utils/mlx_handling.c \
+			_vector/vector_operations.c
 
 OBJS 		= $(SRCS:.c=.o)
 

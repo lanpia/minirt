@@ -6,7 +6,7 @@
 /*   By: nahyulee <nahyulee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 01:25:16 by nahyulee          #+#    #+#             */
-/*   Updated: 2024/01/02 23:41:20 by nahyulee         ###   ########.fr       */
+/*   Updated: 2024/01/03 08:24:20 by nahyulee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ t_vtr3	normalize_vector(t_vtr3 v)
 {
 	t_vtr3	result;
 	float	len;
+	static int		i;
 
 	if (isnanf(v.x))
 		v.x = 0;
@@ -36,6 +37,7 @@ t_vtr3	normalize_vector(t_vtr3 v)
 	if (isnanf(v.z))
 		v.z = 0;
 	len = sqrt(v.x * v.x + v.y * v.y + v.z * v.z);
+	printf("len%d: %f\n", i++,len);
 	result.x = v.x / len;
 	result.y = v.y / len;
 	result.z = v.z / len;
