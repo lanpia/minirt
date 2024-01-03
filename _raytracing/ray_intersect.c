@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ray_intersect.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nahyulee <nahyulee@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: soohkang <soohkang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 20:44:20 by soohkang          #+#    #+#             */
-/*   Updated: 2024/01/03 05:51:18 by nahyulee         ###   ########.fr       */
+/*   Updated: 2024/01/03 11:38:27 by soohkang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,16 @@ bool ray_intersect(t_ray *ray, t_rt *rt, t_intersec *intersection)
 {
 	t_intersec	temp_intersection;
 	bool		hit;
-	float		closest_distance;
+	float		closest_t;
 
 	hit = false;
-	closest_distance = INFINITY;
+	closest_t = INFINITY;
 	// 구와의 교차 검사
 	if (ray_intersect_sphere(ray, &rt->data.sphere, 
 							&temp_intersection) 
-							&& temp_intersection.distance < closest_distance)
+							&& temp_intersection.t < closest_t)
 	{
-		closest_distance = temp_intersection.distance;
+		closest_t = temp_intersection.t;
 		*intersection = temp_intersection;
 		hit = true;
 	}
@@ -34,9 +34,9 @@ bool ray_intersect(t_ray *ray, t_rt *rt, t_intersec *intersection)
 	// 평면과의 교차 검사
 	if (ray_intersect_plane(ray, &rt->data.plane, 
 								&temp_intersection) 
-							&& temp_intersection.distance < closest_distance) 
+							&& temp_intersection.t < closest_t) 
 	{
-		closest_distance = temp_intersection.distance;
+		closest_t = temp_intersection.t;
 		*intersection = temp_intersection;
 		hit = true;
 	}
@@ -44,9 +44,9 @@ bool ray_intersect(t_ray *ray, t_rt *rt, t_intersec *intersection)
 	// 원기둥과의 교차 검사
 	if (ray_intersect_cylinder(ray, &rt->data.cylinder, 
 									&temp_intersection) 
-							&& temp_intersection.distance < closest_distance)
+							&& temp_intersection.t < closest_t)
 	{
-		closest_distance = temp_intersection.distance;
+		closest_t = temp_intersection.t;
 		*intersection = temp_intersection;
 		hit = true;
 	}
@@ -76,7 +76,7 @@ bool ray_intersect_sphere(t_ray *ray, t_sp *sphere, t_intersec *intersection)
 		}
 	}
 
-	intersection->distance = root;
+	intersection->t = root;
 	intersection->position = add_vector(ray->origin, 
 										multiply_vector(ray->direction, 
 										root));
@@ -98,7 +98,7 @@ bool	ray_intersect_plane(t_ray *ray, t_pl *plane, t_intersec *intersection)
 		float t = dot_product(p0l0, plane->orientation) / denominator;
 
 		if (t >= 0) {
-			intersection->distance = t;
+			intersection->t = t;
 			intersection->position = add_vector(ray->origin, 
 								multiply_vector(ray->direction, t));
 			intersection->normal = plane->orientation;

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: nahyulee <nahyulee@student.42seoul.kr>     +#+  +:+       +#+         #
+#    By: soohkang <soohkang@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/02 22:18:47 by soohkang          #+#    #+#              #
-#    Updated: 2024/01/03 05:51:26 by nahyulee         ###   ########.fr        #
+#    Updated: 2024/01/03 11:44:10 by soohkang         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,18 +16,17 @@ LIBFT		= libft
 
 LIBFT_LIB	= libft.a
 
-# MLX			= mlx
+MLX			= mlx
 
-# MLX_LIB		= libmlx.a
-MLX		= minilibx-linux
-MLX_LIB	= libmlx_Linux.a
+MLX_LIB		= libmlx.a
+# MLX		= minilibx-linux
+# MLX_LIB	= libmlx_Linux.a
 
 SRCS		= minirt.c \
 			_parse/parse_check_data_condition.c \
 			_parse/parse_extension.c \
 			_parse/parse_open_scene_file.c \
 			_raytracing/camera.c \
-			_render/render.c \
 			_utils/mlx_handling.c \
 			_vector/vector_operations.c
 
@@ -60,7 +59,7 @@ all			:	$(NAME)
 $(NAME): $(OBJ_CUR)
 		@make all -C $(LIBFT)/
 		@make all -C $(MLX)/
-		@$(CC) $(CFLAGS) -o $@ $^ $(LIBFT)/$(LIBFT_LIB) $(MLX)/$(MLX_LIB) -lz -lXext -lX11 -lm
+		@$(CC) $(CFLAGS) -o $@ $^ $(LIBFT)/$(LIBFT_LIB) $(MLX)/$(MLX_LIB) -framework OpenGL -framework AppKit -lz -lm
 		@echo ${GREEN} "Compilation Done ✅"
 
 bonus:
@@ -86,4 +85,4 @@ re : fclean all
 
 .PHONY : all clean fclean re bonus
 
-# @$(CC) $(CFLAGS) -o $@ $(OBJ_CUR) $(LIBFT)/$(LIBFT_LIB) $(MLX)/$(MLX_LIB) -framework OpenGL -framework AppKit -lz -lm
+# @$(CC) $(CFLAGS) -o $@ $^ $(LIBFT)/$(LIBFT_LIB) $(MLX)/$(MLX_LIB) -lz -lXext -lX11 -lm

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minirt.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nahyulee <nahyulee@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: soohkang <soohkang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 20:43:47 by soohkang          #+#    #+#             */
-/*   Updated: 2024/01/03 08:17:43 by nahyulee         ###   ########.fr       */
+/*   Updated: 2024/01/03 11:42:27 by soohkang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ int	main(int ac, char **av)
 		rt->data.obj_cnt[cylinder] == false)
 		ft_exit(1, "Error\n:There are no objects.\n");
 	init_mlx(rt->mlx);
-	cam_lookat(rt->data.camera, &rt->data.viewplane, WIDTH/HEIGHT);
+	cam_lookat(rt->data.camera, &rt->data.viewplane, WIDTH / HEIGHT);
 	print_value(rt); //debug
 	// raycast(rt->data, rt->mlx);
 	rander(rt, rt->mlx);

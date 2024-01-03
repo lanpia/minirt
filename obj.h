@@ -6,11 +6,7 @@
 /*   By: soohkang <soohkang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 17:25:10 by nahyulee          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2024/01/03 08:02:43 by soohkang         ###   ########.fr       */
-=======
-/*   Updated: 2024/01/03 08:15:59 by nahyulee         ###   ########.fr       */
->>>>>>> 4601061635033545639a94652228eda0922fd745
+/*   Updated: 2024/01/03 11:33:06 by soohkang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +14,9 @@
 # define OBJ_H
 
 # include "_vector/vector.h"
-<<<<<<< HEAD
-=======
 
 enum e_obj{plane, sphere, cylinder};
 enum e_color{red, green, blue};
->>>>>>> 4601061635033545639a94652228eda0922fd745
 
 typedef struct s_ambentlight
 {
