@@ -6,7 +6,7 @@
 /*   By: nahyulee <nahyulee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 01:25:16 by nahyulee          #+#    #+#             */
-/*   Updated: 2024/01/03 14:11:33 by nahyulee         ###   ########.fr       */
+/*   Updated: 2024/01/03 14:17:54 by nahyulee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,20 +79,12 @@ void	my_mlx_pixel_put(t_mlx mlx, int x, int y, int color)
 	}
 }
 
-unsigned int	rgb_hex(int red, int green, int blue)
-{
-	unsigned int	color;
-
-	color = (red << 16) | (green << 8) | blue;
-	return (color);
-}
-
-int	phong_shading(t_d data, t_intersec intr, t_ray ray, int color[3])
+int	phong_shading(t_d data, t_intr intr, t_ray ray, int color[3])
 {
 	t_vtr3	reflect_dir;
 	double	diff;
 	double	spec;
-	double	result[3];
+	int		result[3];
 	int		i;
 
 	reflect_dir = reflect_vector(multiply_vector(ray.direction, -1), \
@@ -107,5 +99,5 @@ int	phong_shading(t_d data, t_intersec intr, t_ray ray, int color[3])
 					0.5 * spec * data.light.color[i]) * color[i];
 		result[i] = max(min(result[i], 1.0), 0.0);
 	}
-	return (rgb_hex(result[red], result[green], result[blue]));
+	return ((result[red] << 16) | (result[green] << 8) | result[blue]);
 }

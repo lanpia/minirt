@@ -1,14 +1,14 @@
-// /* ************************************************************************** */
-// /*                                                                            */
-// /*                                                        :::      ::::::::   */
-// /*   render.c                                           :+:      :+:    :+:   */
-// /*                                                    +:+ +:+         +:+     */
-// /*   By: nahyulee <nahyulee@student.42seoul.kr>     +#+  +:+       +#+        */
-// /*                                                +#+#+#+#+#+   +#+           */
-// /*   Created: 2024/01/02 20:44:25 by soohkang          #+#    #+#             */
-// /*   Updated: 2024/01/03 04:16:24 by nahyulee         ###   ########.fr       */
-// /*                                                                            */
-// /* ************************************************************************** */
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   render.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nahyulee <nahyulee@student.42seoul.kr>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/02 20:44:25 by soohkang          #+#    #+#             */
+/*   Updated: 2024/01/03 14:18:41 by nahyulee         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 // #include "../minirt.h"
 
@@ -95,7 +95,6 @@
 // 		return (t_color){255, 255, 255}; // 교차하지 않은 경우, 흰색 배경 사용
 // }
 
-
 // // 이미지 버퍼에 픽셀 색상을 설정하는 함수
 // void	set_pixel_color(t_rt *rt, int x, int y, t_color color)
 // {
@@ -111,14 +110,6 @@
 // 		, &rt->line_length, &rt->endian);
 // 	*(unsigned int*)(dst + y * rt->line_length + x * (rt->bits_per_pixel / 8)) 
 // 					= mlx_get_color_value(rt->mlx, color_value);
-// }
-
-// unsigned int	rgb_hex(int red, int green, int blue)
-// {
-// 	unsigned int	color;
-
-// 	color = (red << 16) | (green << 8) | blue;
-// 	return (color);
 // }
 
 // double	degree_to_radian(float degree)

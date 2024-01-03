@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minirt.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soohkang <soohkang@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: nahyulee <nahyulee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 20:43:47 by soohkang          #+#    #+#             */
-/*   Updated: 2024/01/03 13:12:22 by soohkang         ###   ########.fr       */
+/*   Updated: 2024/01/03 14:18:05 by nahyulee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,14 @@
 void	vtr3print(char *s, t_vtr3 v) // debug
 {
 	printf("%s\tx: %f, y: %f, z: %f\n", s, v.x, v.y, v.z);
+}
+
+unsigned int	rgb_hex(int red, int green, int blue) // debug
+{
+	unsigned int	color;
+
+	color = (red << 16) | (green << 8) | blue;
+	return (color);
 }
 
 void	print_value(t_rt *rt) // debug

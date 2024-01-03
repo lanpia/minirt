@@ -3,14 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   obj.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soohkang <soohkang@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: nahyulee <nahyulee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 17:25:10 by nahyulee          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2024/01/03 14:09:01 by nahyulee         ###   ########.fr       */
-=======
-/*   Updated: 2024/01/03 13:12:41 by soohkang         ###   ########.fr       */
->>>>>>> 35f92cefd2f1c03cc0c263e96dab3c76de9c7870
+/*   Updated: 2024/01/03 14:15:45 by nahyulee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,25 +79,25 @@ typedef struct s_viewplane
 
 typedef struct s_intersec
 {
-	t_vtr3	hit;		// 교차점의 위치
-	t_vtr3	normal;			// 교차점에서의 법선벡터
-	float	t;		// 광선의 시작점으로부터 교차점까지의 거리
-	int		obj_type;	// 교차한 객체의 종류 (구, 평면, 기둥)
-	int		color[3];			// 교차한 객체의 색상
-}	t_intersec;
+	t_vtr3	hit;
+	t_vtr3	normal;
+	float	t;
+	int		obj_type;
+	int		color[3];
+}	t_intr;
 
 typedef struct s_data
 {
-	t_a			ambient;
-	t_c			camera;
-	t_l			light;
-	t_pl		plane;
-	t_sp		sphere;
-	t_cy		cylinder;
-	int			obj_cnt[3];
-	t_vwpl		viewplane;
-	t_ray		ray;
-	t_intersec	intersec;
+	t_a		ambient;
+	t_c		camera;
+	t_l		light;
+	t_pl	plane;
+	t_sp	sphere;
+	t_cy	cylinder;
+	int		obj_cnt[3];
+	t_vwpl	viewplane;
+	t_ray	ray;
+	t_intr	intersec;
 }	t_d;
 
 #endif
