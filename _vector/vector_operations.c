@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   vector_operations.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nahyulee <nahyulee@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: soohkang <soohkang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 01:25:16 by nahyulee          #+#    #+#             */
-/*   Updated: 2024/01/03 12:53:51 by nahyulee         ###   ########.fr       */
+/*   Updated: 2024/01/03 13:11:19 by soohkang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

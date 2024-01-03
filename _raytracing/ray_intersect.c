@@ -6,7 +6,7 @@
 /*   By: nahyulee <nahyulee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 20:44:20 by soohkang          #+#    #+#             */
-/*   Updated: 2024/01/03 05:51:18 by nahyulee         ###   ########.fr       */
+/*   Updated: 2024/01/03 14:13:37 by nahyulee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,16 @@ bool ray_intersect(t_ray *ray, t_rt *rt, t_intersec *intersection)
 {
 	t_intersec	temp_intersection;
 	bool		hit;
-	float		closest_distance;
+	float		closest_t;
 
 	hit = false;
-	closest_distance = INFINITY;
+	closest_t = INFINITY;
 	// 구와의 교차 검사
 	if (ray_intersect_sphere(ray, &rt->data.sphere, 
 							&temp_intersection) 
-							&& temp_intersection.distance < closest_distance)
+							&& temp_intersection.t < closest_t)
 	{
-		closest_distance = temp_intersection.distance;
+		closest_t = temp_intersection.t;
 		*intersection = temp_intersection;
 		hit = true;
 	}
