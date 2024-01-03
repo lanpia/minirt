@@ -6,7 +6,7 @@
 /*   By: nahyulee <nahyulee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 17:25:10 by nahyulee          #+#    #+#             */
-/*   Updated: 2024/01/03 08:15:59 by nahyulee         ###   ########.fr       */
+/*   Updated: 2024/01/03 14:09:01 by nahyulee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,10 +79,10 @@ typedef struct s_viewplane
 
 typedef struct s_intersec
 {
-	t_vtr3	position;		// 교차점의 위치
+	t_vtr3	hit;		// 교차점의 위치
 	t_vtr3	normal;			// 교차점에서의 법선벡터
 	float	t;		// 광선의 시작점으로부터 교차점까지의 거리
-	int		object_type;	// 교차한 객체의 종류 (구, 평면, 기둥)
+	int		obj_type;	// 교차한 객체의 종류 (구, 평면, 기둥)
 	int		color[3];			// 교차한 객체의 색상
 }	t_intersec;
 

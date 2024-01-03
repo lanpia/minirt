@@ -6,7 +6,7 @@
 /*   By: nahyulee <nahyulee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 01:25:16 by nahyulee          #+#    #+#             */
-/*   Updated: 2024/01/03 08:18:41 by nahyulee         ###   ########.fr       */
+/*   Updated: 2024/01/03 14:11:33 by nahyulee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,18 +55,18 @@ void	cam_lookat(t_c cam, t_vwpl *view, double ratio)
 // 	}
 // }
 
-// int	intersect(t_rt *rt, t_d data)
-// {
-// 	int	color;
+int	intersect(t_rt *rt, t_d data)
+{
+	int	color;
 
-// 	if (data.obj_flag[plane] == true)
-// 		color = intersect_plane(rt);
-// 	else if (data.obj_flag[sphere] == true)
-// 		color = intersect_sphere(rt);
-// 	else if (data.obj_flag[cylinder] == true)
-// 		color = intersect_cylinder(rt);
-// 	return (color);
-// }
+	if (data.obj_cnt[plane] > 0)
+		color = intersect_plane(rt);
+	else if (data.obj_cnt[sphere] > 0)
+		color = intersect_sphere(rt);
+	else if (data.obj_cnt[cylinder] > 0)
+		color = intersect_cylinder(rt);
+	return (phong_shading(data, data.intersec, data.ray, data.intersec.color));
+}
 
 void	my_mlx_pixel_put(t_mlx mlx, int x, int y, int color)
 {
@@ -85,4 +85,27 @@ unsigned int	rgb_hex(int red, int green, int blue)
 
 	color = (red << 16) | (green << 8) | blue;
 	return (color);
+}
+
+int	phong_shading(t_d data, t_intersec intr, t_ray ray, int color[3])
+{
+	t_vtr3	reflect_dir;
+	double	diff;
+	double	spec;
+	double	result[3];
+	int		i;
+
+	reflect_dir = reflect_vector(multiply_vector(ray.direction, -1), \
+					intr.normal);
+	diff = max(dot_product(intr.normal, ray.direction), 0.0);
+	spec = pow(max(dot_product(ray.direction, reflect_dir), 0.0), 32);
+	i = -1;
+	while (++i < 3)
+	{
+		result[i] = (data.ambient.ratio * data.ambient.color[i] + \
+					diff * data.light.color[i] + \
+					0.5 * spec * data.light.color[i]) * color[i];
+		result[i] = max(min(result[i], 1.0), 0.0);
+	}
+	return (rgb_hex(result[red], result[green], result[blue]));
 }
