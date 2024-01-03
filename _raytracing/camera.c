@@ -6,7 +6,7 @@
 /*   By: nahyulee <nahyulee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 01:25:16 by nahyulee          #+#    #+#             */
-/*   Updated: 2024/01/03 14:17:54 by nahyulee         ###   ########.fr       */
+/*   Updated: 2024/01/03 14:27:21 by nahyulee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	cam_lookat(t_c cam, t_vwpl *view, double ratio)
 
 	right = normalize_vector(cross_product((t_vtr3){0, 1, 0}, \
 					normalize_vector(cam.dir)));
+	view->t = view->half_width / tan((cam.fov * (M_PI / 180.0)) / 2.0);
 	view->center = add_vector(cam.position, \
 		multiply_vector(normalize_vector(cam.dir), view->t, view->t, view->t));
 	up = cross_product(normalize_vector(cam.dir), right);
@@ -55,18 +56,18 @@ void	cam_lookat(t_c cam, t_vwpl *view, double ratio)
 // 	}
 // }
 
-int	intersect(t_rt *rt, t_d data)
-{
-	int	color;
+// int	intersect(t_rt *rt, t_d data)
+// {
+// 	int	color;
 
-	if (data.obj_cnt[plane] > 0)
-		color = intersect_plane(rt);
-	else if (data.obj_cnt[sphere] > 0)
-		color = intersect_sphere(rt);
-	else if (data.obj_cnt[cylinder] > 0)
-		color = intersect_cylinder(rt);
-	return (phong_shading(data, data.intersec, data.ray, data.intersec.color));
-}
+// 	if (data.obj_cnt[plane] > 0)
+// 		color = intersect_plane(rt);
+// 	else if (data.obj_cnt[sphere] > 0)
+// 		color = intersect_sphere(rt);
+// 	else if (data.obj_cnt[cylinder] > 0)
+// 		color = intersect_cylinder(rt);
+// 	return (phong_shading(data, data.intersec, data.ray, data.intersec.color));
+// }
 
 void	my_mlx_pixel_put(t_mlx mlx, int x, int y, int color)
 {
@@ -87,17 +88,17 @@ int	phong_shading(t_d data, t_intr intr, t_ray ray, int color[3])
 	int		result[3];
 	int		i;
 
-	reflect_dir = reflect_vector(multiply_vector(ray.direction, -1), \
+	reflect_dir = reflect_vector(multiply_vector(ray.direction, -1, -1, -1), \
 					intr.normal);
-	diff = max(dot_product(intr.normal, ray.direction), 0.0);
-	spec = pow(max(dot_product(ray.direction, reflect_dir), 0.0), 32);
+	diff = fmax(dot_product(intr.normal, ray.direction), 0.0);
+	spec = pow(fmax(dot_product(ray.direction, reflect_dir), 0.0), 32);
 	i = -1;
 	while (++i < 3)
 	{
 		result[i] = (data.ambient.ratio * data.ambient.color[i] + \
 					diff * data.light.color[i] + \
 					0.5 * spec * data.light.color[i]) * color[i];
-		result[i] = max(min(result[i], 1.0), 0.0);
+		result[i] = fmax(fmin(result[i], 1.0), 0.0);
 	}
 	return ((result[red] << 16) | (result[green] << 8) | result[blue]);
 }
