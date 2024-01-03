@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_open_scene_file.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soohkang <soohkang@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: nahyulee <nahyulee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 10:16:44 by nahyulee          #+#    #+#             */
-/*   Updated: 2024/01/03 13:13:08 by soohkang         ###   ########.fr       */
+/*   Updated: 2024/01/03 14:52:15 by nahyulee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ t_rt	*open_scene_file(t_rt *rt, char **av, int *i)
 		ft_2d_arr_free(data, len);
 		tmp = get_next_line(fd);
 	}
+	free(tmp);
 	return (rt);
 }
 

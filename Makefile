@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: soohkang <soohkang@student.42seoul.kr>     +#+  +:+       +#+         #
+#    By: nahyulee <nahyulee@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/02 22:18:47 by soohkang          #+#    #+#              #
-#    Updated: 2024/01/03 13:05:39 by soohkang         ###   ########.fr        #
+#    Updated: 2024/01/03 14:47:25 by nahyulee         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,7 @@ LIBC		= ar rc
 
 CC 			= cc
 
-CFLAGS 		= -Wall -Wextra -Werror -g -g3 -fsanitize=address
+CFLAGS 		= -Wall -Wextra -Werror -g -g3# -fsanitize=address
 
 RM 			= rm -rf
 

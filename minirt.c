@@ -6,11 +6,16 @@
 /*   By: nahyulee <nahyulee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 20:43:47 by soohkang          #+#    #+#             */
-/*   Updated: 2024/01/03 14:18:05 by nahyulee         ###   ########.fr       */
+/*   Updated: 2024/01/03 14:46:34 by nahyulee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
+
+void	leakcheck(void)
+{
+	system("leaks miniRT");
+}
 
 void	vtr3print(char *s, t_vtr3 v) // debug
 {
@@ -77,6 +82,7 @@ int	main(int ac, char **av)
 	t_rt	*rt;
 	int		i;
 
+	atexit(leakcheck);
 	if (ac != 2)
 		ft_exit(1, "Error\n:bad argument\n");
 	rt = (t_rt *)ft_calloc(sizeof(t_rt), 1);
@@ -91,6 +97,7 @@ int	main(int ac, char **av)
 	cam_lookat(rt->data.camera, &rt->data.viewplane, WIDTH/HEIGHT);
 	print_value(rt); //debug
 	// raycast(rt->data, rt->mlx);
-	rander(rt, rt->mlx);
+	// rander(rt, rt->mlx);
+	free(rt);
 	return (0);
 }
