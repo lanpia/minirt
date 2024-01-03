@@ -6,7 +6,7 @@
 /*   By: soohkang <soohkang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 01:25:16 by nahyulee          #+#    #+#             */
-/*   Updated: 2024/01/03 11:55:22 by soohkang         ###   ########.fr       */
+/*   Updated: 2024/01/03 13:02:42 by soohkang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,13 @@ t_vtr3	reflect_vector(t_vtr3 incident, t_vtr3 normal)
 	return (reflect);
 }
 
+int	ft_isnanf(float x)
+{
+	return (x != x);
+}
+
 t_vtr3	normalize_vector(t_vtr3 v)
 {
-	t_vtr3	result;
 	float	len;
 
 	// if (isnanf(v.x)) -> 이 함수 만들어서 사용하기
@@ -36,10 +40,9 @@ t_vtr3	normalize_vector(t_vtr3 v)
 	// if (isnanf(v.z))
 	// 	v.z = 0;
 	len = sqrt(v.x * v.x + v.y * v.y + v.z * v.z);
-	result.x = v.x / len;
-	result.y = v.y / len;
-	result.z = v.z / len;
-	return (result);
+	if (len == 0)
+		len = 1;
+	return (divide_vector(v, len, len, len));
 }
 
 t_vtr3	add_val_vtr3(t_vtr3 v, float x, float y, float z)
@@ -109,17 +112,5 @@ t_vtr3	subtract_vector(t_vtr3 a, t_vtr3 b)
 	result.x = a.x - b.x;
 	result.y = a.y - b.y;
 	result.z = a.z - b.z;
-	return (result);
-}
-
-t_vtr3	vtr3_length(t_vtr3 v)
-{
-	t_vtr3	result;
-	float	len;
-
-	len = sqrt(v.x * v.x + v.y * v.y + v.z * v.z);
-	result.x = v.x / len;
-	result.y = v.y / len;
-	result.z = v.z / len;
 	return (result);
 }

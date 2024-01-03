@@ -6,7 +6,11 @@
 /*   By: soohkang <soohkang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 20:43:47 by soohkang          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2024/01/03 11:42:27 by soohkang         ###   ########.fr       */
+=======
+/*   Updated: 2024/01/03 12:47:48 by nahyulee         ###   ########.fr       */
+>>>>>>> 10e1ba7a28ae86c4452ed09202ac4c9e0d977c64
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +30,13 @@ void	print_value(t_rt *rt) // debug
 								rt->data.ambient.color[blue]));
 	printf("====================================\n");
 	printf("camera: \n");
+<<<<<<< HEAD
 	vtr3print("cam", rt->data.camera.position);
 	vtr3print("cam_lookat", rt->data.camera.dir);
+=======
+	vtr3print("cam\t", rt->data.camera.position);
+	vtr3print("dir\t", rt->data.camera.dir);
+>>>>>>> 10e1ba7a28ae86c4452ed09202ac4c9e0d977c64
 	printf("fov: %d\n", rt->data.camera.fov);
 	printf("light: \n");
 	vtr3print("position", rt->data.light.position);
@@ -40,14 +49,22 @@ void	print_value(t_rt *rt) // debug
 	vtr3print("position", rt->data.plane.position);
 	vtr3print("orientation", rt->data.plane.orientation);
 	printf("sphere: \n");
+<<<<<<< HEAD
 	vtr3print("center", rt->data.sphere.center);
+=======
+	vtr3print("center\t", rt->data.sphere.center);
+>>>>>>> 10e1ba7a28ae86c4452ed09202ac4c9e0d977c64
 	printf("radius: %f\n", rt->data.sphere.radius);
 	printf("color: %d\n", rgb_hex(rt->data.sphere.color[red], \
 								rt->data.sphere.color[green], \
 								rt->data.sphere.color[blue]));
 	printf("====================================\n");
 	printf("cylinder: \n");
+<<<<<<< HEAD
 	vtr3print("center", rt->data.cylinder.center);
+=======
+	vtr3print("center\t", rt->data.cylinder.center);
+>>>>>>> 10e1ba7a28ae86c4452ed09202ac4c9e0d977c64
 	vtr3print("orientation", rt->data.cylinder.orientation);
 	printf("diameter: %f\n", rt->data.cylinder.diameter);
 	printf("height: %f\n", rt->data.cylinder.height);
@@ -60,7 +77,11 @@ void	print_value(t_rt *rt) // debug
 										rt->data.viewplane.half_height);
 	printf("distance: %f\n", rt->data.viewplane.t);
 	vtr3print("left_top", rt->data.viewplane.left_top);
+<<<<<<< HEAD
 	vtr3print("center", rt->data.viewplane.center);
+=======
+	vtr3print("center\t", rt->data.viewplane.center);
+>>>>>>> 10e1ba7a28ae86c4452ed09202ac4c9e0d977c64
 	printf("====================================\n");
 }
 
@@ -80,7 +101,11 @@ int	main(int ac, char **av)
 		rt->data.obj_cnt[cylinder] == false)
 		ft_exit(1, "Error\n:There are no objects.\n");
 	init_mlx(rt->mlx);
+<<<<<<< HEAD
 	cam_lookat(rt->data.camera, &rt->data.viewplane, WIDTH / HEIGHT);
+=======
+	cam_lookat(rt->data.camera, &rt->data.viewplane, WIDTH/HEIGHT);
+>>>>>>> 10e1ba7a28ae86c4452ed09202ac4c9e0d977c64
 	print_value(rt); //debug
 	// raycast(rt->data, rt->mlx);
 	rander(rt, rt->mlx);

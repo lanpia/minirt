@@ -3,10 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   parse_check_data_condition.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
+<<<<<<< HEAD
 /*   By: soohkang <soohkang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 03:15:07 by soohkang          #+#    #+#             */
 /*   Updated: 2024/01/03 11:37:46 by soohkang         ###   ########.fr       */
+=======
+/*   By: nahyulee <nahyulee@student.42seoul.kr>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/12/05 03:15:07 by soohkang          #+#    #+#             */
+/*   Updated: 2024/01/03 08:06:18 by nahyulee         ###   ########.fr       */
+>>>>>>> 10e1ba7a28ae86c4452ed09202ac4c9e0d977c64
 /*                                                                            */
 /* ************************************************************************** */
 

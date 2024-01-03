@@ -6,7 +6,7 @@
 /*   By: soohkang <soohkang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 20:44:20 by soohkang          #+#    #+#             */
-/*   Updated: 2024/01/03 11:38:27 by soohkang         ###   ########.fr       */
+/*   Updated: 2024/01/03 13:02:35 by soohkang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,15 @@ bool ray_intersect(t_ray *ray, t_rt *rt, t_intersec *intersection)
 	// 평면과의 교차 검사
 	if (ray_intersect_plane(ray, &rt->data.plane, 
 								&temp_intersection) 
+<<<<<<< HEAD
 							&& temp_intersection.t < closest_t) 
 	{
 		closest_t = temp_intersection.t;
+=======
+							&& temp_intersection.distance < closest_distance) 
+	{
+		closest_distance = temp_intersection.distance;
+>>>>>>> 10e1ba7a28ae86c4452ed09202ac4c9e0d977c64
 		*intersection = temp_intersection;
 		hit = true;
 	}
@@ -44,9 +50,15 @@ bool ray_intersect(t_ray *ray, t_rt *rt, t_intersec *intersection)
 	// 원기둥과의 교차 검사
 	if (ray_intersect_cylinder(ray, &rt->data.cylinder, 
 									&temp_intersection) 
+<<<<<<< HEAD
 							&& temp_intersection.t < closest_t)
 	{
 		closest_t = temp_intersection.t;
+=======
+							&& temp_intersection.distance < closest_distance)
+	{
+		closest_distance = temp_intersection.distance;
+>>>>>>> 10e1ba7a28ae86c4452ed09202ac4c9e0d977c64
 		*intersection = temp_intersection;
 		hit = true;
 	}
@@ -76,7 +88,11 @@ bool ray_intersect_sphere(t_ray *ray, t_sp *sphere, t_intersec *intersection)
 		}
 	}
 
+<<<<<<< HEAD
 	intersection->t = root;
+=======
+	intersection->distance = root;
+>>>>>>> 10e1ba7a28ae86c4452ed09202ac4c9e0d977c64
 	intersection->position = add_vector(ray->origin, 
 										multiply_vector(ray->direction, 
 										root));
@@ -98,7 +114,11 @@ bool	ray_intersect_plane(t_ray *ray, t_pl *plane, t_intersec *intersection)
 		float t = dot_product(p0l0, plane->orientation) / denominator;
 
 		if (t >= 0) {
+<<<<<<< HEAD
 			intersection->t = t;
+=======
+			intersection->distance = t;
+>>>>>>> 10e1ba7a28ae86c4452ed09202ac4c9e0d977c64
 			intersection->position = add_vector(ray->origin, 
 								multiply_vector(ray->direction, t));
 			intersection->normal = plane->orientation;
