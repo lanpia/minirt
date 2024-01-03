@@ -6,7 +6,7 @@
 /*   By: nahyulee <nahyulee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 20:43:47 by soohkang          #+#    #+#             */
-/*   Updated: 2024/01/03 09:04:22 by nahyulee         ###   ########.fr       */
+/*   Updated: 2024/01/03 12:47:48 by nahyulee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ void	print_value(t_rt *rt) // debug
 								rt->data.ambient.color[blue]));
 	printf("====================================\n");
 	printf("camera: \n");
-	vtr3print("cam", rt->data.camera.position);
-	vtr3print("dir", rt->data.camera.dir);
+	vtr3print("cam\t", rt->data.camera.position);
+	vtr3print("dir\t", rt->data.camera.dir);
 	printf("fov: %d\n", rt->data.camera.fov);
 	printf("light: \n");
 	vtr3print("position", rt->data.light.position);
@@ -40,14 +40,14 @@ void	print_value(t_rt *rt) // debug
 	vtr3print("position", rt->data.plane.position);
 	vtr3print("orientation", rt->data.plane.orientation);
 	printf("sphere: \n");
-	vtr3print("center", rt->data.sphere.center);
+	vtr3print("center\t", rt->data.sphere.center);
 	printf("radius: %f\n", rt->data.sphere.radius);
 	printf("color: %d\n", rgb_hex(rt->data.sphere.color[red], \
 								rt->data.sphere.color[green], \
 								rt->data.sphere.color[blue]));
 	printf("====================================\n");
 	printf("cylinder: \n");
-	vtr3print("center", rt->data.cylinder.center);
+	vtr3print("center\t", rt->data.cylinder.center);
 	vtr3print("orientation", rt->data.cylinder.orientation);
 	printf("diameter: %f\n", rt->data.cylinder.diameter);
 	printf("height: %f\n", rt->data.cylinder.height);
@@ -60,7 +60,7 @@ void	print_value(t_rt *rt) // debug
 										rt->data.viewplane.half_height);
 	printf("distance: %f\n", rt->data.viewplane.t);
 	vtr3print("left_top", rt->data.viewplane.left_top);
-	vtr3print("center", rt->data.viewplane.center);
+	vtr3print("center\t", rt->data.viewplane.center);
 	printf("====================================\n");
 }
 
