@@ -6,7 +6,7 @@
 /*   By: nahyulee <nahyulee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 20:50:10 by nahyulee          #+#    #+#             */
-/*   Updated: 2024/01/03 06:29:35 by nahyulee         ###   ########.fr       */
+/*   Updated: 2024/01/05 04:13:04 by nahyulee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,21 @@ void	init_mlx(t_mlx mlx)
 
 void	rander(t_rt *rt, t_mlx mlx)
 {
+	cam_lookat(&rt->data.camera, &rt->data.viewplane, WIDTH / HEIGHT);
+	raycast(rt->data, &mlx);
 	mlx_put_image_to_window(mlx.mlx, mlx.window, mlx.img_ptr, 0, 0);
 	mlx_hook(mlx.window, X_EVENT_KEY_PRESS, 0, press_key, rt);
 	mlx_hook(mlx.window, X_EVENT_KEY_EXIT, 0, print_error, rt);
 	mlx_loop(mlx.mlx);
+}
+
+void	my_mlx_pixel_put(t_mlx *mlx, int x, int y, int color)
+{
+	char	*pixel;
+
+	if (0 <= x && x < WIDTH && 0 <= y && y < HEIGHT)
+	{
+		pixel = mlx->addr + (y * mlx->size_line + x * 4);
+		*(int *)pixel = color;
+	}
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minirt.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soohkang <soohkang@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: nahyulee <nahyulee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 20:43:42 by soohkang          #+#    #+#             */
-/*   Updated: 2024/01/03 13:12:27 by soohkang         ###   ########.fr       */
+/*   Updated: 2024/01/05 04:06:47 by nahyulee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,9 +81,18 @@ int				press_key(int key_val, t_rt *rt);
 int				print_error(int key_val, t_rt *rt);
 void			init_mlx(t_mlx mlx);
 void			rander(t_rt *rt, t_mlx mlx);
+void			my_mlx_pixel_put(t_mlx *mlx, int x, int y, int color);
 /* ***************		_raytracing		********************************* */
-void			cam_lookat(t_c cam, t_vwpl *view, double ratio);
-void			my_mlx_pixel_put(t_mlx mlx, int x, int y, int color);
+void			cam_lookat(t_c *cam, t_vwpl *view, double ratio);
+t_ray			get_ray(t_c cam, t_vwpl viewplane, int i, int j);
+void			raycast(t_d data, t_mlx mlx);
+int				intersect(t_d data);
+int				phong_shading(t_d data, t_intr intr, t_ray ray, int color[3]);
+/* ***************		_raytracing		********************************* */
+t_intr			intersect_plane(t_pl plane, t_ray ray);
+t_intr			intersect_sphere(t_sp sp, t_ray ray);
+
+
 unsigned int	rgb_hex(int red, int green, int blue);
 
 #endif

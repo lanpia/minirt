@@ -6,7 +6,7 @@
 /*   By: nahyulee <nahyulee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 20:43:47 by soohkang          #+#    #+#             */
-/*   Updated: 2024/01/03 14:46:34 by nahyulee         ###   ########.fr       */
+/*   Updated: 2024/01/05 04:10:26 by nahyulee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	print_value(t_rt *rt) // debug
 {
 	printf("ambient: \n");
 	printf("ratio: %f\n", rt->data.ambient.ratio);
-	printf("color: %d\n", rgb_hex(rt->data.ambient.color[red], \
+	printf("color: %x\n", rgb_hex(rt->data.ambient.color[red], \
 								rt->data.ambient.color[green], \
 								rt->data.ambient.color[blue]));
 	printf("====================================\n");
@@ -42,10 +42,11 @@ void	print_value(t_rt *rt) // debug
 	vtr3print("cam\t", rt->data.camera.position);
 	vtr3print("dir\t", rt->data.camera.dir);
 	printf("fov: %d\n", rt->data.camera.fov);
+	printf("====================================\n");
 	printf("light: \n");
 	vtr3print("position", rt->data.light.position);
 	printf("brightness: %f\n", rt->data.light.brightness);
-	printf("color: %d\n", rgb_hex(rt->data.light.color[red], \
+	printf("color: %x\n", rgb_hex(rt->data.light.color[red], \
 								rt->data.light.color[green], \
 								rt->data.light.color[blue]));
 	printf("====================================\n");
@@ -55,7 +56,7 @@ void	print_value(t_rt *rt) // debug
 	printf("sphere: \n");
 	vtr3print("center\t", rt->data.sphere.center);
 	printf("radius: %f\n", rt->data.sphere.radius);
-	printf("color: %d\n", rgb_hex(rt->data.sphere.color[red], \
+	printf("color: %x\n", rgb_hex(rt->data.sphere.color[red], \
 								rt->data.sphere.color[green], \
 								rt->data.sphere.color[blue]));
 	printf("====================================\n");
@@ -64,7 +65,7 @@ void	print_value(t_rt *rt) // debug
 	vtr3print("orientation", rt->data.cylinder.orientation);
 	printf("diameter: %f\n", rt->data.cylinder.diameter);
 	printf("height: %f\n", rt->data.cylinder.height);
-	printf("color: %d\n", rgb_hex(rt->data.cylinder.color[red], \
+	printf("color: %x\n", rgb_hex(rt->data.cylinder.color[red], \
 								rt->data.cylinder.color[green], \
 								rt->data.cylinder.color[blue]));
 	printf("====================================\n");
@@ -82,22 +83,22 @@ int	main(int ac, char **av)
 	t_rt	*rt;
 	int		i;
 
-	atexit(leakcheck);
+	// atexit(leakcheck);
 	if (ac != 2)
 		ft_exit(1, "Error\n:bad argument\n");
 	rt = (t_rt *)ft_calloc(sizeof(t_rt), 1);
 	i = 1;
 	parse_extensions(av, &i);
 	rt = open_scene_file(rt, av, &i);
-	if (rt->data.obj_cnt[plane] == false && \
-		rt->data.obj_cnt[sphere] == false && \
-		rt->data.obj_cnt[cylinder] == false)
-		ft_exit(1, "Error\n:There are no objects.\n");
+	// if (rt->data.obj_cnt[plane] == false && 
+	// 	rt->data.obj_cnt[sphere] == false && 
+	// 	rt->data.obj_cnt[cylinder] == false)
+	// 	ft_exit(1, "Error\n:There are no objects.\n");
 	init_mlx(rt->mlx);
-	cam_lookat(rt->data.camera, &rt->data.viewplane, WIDTH/HEIGHT);
+	cam_lookat(&rt->data.camera, &rt->data.viewplane, WIDTH/HEIGHT);
 	print_value(rt); //debug
 	// raycast(rt->data, rt->mlx);
-	// rander(rt, rt->mlx);
+	rander(rt, rt->mlx);
 	free(rt);
 	return (0);
 }

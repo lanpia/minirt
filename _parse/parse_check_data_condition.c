@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_check_data_condition.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soohkang <soohkang@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: nahyulee <nahyulee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 03:15:07 by soohkang          #+#    #+#             */
-/*   Updated: 2024/01/03 13:12:53 by soohkang         ###   ########.fr       */
+/*   Updated: 2024/01/05 04:03:39 by nahyulee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

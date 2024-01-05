@@ -6,7 +6,7 @@
 /*   By: nahyulee <nahyulee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 17:25:10 by nahyulee          #+#    #+#             */
-/*   Updated: 2024/01/03 14:15:45 by nahyulee         ###   ########.fr       */
+/*   Updated: 2024/01/05 01:36:57 by nahyulee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ typedef struct s_camera
 	t_vtr3	position;
 	t_vtr3	dir;
 	int		fov;
+	t_vtr3	right;
+	t_vtr3	up;
 }	t_c;
 
 typedef struct s_light
@@ -64,7 +66,7 @@ typedef struct s_cylinder
 typedef struct s_ray
 {
 	t_vtr3	origin;
-	t_vtr3	direction;
+	t_vtr3	dir;
 }	t_ray;
 
 typedef struct s_viewplane
