@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   vector_operations.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soohkang <soohkang@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: nahyulee <nahyulee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 01:25:16 by nahyulee          #+#    #+#             */
-/*   Updated: 2024/01/03 13:11:19 by soohkang         ###   ########.fr       */
+/*   Updated: 2024/01/08 16:16:23 by nahyulee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,4 +113,13 @@ t_vtr3	subtract_vector(t_vtr3 a, t_vtr3 b)
 	result.y = a.y - b.y;
 	result.z = a.z - b.z;
 	return (result);
+}
+
+bool	avilable_vtr3_value(t_vtr3 v, int start, int end)
+{
+	if (ft_compare_int(v.x, start, end) == false || \
+		ft_compare_int(v.y, start, end) == false || \
+		ft_compare_int(v.z, start, end) == false)
+		return (false);
+	return (true);
 }

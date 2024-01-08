@@ -6,7 +6,7 @@
 #    By: nahyulee <nahyulee@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/02 22:18:47 by soohkang          #+#    #+#              #
-#    Updated: 2024/01/05 00:26:05 by nahyulee         ###   ########.fr        #
+#    Updated: 2024/01/05 23:00:07 by nahyulee         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,9 +33,7 @@ SRCS		= minirt.c \
 
 OBJS 		= $(SRCS:.c=.o)
 
-OBJS 		= $(addprefix obj/,$(SRCS:.c=.o))
-
-OBJS_BONUS 	= $(addprefix obj/,$(SRCS_BONUS:.c=.o))
+# OBJS 		= $(addprefix obj/,$(SRCS:.c=.o))
 
 LIBC		= ar rc
 
@@ -49,15 +47,9 @@ GREEN		= "\033[1;32m"
 WHITE		= "\033[0m"
 RED			= "\033[0;31m"
 
-ifdef BONUS
-	OBJ_CUR = $(OBJS_BONUS)
-else
-	OBJ_CUR = $(OBJS)
-endif
-
 all			:	$(NAME)
 
-$(NAME): $(OBJ_CUR)
+$(NAME): $(OBJS)
 		@make all -C $(LIBFT)/
 		@make all -C $(MLX)/
 		@$(CC) $(CFLAGS) -o $@ $^ $(LIBFT)/$(LIBFT_LIB) $(MLX)/$(MLX_LIB) -lz -lXext -lX11 -lm

@@ -6,7 +6,7 @@
 /*   By: nahyulee <nahyulee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 17:25:10 by nahyulee          #+#    #+#             */
-/*   Updated: 2024/01/03 04:00:31 by nahyulee         ###   ########.fr       */
+/*   Updated: 2024/01/08 16:16:23 by nahyulee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdbool.h>
 # include <stdlib.h>
 # include <stdio.h>
+
 typedef struct s_vector3d
 {
 	float	x;
@@ -41,5 +42,6 @@ t_vtr3	normalize_vector(t_vtr3 v);
 t_vtr3	add_val_vtr3(t_vtr3 v, float x, float y, float z);
 t_vtr3	multiply_vector(t_vtr3 v, float x, float y, float z);
 t_vtr3	divide_vector(t_vtr3 v, float x, float y, float z);
+bool	avilable_vtr3_value(t_vtr3 v, int start, int end);
 
 #endif

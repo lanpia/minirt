@@ -6,7 +6,7 @@
 /*   By: nahyulee <nahyulee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 20:44:20 by soohkang          #+#    #+#             */
-/*   Updated: 2024/01/05 03:47:20 by nahyulee         ###   ########.fr       */
+/*   Updated: 2024/01/08 02:38:02 by nahyulee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,36 +34,35 @@ t_intr	intersect_plane(t_pl plane, t_ray ray)
 			intr.color[blue] = plane.color[blue];
 		}
 	}
-	// printf("intr %x, plane %x\n", rgb_hex(intr.color[0], intr.color[1], intr.color[2]), rgb_hex(plane.color[0], plane.color[1], plane.color[2]));
 	return (intr);
 }
 
-// t_intr	intersect_sphere(t_sp sp, t_ray ray)
-// {
-// 	t_intr	intr;
-// 	t_vtr3	oc;
-// 	double	a;
-// 	double	b;
-// 	double	c;
+t_intr	intersect_sphere(t_sp sp, t_ray ray)
+{
+	t_intr	intr;
+	t_vtr3	oc;
+	double	a;
+	double	b;
+	double	c;
 
-// 	oc = subtract_vector(ray.origin, sp.center);
-// 	a = dot_product(ray.dir, ray.dir);
-// 	b = 2.0 * dot_product(oc, ray.dir);
-// 	c = dot_product(oc, oc) - sp.radius * sp.radius;
-// 	if ((b * b - 4 * a * c) < 0)
-// 		return (NULL);
-// 	intr.t = (-b - sqrt(b * b - 4 * a * c)) / (2.0 * a);
-// 	if (intr.t < 0)
-// 		intr.t = (-b + sqrt(b * b - 4 * a * c)) / (2.0 * a);
-// 	if (intr.t < 0)
-// 		return (NULL);
-// 	intr.hit = add_vector(ray.origin, 
-// 					multiply_vector(ray.dir, 
-// 					intr.t, intr.t, intr.t));
-// 	intr.normal = normalize_vector(subtract_vector(intr.hit, sp.center));
-// 	*intr.color = *sp.color;
-// 	return (intr);
-// }
+	oc = subtract_vector(ray.origin, sp.center);
+	a = dot_product(ray.dir, ray.dir);
+	b = 2.0 * dot_product(oc, ray.dir);
+	c = dot_product(oc, oc) - sp.radius * sp.radius;
+	if ((b * b - 4 * a * c) < 0)
+		return ((t_intr){0});
+	intr.t = (-b - sqrt(b * b - 4 * a * c)) / (2.0 * a);
+	if (intr.t < 0)
+		intr.t = (-b + sqrt(b * b - 4 * a * c)) / (2.0 * a);
+	if (intr.t < 0)
+		return ((t_intr){0});
+	intr.hit = add_vector(ray.origin, \
+					multiply_vector(ray.dir, \
+					intr.t, intr.t, intr.t));
+	intr.normal = normalize_vector(subtract_vector(intr.hit, sp.center));
+	*intr.color = *sp.color;
+	return (intr);
+}
 
 // // 광선과 구의 교차 여부를 확인하고 교차 정보를 반환하는 함수
 // bool ray_intersect(t_ray *ray, t_rt *rt, t_intersec *intr)

@@ -6,7 +6,7 @@
 /*   By: nahyulee <nahyulee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 20:50:10 by nahyulee          #+#    #+#             */
-/*   Updated: 2024/01/05 04:13:04 by nahyulee         ###   ########.fr       */
+/*   Updated: 2024/01/05 23:13:34 by nahyulee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,18 +30,17 @@ int	print_error(int key_val, t_rt *rt)
 	return (0);
 }
 
-void	init_mlx(t_mlx mlx)
+void	init_mlx(t_mlx *mlx)
 {
-	mlx.mlx = mlx_init();
-	mlx.window = mlx_new_window(mlx.mlx, WIDTH, HEIGHT, "miniRT");
-	mlx.img_ptr = mlx_new_image(mlx.mlx, WIDTH, HEIGHT);
-	mlx.addr = \
-		mlx_get_data_addr(mlx.img_ptr, &mlx.bpp, &mlx.size_line, &mlx.endian);
+	mlx->mlx = mlx_init();
+	mlx->window = mlx_new_window(mlx->mlx, WIDTH, HEIGHT, "miniRT");
+	mlx->img_ptr = mlx_new_image(mlx->mlx, WIDTH, HEIGHT);
+	mlx->addr = \
+		mlx_get_data_addr(mlx->img_ptr, &mlx->bpp, &mlx->size_line, &mlx->endian);
 }
 
 void	rander(t_rt *rt, t_mlx mlx)
 {
-	cam_lookat(&rt->data.camera, &rt->data.viewplane, WIDTH / HEIGHT);
 	raycast(rt->data, &mlx);
 	mlx_put_image_to_window(mlx.mlx, mlx.window, mlx.img_ptr, 0, 0);
 	mlx_hook(mlx.window, X_EVENT_KEY_PRESS, 0, press_key, rt);

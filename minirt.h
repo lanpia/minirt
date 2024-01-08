@@ -6,14 +6,13 @@
 /*   By: nahyulee <nahyulee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 20:43:42 by soohkang          #+#    #+#             */
-/*   Updated: 2024/01/05 04:06:47 by nahyulee         ###   ########.fr       */
+/*   Updated: 2024/01/05 23:13:54 by nahyulee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINIRT_H
 # define MINIRT_H
 
-// # include "minilibx_opengl_20191021/mlx.h"
 # include "mlx/mlx.h"
 # include "libft/libft.h"
 # include <fcntl.h>
@@ -79,13 +78,13 @@ void			put_cy(t_cy *cylinder, char **data);
 /* ***************		_utils		************************************* */
 int				press_key(int key_val, t_rt *rt);
 int				print_error(int key_val, t_rt *rt);
-void			init_mlx(t_mlx mlx);
+void			init_mlx(t_mlx *mlx);
 void			rander(t_rt *rt, t_mlx mlx);
 void			my_mlx_pixel_put(t_mlx *mlx, int x, int y, int color);
 /* ***************		_raytracing		********************************* */
 void			cam_lookat(t_c *cam, t_vwpl *view, double ratio);
 t_ray			get_ray(t_c cam, t_vwpl viewplane, int i, int j);
-void			raycast(t_d data, t_mlx mlx);
+void			raycast(t_d data, t_mlx *mlx);
 int				intersect(t_d data);
 int				phong_shading(t_d data, t_intr intr, t_ray ray, int color[3]);
 /* ***************		_raytracing		********************************* */

@@ -6,7 +6,7 @@
 /*   By: nahyulee <nahyulee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 10:16:44 by nahyulee          #+#    #+#             */
-/*   Updated: 2024/01/05 03:11:36 by nahyulee         ###   ########.fr       */
+/*   Updated: 2024/01/08 16:15:35 by nahyulee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,6 @@ void	check_data_condition(t_rt *rt, char **data)
 	else if (ft_strcmp("cy", data[0]) == 0)
 	{
 		rt->data.obj_cnt[cylinder] += 1;
-		// ㅈㅏ료형을 바꿔야한다??? >>> 여러개의 실린더를 어떤 자료형으로 처리할지
 		put_cy(&rt->data.cylinder, data);
 	}
 	else
