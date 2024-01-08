@@ -6,7 +6,7 @@
 /*   By: nahyulee <nahyulee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 01:25:16 by nahyulee          #+#    #+#             */
-/*   Updated: 2024/01/08 02:39:19 by nahyulee         ###   ########.fr       */
+/*   Updated: 2024/01/08 16:21:21 by nahyulee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,6 @@ void	raycast(t_d data, t_mlx *mlx)
 		while (j < WIDTH)
 		{
 			data.ray = get_ray(data.camera, data.viewplane, i, j);
-			// intersect(data);
 			my_mlx_pixel_put(mlx, j, i, intersect(data));
 			j++;
 		}
@@ -78,8 +77,8 @@ int	intersect(t_d data)
 
 	if (data.obj_cnt[plane] > 0)
 		intersec = intersect_plane(data.plane, data.ray);
-	if (data.obj_cnt[sphere] > 0)
-		intersec = intersect_sphere(data.sphere, data.ray);
+	// if (data.obj_cnt[sphere] > 0)
+	// 	intersec = intersect_sphere(data.sphere, data.ray);
 	// else if (data.obj_cnt[cylinder] > 0)
 	// 	color = intersect_cylinder(rt);
 	// return (phong_shading(data, intersec, data.ray, intersec.color));
